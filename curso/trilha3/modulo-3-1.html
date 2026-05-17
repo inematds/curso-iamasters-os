@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1 Multi-cliente | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.06); }
+    html:not(.dark) .bg-purple-900\/30 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .bg-purple-900\/40 { background-color: rgba(124,58,237,0.10); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/30 { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Skills</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Operação</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 3.1</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">
+        MÓDULO 3.1
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 Multi-cliente</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Uma instalação do OS, N clientes em paralelo. Cada um com a sua voice, ICP, positioning, decisions-log. Como criar, isolar e operar sem misturar contextos.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🤔 Quando usar (e quando não) multi-cliente</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Multi-cliente não é "obrigatório". É uma <strong class="text-purple-400">capacidade opcional</strong> do OS. Ativá-lo sem o precisar adiciona fricção; não o ativar quando devias leva a copy errada, mistura de contextos e leaks de info entre clientes.
+      </p>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Regra de ouro</h3>
+        <p class="text-neutral-300 mb-4">Se trabalhas com <strong>2+ clientes</strong> que têm <strong>voice, ICP e positioning distintos</strong> → multi-cliente. Caso contrário, fica na raiz.</p>
+        <p class="text-neutral-400 text-sm">O setup multi-cliente acrescenta ~30s por sessão (cd, claude, wrap-up). Compensa só quando há separação real para manter.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Ativa multi-cliente se</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>És freelance / agência com 2+ clientes em simultâneo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada cliente tem brand voice distinta da tua</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Queres separação clara de outputs no filesystem</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Geras deliverables que não devem ter pegada tua</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Queres decisions-log independente por cliente</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ NÃO ativar se</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>És single-business (uma marca/produto só)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Os "clientes" são verticais do mesmo produto</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trabalhas só na tua marca pessoal</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Os clientes querem que uses a TUA voice (consultor cara visível)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Estás a começar e tens 1 cliente piloto</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🛠️ add-client.sh — criar cliente novo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um comando, ~3 segundos, cliente pronto a trabalhar. O script <strong class="text-purple-400">add-client.sh</strong> valida o nome, clona um template, substitui placeholders e gera o CLAUDE.md de overrides.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Uso</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">bash scripts/add-client.sh &lt;nome-cliente&gt; [vertical]
+
+# Exemplos
+bash scripts/add-client.sh acme-corp freelance-ia
+bash scripts/add-client.sh widget-shop agencia-marketing
+bash scripts/add-client.sh north-star consultoria-b2b
+bash scripts/add-client.sh nova-coach formador-online
+bash scripts/add-client.sh xpto-startup vacio   # sem template</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que o script faz (por baixo)</h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Valida que o nome é <strong>kebab-case puro</strong> (regex <code>^[a-z0-9-]+$</code>) — recusa "Acme Corp"</li>
+          <li>Verifica que <code>clients/&lt;nome&gt;/</code> NÃO existe (não sobrescreve)</li>
+          <li>Cria estrutura: <code>brand-context/{voice,positioning,icp,assets}</code>, <code>context/</code>, <code>projects/briefs/</code></li>
+          <li>Clona ficheiros do template escolhido (voice-profile, positioning, icp, soul, user)</li>
+          <li>Faz <code>sed</code> de <code>{{CLIENT_NAME}}</code> → nome real em todos os .md</li>
+          <li>Gera <code>CLAUDE.md</code> do cliente com header, regras e referências ao brand-context</li>
+          <li>Mostra a árvore criada e o próximo passo: <code>cd clients/&lt;nome&gt; && claude</code></li>
+        </ol>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <h4 class="font-semibold mb-3">Estrutura resultante</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">clients/acme-corp/
+├── CLAUDE.md                       # Overrides específicos
+├── brand-context/
+│   ├── voice/voice-profile.md      # Com placeholders do template
+│   ├── positioning/positioning.md
+│   ├── icp/icp.md
+│   └── assets/
+├── context/
+│   ├── soul.md                     # Personalidade ajustada ao vertical
+│   └── user.md                     # Template com campos típicos
+└── projects/
+    └── briefs/</pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Mesmo com template, os ficheiros vêm com <strong>placeholders <code>{{...}}</code></strong> que tens de preencher (cliente real, site, tom específico). O script avisa-te no fim com a lista exata.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📦 Os 4 templates verticais</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada vertical é um <strong class="text-purple-400">ponto de partida com voice, positioning e ICP típicos</strong> do tipo de operação. Economiza 30-60 min de scaffolding por cliente novo.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">👤 freelance-ia</h4>
+          <p class="text-sm text-neutral-400 mb-3">Operador IA solo, 3-10 clientes</p>
+          <p class="text-neutral-300 text-sm mb-3">Voice: profissional mas acessível, formality 6/10, directness 8/10, warmth 7/10. Vocabulário proibido: "leverage", "transformação digital integral", "ecossistema holístico".</p>
+          <p class="text-neutral-400 text-xs">Inclui jargão técnico moderado (LLM, RAG, embeddings — se o cliente é técnico).</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">🏢 agencia-marketing</h4>
+          <p class="text-sm text-neutral-400 mb-3">Equipa 2-10, MRR recorrente</p>
+          <p class="text-neutral-300 text-sm mb-3">Voice: criativa, pro, com toque humano. Diferente do freelance — fala como equipa ("nós", não "eu"). Vocabulário mais marketing-aware.</p>
+          <p class="text-neutral-400 text-xs">Cada cliente da agência tem A SUA voice — este template é da AGÊNCIA, não dos clientes dela.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">🎓 formador-online</h4>
+          <p class="text-sm text-neutral-400 mb-3">Cursos/comunidade, marca pessoal</p>
+          <p class="text-neutral-300 text-sm mb-3">Voice: didática, calorosa, com personalidade. Alta frequência. Tem que se sentir um humano específico, não "academia genérica".</p>
+          <p class="text-neutral-400 text-xs">Inclui padrões para LinkedIn, X, YouTube. Adapta-se ao registo da audiência.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">💼 consultoria-b2b</h4>
+          <p class="text-sm text-neutral-400 mb-3">High-ticket 30-300K€, formal</p>
+          <p class="text-neutral-300 text-sm mb-3">Voice: formal-autoridade, formality 8-9/10, humor 1-2/10. Decks, frameworks, propostas. Sem casualismos.</p>
+          <p class="text-neutral-400 text-xs">Vocabulário técnico-empresarial. Evita meme-talk, emojis, "uau".</p>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Como escolher</h3>
+        <p class="text-neutral-300 text-sm mb-3">Se nenhum template encaixa bem, usa <code>vacio</code> e configura tudo de zero. Mas tenta primeiro o mais próximo — é mais rápido editar do que criar.</p>
+        <p class="text-neutral-300 text-sm">Os templates são <strong>ponto de partida, não destino</strong>. Edita o voice-profile depois da primeira semana real de trabalho com o cliente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🧬 Herança CLAUDE.md (raiz + cliente)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando fazes <code>cd clients/acme && claude</code>, o Claude lê <strong class="text-purple-400">dois CLAUDE.md em cascata</strong>: o da raiz (instruções gerais) e o do cliente (overrides específicos). Saber a ordem evita conflitos.
+      </p>
+
+      <div class="space-y-6 mb-6">
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+            <span class="text-purple-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">CLAUDE.md raiz (do repo)</h4>
+            <p class="text-sm text-neutral-400 mb-3">Regras gerais que se aplicam a TODOS os clientes + ao operador</p>
+            <p class="text-neutral-300 text-sm">Idioma, convenções de pastas, install gate, paths, skills registry. Não tem regras específicas de cliente — só sistema.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+            <span class="text-purple-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">clients/&lt;X&gt;/CLAUDE.md (do cliente)</h4>
+            <p class="text-sm text-neutral-400 mb-3">Overrides específicos — só ativos quando estás <code>cd</code> no cliente</p>
+            <p class="text-neutral-300 text-sm">Nome do cliente, template base, regras particulares ("nunca usar 'vocês' formal"), skills prioritárias, notas operativas, referências ao brand-context do cliente.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+            <span class="text-purple-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">brand-context/ + context/ do cliente</h4>
+            <p class="text-sm text-neutral-400 mb-3">Carregados automaticamente pelas skills marketing-*</p>
+            <p class="text-neutral-300 text-sm">Voice profile, ICP, positioning, soul, user — todos do cliente. Skills da raiz (.claude/skills/) continuam disponíveis e operam sobre o brand-context do cliente.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Skills custom por cliente</h3>
+        <p class="text-neutral-300 text-sm mb-2">Se um cliente requer skill que NÃO se aplica a outros, cria em <code>clients/&lt;X&gt;/.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/</code>.</p>
+        <p class="text-neutral-300 text-sm">Essa skill só está disponível quando estás <code>cd</code> nesse cliente. Não polui os outros nem a raiz.</p>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sinapsis é global</h3>
+        <p class="text-neutral-300 text-sm">O <code>operator-state.json</code> de Sinapsis é UM, em <code>~/.claude/skills/</code>, partilhado entre todos os clientes. Aplica-se a ti como operador, não ao cliente. É o esperado — tu és o mesmo profissional para todos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🔄 Workflow diário multi-cliente</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um ritual simples que respeita a separação. <strong class="text-purple-400">Sempre <code>cd</code> antes de <code>claude</code></strong>. Sempre <code>/wrap-up</code> antes de mudar de cliente.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Segunda-feira típica · 3 clientes</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Cliente A (freelance-ia)
+cd clients/acme-corp && claude
+&gt; "Cria post LinkedIn sobre case study X"
+  → marketing-copywriting gera com voice de Acme
+&gt; /wrap-up
+exit
+
+# Cliente B (agencia-marketing)
+cd ../widget-shop && claude
+&gt; "Repurpose último vídeo do CEO em 5 peças"
+  → marketing-content-repurposing
+&gt; /wrap-up
+exit
+
+# Cliente C (consultoria-b2b)
+cd ../north-star-consult && claude
+&gt; "Redige proposta comercial para novo lead"
+  → marketing-copywriting com registo A formal
+&gt; /wrap-up
+exit</pre>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Best practices</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sempre <code>cd</code> antes de <code>claude</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><code>/wrap-up</code> ao mudar de contexto (daily summary separa-se por cliente)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Brand voice por cliente, não partilhar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>2 terminais para sessões simultâneas em clientes diferentes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Backup separado para clientes com info crítica</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Anti-patterns</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trabalhar conteúdo de cliente desde a raiz do repo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mudar de cliente sem wrap-up (perdes summary)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>1 sessão a saltar entre clientes via cd interno</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Copiar voice profile de um cliente para outro</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esquecer-te de qual cliente estás (verifica com <code>pwd</code>)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Operador próprio + clientes</h3>
+        <p class="text-neutral-300 text-sm mb-3">Quando trabalhas na <strong>tua marca pessoal</strong> (LinkedIn próprio, blog, marca operador): fica na raiz. Skills marketing-* usam o teu brand-context da raiz.</p>
+        <p class="text-neutral-300 text-sm">Quando trabalhas <strong>com/para um cliente</strong>: <code>cd clients/&lt;X&gt;</code>. Skills usam o brand-context do cliente. Regra: <em>nunca</em> geres conteúdo de cliente desde a raiz.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🔒 Segurança: separação de info entre clientes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Por <strong class="text-purple-400">design</strong>, o OS não partilha info entre clientes automaticamente. Mas a disciplina diária é tua — o sistema apenas remove a maioria das oportunidades de erro.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">Mecanismo</th>
+              <th class="text-left p-4 font-semibold">O que protege</th>
+              <th class="text-left p-4 font-semibold">Limitação</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr>
+              <td class="p-4"><code>.gitignore</code> de clients/</td>
+              <td class="p-4 text-neutral-300">Não exporta clientes para git público</td>
+              <td class="p-4 text-neutral-400">Tens que mover para repo privado se quiseres sync</td>
+            </tr>
+            <tr>
+              <td class="p-4">Skills isoladas por <code>cd</code></td>
+              <td class="p-4 text-neutral-300">Skills marketing-* só veem o cliente atual</td>
+              <td class="p-4 text-neutral-400">Falha se ignoras a regra do cd</td>
+            </tr>
+            <tr>
+              <td class="p-4">update.sh skip user-data</td>
+              <td class="p-4 text-neutral-300">Updates do OS nunca tocam em <code>clients/&lt;X&gt;/</code></td>
+              <td class="p-4 text-neutral-400">Templates de <code>_templates/</code> podem mudar — copy é manual</td>
+            </tr>
+            <tr>
+              <td class="p-4">Brand-context separado</td>
+              <td class="p-4 text-neutral-300">Voice/ICP de A não influencia copy de B</td>
+              <td class="p-4 text-neutral-400">Operator-state (Sinapsis) é global — tu és o mesmo</td>
+            </tr>
+            <tr>
+              <td class="p-4">Decisions-log por cliente</td>
+              <td class="p-4 text-neutral-300">Decisões de A não aparecem em sessões de B</td>
+              <td class="p-4 text-neutral-400">Decisões operador-próprio ficam na raiz</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Reutilizar info entre clientes</h3>
+        <p class="text-neutral-300 text-sm mb-2">Se queres usar aprendizagens do cliente A para o cliente B:</p>
+        <ol class="space-y-1 text-neutral-300 text-sm list-decimal list-inside ml-2">
+          <li>Faz <strong>manual e consciente</strong> (não acidental)</li>
+          <li>Gera "<strong>case study anonimizado</strong>" como output do cliente A</li>
+          <li>Referencia esse case study no cliente B</li>
+        </ol>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Troubleshooting comum</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>"O Claude não aplica voice do cliente"</strong> → verifica <code>pwd</code> (estás no cliente?), <code>voice-profile.md</code> está preenchido (sem <code>{{...}}</code>), <code>CLAUDE.md</code> do cliente referencia o path correto.</li>
+          <li><strong>"Skills da raiz não aparecem"</strong> → reinicia Claude Code (Ctrl+C × 2 + claude).</li>
+          <li><strong>"Misturo info acidentalmente"</strong> → sinal de não respeitar <code>cd</code>. Implementa: sair do Claude entre clientes, NÃO abrir 2 sessões na mesma terminal.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Multi-cliente é opcional</strong><span class="text-neutral-400"> — ativar se 2+ clientes com voice distinta</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">add-client.sh cria estrutura completa em 3s</strong><span class="text-neutral-400"> — valida, clona template, substitui placeholders</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">4 templates verticais</strong><span class="text-neutral-400"> — freelance-ia, agencia-marketing, formador-online, consultoria-b2b</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Cascade CLAUDE.md raiz + cliente</strong><span class="text-neutral-400"> — overrides por cliente sem duplicar regras</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Sempre cd + wrap-up ao mudar cliente</strong><span class="text-neutral-400"> — daily summary e decisions-log separados</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Separação por design + disciplina diária</strong><span class="text-neutral-400"> — .gitignore, update.sh skip user-data, brand-context isolado</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">3.2 — Operação diária: os rituais (start-here, wrap-up, decisions-log, deep-dive, doctor, update) que mantêm o OS vivo.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 3
+          </a>
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+            Módulo 3.2 →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

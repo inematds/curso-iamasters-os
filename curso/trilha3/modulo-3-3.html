@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.3 Estender o sistema | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+    html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.06); }
+    html:not(.dark) .bg-purple-900\/30 { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .bg-purple-900\/40 { background-color: rgba(124,58,237,0.10); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/30 { background-color: rgba(5,150,105,0.18); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Skills</span>
+          </a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Operação</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-purple-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-purple-400">Trilha 3</a>
+      <span>/</span>
+      <span class="text-purple-400">Módulo 3.3</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">
+        MÓDULO 3.3 · FINAL
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧩 Estender o sistema</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Instalar skills externas com validação, configurar MCPs do teu stack, escolher do catálogo curado, plugins Anthropic, criar a tua própria skill e contribuir ao ecossistema. O sistema cresce contigo.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📥 /install-skill — instalar skill externa de GitHub</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <code>/install-skill &lt;github-url&gt;</code> traz uma skill de outro repo para o teu, mas <strong class="text-purple-400">com validação prévia</strong> que bloqueia skills mal feitas. Anti-inflação por design.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">7 passos do comando</h4>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>Valida URL</strong> — é GitHub? aponta para pasta ou SKILL.md?</li>
+          <li><strong>Descarrega temporário</strong> — <code>scripts/validate-skill.sh</code> usa <code>git archive</code> para subpasta</li>
+          <li><strong>Valida estrutura</strong> — obrigatório (SKILL.md, YAML, description 50-500 chars, verbo de intenção), recomendado (references/ se &gt;2500 chars, examples.md, sem eval()), bloqueante (sem SKILL.md, YAML mal formado, scripts destrutivos)</li>
+          <li><strong>Mostra resultado</strong> ao operador — conflitos com locais, tamanho, validações</li>
+          <li><strong>Instala localmente</strong> — backup automático se conflito, copia para <code>.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/</code>, atualiza catalog e registry</li>
+          <li><strong>Teste de ativação</strong> — reiniciar Claude, prompt que deveria ativar, oferece refinar description se falhar</li>
+          <li><strong>Fecho</strong> — sugere <code>/wrap-up</code>, append em learnings.md se trouxe valor</li>
+        </ol>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Exemplo de validação</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">## Validação de skill
+
+URL: https://github.com/scrapes/skills/humanizer
+Skill: tool-humanizer (atenção: já tens uma skill local com esse nome!)
+Tamanho: SKILL.md 2.1KB, references 4.5KB, scripts 0KB
+
+### Validações
+✅ SKILL.md presente
+✅ YAML frontmatter correto
+✅ description 187 chars (no intervalo)
+⚠️ Conflito: já existe .claude/skills/tools/tool-humanizer/
+✅ Sem código executável perigoso
+✅ Sem credenciais hardcoded
+
+### Ação
+[1] Cancelar
+[2] Substituir a tua local (com backup automático)
+[3] Instalar como tool-humanizer-v2 (renomear)
+[4] Ver diff vs a tua versão local</pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Modo atalho</h3>
+        <p class="text-neutral-300 text-sm">Se o argumento NÃO é URL mas nome simples (ex. <code>/install-skill cognito</code>), o comando procura em <code>.claude/skills/_meta/_optional/</code> e move para ativa. Útil para skills opcionais já incluídas no repo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔌 /install-mcp — instalar MCP server</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        MCPs (Model Context Protocol servers) <strong class="text-purple-400">ligam o Claude ao teu stack real</strong>: BD, CRM, repos, docs. <code>/install-mcp &lt;name&gt;</code> instala desde lista curada ou URL custom.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">MCP</th>
+              <th class="text-left p-4 font-semibold">Para que</th>
+              <th class="text-left p-4 font-semibold">Plano</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr>
+              <td class="p-4 text-purple-400 font-semibold">context7</td>
+              <td class="p-4 text-neutral-300">Docs vivos de frameworks (Next.js, Supabase, Tailwind) injetados no contexto. Evita alucinação de APIs obsoletas.</td>
+              <td class="p-4 text-emerald-400">Grátis</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-purple-400 font-semibold">github</td>
+              <td class="p-4 text-neutral-300">Ler issues/PRs/ficheiros, criar/comentar issues, mergear PRs sem sair do Claude.</td>
+              <td class="p-4 text-emerald-400">Grátis (PAT)</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-purple-400 font-semibold">supabase</td>
+              <td class="p-4 text-neutral-300">Queries SQL, gestão tabelas, RLS, edge functions. READ-ONLY token para começar.</td>
+              <td class="p-4 text-emerald-400">Grátis (OSS)</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-purple-400 font-semibold">notion</td>
+              <td class="p-4 text-neutral-300">Ler páginas, criar BDs, mover páginas. Se o teu wiki/CRM está no Notion.</td>
+              <td class="p-4 text-emerald-400">Grátis (limite)</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-purple-400 font-semibold">firecrawl</td>
+              <td class="p-4 text-neutral-300">Scraping de sites com bot blockers. Usado por skills marketing-*. NÃO vai em .mcp.json, vai em .env.</td>
+              <td class="p-4 text-primary">500 free + Hobby $16/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Estrutura típica de .mcp.json</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"],
+      "env": {}
+    },
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase@latest",
+               "--project-ref=$SUPABASE_PROJECT_REF"],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "$SUPABASE_ACCESS_TOKEN"
+      }
+    }
+  }
+}</pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Token budget</h3>
+        <p class="text-neutral-300 text-sm mb-2">Cada MCP ativo adiciona contexto ao system prompt (descrições das suas tools). <strong>5-7 MCPs ativos máximo</strong>. Se precisas mais, comenta os que não usas frequentemente, ou mantém <code>.mcp.json</code> diferente por cliente.</p>
+        <p class="text-neutral-300 text-sm"><strong>READ-ONLY antes de write</strong> em todos os MCPs com permissões sensíveis (BD, email, mensagens). Eleva permissões só quando confiares no fluxo.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> MCPs a evitar em produção</h3>
+        <p class="text-neutral-300 text-sm">Auto-post a redes sociais (LinkedIn, X, IG) sem gates — risco de fuga de identidade. MCPs sem documentação clara de scopes. MCPs custom de devs desconhecidos sem auditar o código.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📚 Catálogo curado: skills-recommended + mcps-curated</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Dois docs em <code>docs/</code> são o teu menu: <strong class="text-purple-400">skills-recommended.md</strong> (35+ skills opcionais por categoria) e <strong class="text-purple-400">mcps-curated.md</strong> (top 5 + úteis específicos + a evitar). Filosofia: <em>"Max 30 skills, não 1000"</em>.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">🛒 skills-recommended.md</h4>
+          <p class="text-sm text-neutral-400 mb-3">Camada 2 — on-demand library</p>
+          <ul class="space-y-1 text-neutral-300 text-sm">
+            <li>• Marketing (10): copywriting, copy-editing, content-strategy, email-sequence, social-content, ad-creative, launch-strategy, paid-ads, cold-email...</li>
+            <li>• CRO (7): page-cro, form-cro, signup-flow-cro, popup-cro, paywall-upgrade-cro, onboarding-cro, ab-test-setup</li>
+            <li>• SEO (4): seo-audit, ai-seo (AEO/GEO/LLMO), schema-markup, programmatic-seo</li>
+            <li>• Estratégia (9): pricing, referral, product-marketing, churn-prevention, revops, sales-enablement...</li>
+            <li>• Analytics (5): analytics-tracking, saas-revenue-growth-metrics, competitive-ads-extractor...</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">🔧 mcps-curated.md</h4>
+          <p class="text-sm text-neutral-400 mb-3">MCPs validados para operadores IA</p>
+          <ul class="space-y-1 text-neutral-300 text-sm">
+            <li>• ⭐ Top 5: context7, github, supabase, notion, firecrawl</li>
+            <li>• Úteis específicos: linear, gmail (read-only), slack, filesystem (whitelisted)</li>
+            <li>• A evitar: auto-post redes sociais, MCPs sem scopes claros, custom não auditados</li>
+            <li>• Pattern para a tua lista por cliente em <code>clients/&lt;nome&gt;/docs/mcps-curated.md</code></li>
+            <li>• Critérios para PR: testado ≥2 semanas, casos com/sem valor, riscos identificados</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que catálogo curado vs marketplace livre</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Filtro de qualidade</strong>: cada entrada testada ≥2 semanas em produção, não "instalei e parece OK"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Anti-inflação cognitiva</strong>: 1000 skills paralisa. 30 bem escolhidas habilitam</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Revisão trimestral</strong>: skills obsoletas saem, skills novas validadas entram</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Curador identificado</strong>: maintainer (Angel) revê PRs — não anonimato</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Alternativa lean: claude-code-second-brain</h3>
+        <p class="text-neutral-300 text-sm">Se preferes minimal sem skills curadas, <a href="https://github.com/Luispitik/claude-code-second-brain" target="_blank" class="text-sky-400 hover:text-sky-300">claude-code-second-brain</a> de Luis Pitik (autor de Sinapsis) é a versão lean: prompt → entrevista → ficheiros context/ + decisions-log. São produtos irmãos, não concorrência.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📄 Plugins Anthropic via marketplace</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Para ler/criar/editar ficheiros Office (Word, Excel, PowerPoint, PDF) sem libs externas, instala o plugin <strong class="text-purple-400">anthropic-skills</strong> — 4 skills oficiais Anthropic com manutenção garantida.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Instalação</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Dentro de Claude Code
+/plugin install anthropic-skills
+
+# Ativa 4 skills:
+#   docx — Word documents
+#   xlsx — Excel/CSV/TSV spreadsheets
+#   pptx — PowerPoint presentations
+#   pdf  — Read, combine, split, mark PDFs</pre>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">📝 docx</h4>
+          <p class="text-neutral-300 text-sm">Criar, ler, editar documentos Word. Útil para propostas, contratos, briefings que vêm/vão em .docx (a maioria dos clientes corporativos).</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">📊 xlsx</h4>
+          <p class="text-neutral-300 text-sm">Manipular spreadsheets (xlsx, xlsm, csv, tsv). Reports mensais, financeiros, listas de clientes — tudo em Excel.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">🎯 pptx</h4>
+          <p class="text-neutral-300 text-sm">Criar e editar apresentações. Decks comerciais, decks de status, training slides — geras do prompt em vez de slide-a-slide manual.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-purple-400 mb-2">📃 pdf</h4>
+          <p class="text-neutral-300 text-sm">Ler, combinar, dividir, marcar PDFs. Auditar contratos, extrair info de PDFs de clientes, montar dossiers.</p>
+        </div>
+      </div>
+
+      <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✓</span> Recomendação: instalar SEMPRE</h3>
+        <p class="text-neutral-300 text-sm">Para qualquer operador que receba ou entregue Office (a maioria dos clientes B2B). Skills oficiais Anthropic = manutenção garantida + segurança auditada.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Marketplace Anthropic vs install-skill (GitHub)</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Marketplace</strong> (<code>/plugin install</code>): skills oficiais Anthropic ou parceiros, auditadas, manutenção contínua</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>install-skill GitHub</strong> (<code>/install-skill &lt;url&gt;</code>): comunidade, requer validação local antes de instalar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Para Office, marketplace SEMPRE. Para skills de marketing/CRO, catálogo iAmasters via install-skill</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">✍️ Criar a tua própria skill com meta-skill-creator</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando detetas um padrão repetido em 3+ sessões, é hora de o <strong class="text-purple-400">"graduar" para skill</strong>. A skill <code>meta-skill-creator</code> faz scaffolding completo seguindo o padrão canónico iAmasters.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Contrato de qualidade de uma skill iAmasters</h4>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>YAML frontmatter completo</strong> — <code>name</code> kebab-case com prefixo, <code>description</code> 50-500 chars com quando ativar</li>
+          <li><strong>Progressive disclosure</strong> — SKILL.md não tem tudo; <code>references/</code> guarda knowledge extenso</li>
+          <li><strong>Passos numerados e testáveis</strong> — cada passo verificável</li>
+          <li><strong>Skill collaboration explícita</strong> — se invoca outras skills, nomeia quando e porquê</li>
+          <li><strong>Output verifier gate</strong> se gera conteúdo entregável</li>
+          <li><strong>Learnings hook</strong> — no fim regista em <code>context/learnings.md</code></li>
+          <li><strong>Idioma</strong> — SKILL.md em português, code/JSON em inglês</li>
+        </ol>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <h4 class="font-semibold mb-3">Estrutura de pastas gerada</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/
+├── SKILL.md                    # Processo principal
+├── references/                 # (opcional) Knowledge separado
+│   ├── examples.md             # 2-3 exemplos de uso real
+│   ├── checklist.md            # (opcional) Validações QA
+│   └── &lt;outros&gt;.md
+└── scripts/                    # (opcional) Se requer executáveis
+    └── &lt;nome&gt;.py               # ou .sh</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> 3 testes da descrição</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Ativação</strong>: um Claude que só lê a descrição saberia quando usar? Contém verbos de intenção (cria, gera, analisa, extrai)?</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Comprimento</strong>: 50-500 chars. Menos é ambíguo, mais é inflado</span></li>
+          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Unicidade</strong>: lê <code>skills-catalog.json</code> — outra skill com descrição parecida causa canibalização (Claude não saberá qual escolher)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Teste de ativação obrigatório</h3>
+        <p class="text-neutral-300 text-sm mb-2">Antes de declarar a skill terminada:</p>
+        <ol class="space-y-1 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Fechar Claude Code (Ctrl+C × 2) e reabrir</li>
+          <li>Prompt que deveria ativar a skill segundo a description</li>
+          <li>Verifica que Claude a escolhe e segue passos sem saltar fases</li>
+          <li>Se não ativa → refinar a descrição. Se ativa mas falha → refinar os passos</li>
+        </ol>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Edge cases comuns</h3>
+        <ul class="space-y-1 text-neutral-300 text-sm">
+          <li>• <strong>Skill demasiado genérica</strong> ("uma skill que escreva bem") → pede concretude: para que plataforma? que tom? output onde?</li>
+          <li>• <strong>Já existe skill parecida</strong> → mostrar ambas, oferece ampliar/diferenciar/cancelar</li>
+          <li>• <strong>Skill demasiado pequena</strong> (1 passo) → pode ser melhor slash command em <code>.claude/commands/</code></li>
+          <li>• <strong>Sem categoria óbvia</strong> → cria categoria nova só se vai ter 3+ skills</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🤝 Contribuir ao catálogo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As skills mais úteis que criares para ti podem servir <strong class="text-purple-400">100 outros operadores</strong>. O catálogo iAmasters aceita PRs com critérios objetivos e revisão trimestral.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Critérios para uma skill entrar no catálogo</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Serve a ≥3 avatares iAmasters</strong> (freelance-ia, agencia-marketing, formador-online, consultoria-b2b)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Output útil sem contexto prévio</strong> do operador (não depende do teu setup específico)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Não depende de integrações privadas</strong> (Skool, Wixin, ferramentas fechadas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Não depende de informação confidencial</strong> (clientes, decisões internas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">✓</span><span><strong>Validada em produção ≥2 semanas</strong> — não "instalei e parece OK"</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Processo de PR</h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Abre issue ou PR em <a href="https://github.com/iamasters-academy/iamasters-os" target="_blank" class="text-sky-400 hover:text-sky-300">iamasters-academy/iamasters-os</a></li>
+          <li>Inclui: <strong>link à skill</strong>, <strong>1-2 exemplos de uso real</strong>, <strong>categoria sugerida</strong>, <strong>porque encaixa na Camada 2</strong></li>
+          <li>Maintainer (Angel) revê — pode pedir ajustes (description, examples, edge cases)</li>
+          <li>As que passam adicionam-se ao catálogo na próxima release trimestral</li>
+          <li>Skills obsoletas saem na mesma revisão — catálogo vive, não cresce indefinidamente</li>
+        </ol>
+      </div>
+
+      <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✓</span> Devolver é a melhor forma de aprender</h3>
+        <p class="text-neutral-300 text-sm">Escrever uma skill para "ti" é diferente de a escrever para "outros operadores". Quando submetes, és forçado a generalizar, documentar bem, pensar em edge cases que não tinhas no teu setup. <strong>O catálogo melhora-te a ti</strong>, não só ao ecossistema.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Antes de PR, instala-a "como externa"</h3>
+        <p class="text-neutral-300 text-sm">Publica a tua skill no teu GitHub público. Pede a 2-3 colegas para a instalarem com <code>/install-skill &lt;url&gt;</code>. Vê se a description ativa nos casos certos, se os passos correm, se a documentação chega. Esse feedback vale mais que o PR direto.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL DO CURSO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">🎉</span> Resumo do Módulo e do Curso
+        </h2>
+
+        <p class="text-neutral-300 mb-6 leading-relaxed">
+          <strong class="text-purple-400">Acabaste o curso iAmasters OS.</strong> Sabes o que é o sistema, como o instalar de forma à prova de falhas, como configurá-lo com a tua voz, que skills tens disponíveis, como operar dia-a-dia com multi-cliente, e como esticar tudo isto com skills e MCPs novos.
+        </p>
+
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">Deste módulo levas</h3>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">/install-skill com validação prévia</strong><span class="text-neutral-400"> — anti-inflação, backup automático, teste de ativação</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">/install-mcp com lista curada de 5+</strong><span class="text-neutral-400"> — context7, github, supabase, notion, firecrawl</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Catálogo curado vs marketplace livre</strong><span class="text-neutral-400"> — qualidade &gt; quantidade, "max 30 skills"</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Plugin Anthropic para Office</strong><span class="text-neutral-400"> — docx, xlsx, pptx, pdf (instalar SEMPRE)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">meta-skill-creator com contrato de qualidade</strong><span class="text-neutral-400"> — 3 testes da description + teste de ativação obrigatório</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-purple-400 mt-1">✓</span>
+            <div><strong class="text-white">Contribuir ao catálogo</strong><span class="text-neutral-400"> — critérios objetivos, revisão trimestral, devolver = aprender</span></div>
+          </div>
+        </div>
+
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">Da Trilha 3 levas</h3>
+        <div class="space-y-2 mb-8 text-sm">
+          <p class="text-neutral-300">📦 <strong>Módulo 3.1</strong> — Multi-cliente com 4 templates verticais, herança CLAUDE.md, separação por design</p>
+          <p class="text-neutral-300">⚙️ <strong>Módulo 3.2</strong> — Rituais diários: start-here, wrap-up, decisions-log, deep-dive, doctor, update</p>
+          <p class="text-neutral-300">🧩 <strong>Módulo 3.3</strong> — Estender com install-skill, install-mcp, catálogos, plugins Anthropic, criar skills, contribuir</p>
+        </div>
+
+        <h3 class="text-lg font-semibold text-purple-400 mb-4">Do curso completo levas</h3>
+        <div class="space-y-2 mb-8 text-sm">
+          <p class="text-neutral-300">🏗️ <strong>Trilha 1 — Fundamentos</strong> · Arquitetura, instalação à prova de falhas, brand context com 3 registos</p>
+          <p class="text-neutral-300">🎯 <strong>Trilha 2 — Skills</strong> · As 23 skills core e como cada uma se ativa</p>
+          <p class="text-neutral-300">🚀 <strong>Trilha 3 — Operação</strong> · Multi-cliente, rituais diários, extensão do sistema</p>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-6 mb-8 border border-purple-500/30">
+          <h3 class="font-semibold text-purple-400 mb-3">Próximos passos reais</h3>
+          <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+            <li>Se ainda não instalaste: <code>bash scripts/install.sh</code> no teu repo</li>
+            <li>Se ainda não fizeste deep-dive: <code>/deep-dive</code> (25-30 min)</li>
+            <li>Cria o teu primeiro cliente real: <code>bash scripts/add-client.sh &lt;nome&gt; &lt;vertical&gt;</code></li>
+            <li>Instala os 5 MCPs top + plugin Anthropic skills</li>
+            <li>Detecta um padrão repetido nas próximas 3 sessões e cria a tua primeira skill custom</li>
+            <li>Se a skill funcionar, considera contribuir ao catálogo iAmasters</li>
+          </ol>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-8">
+          <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🦎</span> Comunidade</h3>
+          <p class="text-neutral-300 text-sm mb-3">Issues, propostas, partilha de skills: <a href="https://github.com/iamasters-academy/iamasters-os" target="_blank" class="text-sky-400 hover:text-sky-300">github.com/iamasters-academy/iamasters-os</a></p>
+          <p class="text-neutral-300 text-sm">Sinapsis upstream (engine de memória): <a href="https://github.com/Luispitik/sinapsis" target="_blank" class="text-sky-400 hover:text-sky-300">github.com/Luispitik/sinapsis</a> · Comunidade INEMA: <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">inema.club</a></p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 3
+          </a>
+          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
+            🎉 Completaste o curso · Voltar à landing
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

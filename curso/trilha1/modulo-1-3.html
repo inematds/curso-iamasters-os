@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.3 Brand Context | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .bg-emerald-600 { background-color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .bg-emerald-900\/30 { background-color: rgba(5,150,105,0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Skills</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Operação</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.3</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">
+        MÓDULO 1.3
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎨 Brand Context</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Voice profile com 3 registos A/B/C, ICP e positioning. A peça que faz os outputs soarem a TI, não a IA genérica. Configura-se uma vez, paga-se em cada output.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📂 Anatomia da pasta brand-context/</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O brand context é a <strong class="text-emerald-400">camada estática</strong> da tua identidade de marca. Vive em <code>brand-context/</code> na raiz do repo, é privada por defeito (<code>.gitignore</code>), e organiza-se em 4 sub-pastas com responsabilidades claras.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Brand context = o que a tua marca <strong>É</strong> (estático, muda pouco). Agent context (próximo módulo conceitual) = o que <strong>tu</strong> és como operador (dinâmico, evolui). A separação é deliberada: a voz da tua marca não muda todas as semanas; as tuas prioridades sim.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>1 brand-context por repo/cliente</strong> — multi-cliente = 1 brand-context por cada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Todas as skills <code>marketing-*</code> leem aqui antes de gerar output</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Privada por defeito — não comites brand context em repos públicos</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <h4 class="font-semibold mb-3">Árvore canónica</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">brand-context/
+├── voice/                          # Voz e tom (8 ficheiros gerados)
+│   ├── voice-profile.md            # Personalidade + spectrum 0-10
+│   ├── samples.md                  # 10-15 frases representativas
+│   ├── register-a-formal.md        # Quando A · regras · exemplos
+│   ├── register-b-divulgativo.md   # Quando B · regras · exemplos
+│   ├── register-c-cercano.md       # Quando C · regras · exemplos
+│   ├── audit-prompt.md             # Prompt sistema para auditar voz
+│   ├── vocabulary.md               # Palavras-assinatura e anti-vocab
+│   └── installation.md             # Como instalar em Claude/ChatGPT/etc.
+│
+├── positioning/                    # O teu ângulo competitivo
+│   └── positioning.md              # Statement + diferencial + alternativas
+│
+├── icp/                            # Cliente ideal
+│   └── icp.md                      # Dor · linguagem · triggers · anti-ICP
+│
+└── assets/                         # Logos, paletas, fontes
+    ├── logo-*.{svg,png}
+    └── brand-guidelines.md</pre>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Pode/deve viver aqui</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Voz de marca (3 registos)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Positioning statement do negócio</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>ICP completo (cliente ideal)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Logos, fontes, paleta de cor</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Guidelines de uso de marca</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ NÃO vai aqui</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Prioridades semanais (vai a <code>context/current-priorities.md</code>)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Decisões operativas (vai a <code>context/decisions-log.md</code>)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Outputs de cliente (vai a <code>projects/</code> ou <code>clients/</code>)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>API keys (vai a <code>.env</code>)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Conversas com clientes</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Se tens dúvida se algo é "brand context" ou "agent context", pergunta-te: <strong>"isto muda mais que 2 vezes por ano?"</strong>. Se sim, é agent context (dinâmico). Se não, é brand context (estático). Voice profile = estático. Prioridade de Q2 = dinâmico.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🗣️ Voice profile · 3 registos A/B/C</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Não tens <em>uma</em> voz — tens <strong class="text-emerald-400">três</strong>. Escreves diferente em email premium vs WhatsApp com a equipa. O voice profile do iAmasters OS modela esta realidade com 3 registos calibrados independentemente e <strong>auto-detetados por plataforma</strong>.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Voice profile <em>genérico</em> produz outputs <em>genéricos</em>. Quando os escritores reais escrevem para LinkedIn vs WhatsApp, mudam vocabulário, comprimento de frase, uso de emoji, formalidade. O OS captura essas diferenças em 3 registos distintos.</p>
+        <p class="text-neutral-300 text-sm">Cada registo tem o seu próprio ficheiro de regras, exemplos, vocabulário permitido e proibido.</p>
+      </div>
+
+      <div class="space-y-6 mb-6">
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">A</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Formal / Profissional</h4>
+            <p class="text-sm text-neutral-400 mb-3">Email premium · proposta comercial · contrato · pitch a investidor · C-level</p>
+            <p class="text-neutral-300 text-sm mb-3"><strong>Regras típicas:</strong> frases longas (15-25 palavras) · vocabulário preciso sem jargão · zero emojis · sem abreviaturas · cierre formal.</p>
+            <p class="text-neutral-300 text-sm"><strong>Volume estimado:</strong> ~5% do conteúdo total (mas alto impacto por unidade).</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">B</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Divulgativo</h4>
+            <p class="text-sm text-neutral-400 mb-3">LinkedIn post · blog · YouTube · newsletter · talk · Twitter thread · podcast script</p>
+            <p class="text-neutral-300 text-sm mb-3"><strong>Regras típicas:</strong> frases mistas (10-20 palavras) · jargão próprio OK · 0-2 emojis intencionais · apoia-se em números · estrutura hook→contexto→insight→detalhe→pergunta.</p>
+            <p class="text-neutral-300 text-sm"><strong>Volume estimado:</strong> ~75% do conteúdo público.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">C</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Próximo / Conversacional</h4>
+            <p class="text-sm text-neutral-400 mb-3">WhatsApp · DMs · respostas a comentários · mensagens à equipa · stories captions</p>
+            <p class="text-neutral-300 text-sm mb-3"><strong>Regras típicas:</strong> frases curtas (5-12 palavras) · tom coloquial · contrações permitidas · 1-3 emojis OK · tu sempre. Aqui sai a tua voz mais autêntica.</p>
+            <p class="text-neutral-300 text-sm"><strong>Volume estimado:</strong> ~20% mas é onde se gera relação real.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Spectrum quantificado · 5 dimensões 0-10</h4>
+
+      <p class="text-neutral-300 mb-4 text-sm">Cada registo é calibrado em 5 eixos numéricos. Permite às skills <code>marketing-*</code> validar outputs automaticamente:</p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">Dimensão</th>
+              <th class="text-left p-4 font-semibold">0</th>
+              <th class="text-left p-4 font-semibold">10</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4"><strong>Formality</strong></td><td class="p-4 text-neutral-400">muito próximo</td><td class="p-4 text-neutral-400">muito formal</td></tr>
+            <tr><td class="p-4"><strong>Directness</strong></td><td class="p-4 text-neutral-400">rodeios e contexto</td><td class="p-4 text-neutral-400">sem rodeios, à cara</td></tr>
+            <tr><td class="p-4"><strong>Humor</strong></td><td class="p-4 text-neutral-400">sério total</td><td class="p-4 text-neutral-400">muito humor / ironia</td></tr>
+            <tr><td class="p-4"><strong>Authority</strong></td><td class="p-4 text-neutral-400">humilde, em dúvida</td><td class="p-4 text-neutral-400">afirmativo, sem dúvidas</td></tr>
+            <tr><td class="p-4"><strong>Warmth</strong></td><td class="p-4 text-neutral-400">distante, técnico</td><td class="p-4 text-neutral-400">caloroso, próximo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Auto-deteção de registo</h3>
+        <p class="text-neutral-300 text-sm mb-3">Quando pedes "escreve um post de LinkedIn", a skill <code>marketing-copywriting</code> infere registo B automaticamente. Quando pedes "responde a este email do C-level", infere A. Quando dizes "responde a este WhatsApp", C.</p>
+        <p class="text-neutral-300 text-sm">Podes forçar explicitamente: "escreve em registo B mesmo sendo email" e ela obedece. O default é auto-deteção por plataforma.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🎯 ICP · cliente ideal</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        ICP plano = copy plana. O ICP do iAmasters OS não é "homens 30-50 anos com cargo C-level" — é um documento vivo com <strong class="text-emerald-400">dor exata, linguagem que usa, buying triggers e anti-ICP</strong>. A skill <code>marketing-icp</code> constrói-o por análise de clientes bons vs maus que já tens.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">A copy precisa de <strong>falar a língua deles, não a tua</strong>. Para isso a IA precisa de saber palavras-chave que o cliente usa nas chamadas, frases de validação que faz, e formas como descreve o problema antes de saber que existe solução.</p>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Anatomia de um ICP completo</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-bold text-emerald-400 mb-2">Persona base</h5>
+          <p class="text-sm text-neutral-300">Cargo · setor · tamanho da empresa · maturidade técnica · região · idioma de trabalho.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-bold text-emerald-400 mb-2">Dor central</h5>
+          <p class="text-sm text-neutral-300">A frase exata que diz quando descreve o problema. Não a versão técnica · a do cliente.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-bold text-emerald-400 mb-2">Vocabulário</h5>
+          <p class="text-sm text-neutral-300">Palavras-chave que usa · termos do seu jargão · frases de validação típicas.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-bold text-emerald-400 mb-2">Buying triggers</h5>
+          <p class="text-sm text-neutral-300">Eventos que disparam compra: mudança organizacional · pressão de orçamento · novo concorrente.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-bold text-emerald-400 mb-2">Customer journey</h5>
+          <p class="text-sm text-neutral-300">5 estados (unaware → aware → considering → decision → customer) com gatilhos e objeções por estado.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-bold text-red-400 mb-2">Anti-ICP</h5>
+          <p class="text-sm text-neutral-300">Clientes que <strong>NÃO</strong> queres · sinais de alarme · "se o lead diz X, recusa".</p>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Processo da skill <code>marketing-icp</code></h4>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Top 3 clientes que adoraste servir</h5>
+            <p class="text-sm text-neutral-300">Lista nominal. Para cada: cargo, setor, como te encontrou, dor que tinham, o que ficou bem.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Top 3 clientes que mais te custaram</h5>
+            <p class="text-sm text-neutral-300">Para cada: o que correu mal, sinais que devias ter visto antes, o que disseram nas chamadas iniciais que devia ter sido red flag.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Análise de padrões</h5>
+            <p class="text-sm text-neutral-300">A skill identifica o que os 3 bons têm em comum (positivo) e o que os 3 maus têm (negativo). Cruza com voice profile para detetar vocabulário comum.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Geração de icp.md</h5>
+            <p class="text-sm text-neutral-300">Output em <code>brand-context/icp/icp.md</code> com as 6 secções listadas acima.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · anti-ICP é tão importante quanto ICP</h3>
+        <p class="text-neutral-300 text-sm">Operadores júnior listam só o cliente ideal. Operadores experientes investem tempo igual no anti-ICP — quem NÃO queres servir. Lead com 3 sinais do anti-ICP? Recusa, mesmo que pague. O anti-ICP poupa-te muito mais dinheiro do que o ICP te traz.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">📐 Positioning · o teu ângulo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Porque te escolhem a TI e não ao outro? Positioning é a <strong class="text-emerald-400">resposta a essa pergunta</strong>, escrita num documento. A skill <code>marketing-positioning</code> analisa o teu nicho, mapeia concorrentes, identifica gaps, e propõe 3-5 ângulos viáveis.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Sem positioning claro, a copy soa a "consultor genérico de IA". Com positioning, soa a TI — específico, defendível, memorável. Não chega dizer "ajudo empresas com IA". Chega dizer "instalo sistemas agénticos no pipeline comercial de SaaS B2B portugueses entre 5-50 colaboradores".</p>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Anatomia de positioning.md</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed"># Positioning · [Nome operador]
+
+## Statement principal
+Para [ICP específico], que [dor exata], sou o [categoria distintiva] que
+[mecanismo único]. Ao contrário de [alternativa A] e [alternativa B], eu
+[diferencial defendível].
+
+## Categoria
+- Onde compito: [vertical · use-case · método próprio]
+- Onde NÃO compito: [3 verticais adjacentes que NÃO faço]
+
+## Diferenciais
+1. [diferencial 1 + evidência]
+2. [diferencial 2 + evidência]
+3. [diferencial 3 + evidência]
+
+## Alternativas que o cliente considera
+- Fazer in-house · prós/contras na perspetiva do cliente
+- Agência genérica · prós/contras
+- Concorrente direto [nome] · prós/contras
+- Não fazer nada · prós/contras
+
+## Provas
+- 3 casos de cliente com resultado mensurável
+- 1-2 frases de validação (quote real)
+
+## Reposicionar? Quando?
+- Se &gt;30% dos leads pedem coisa que não fazes → reposicionar
+- Se ganhas menos de 1 em 5 propostas → reposicionar a oferta
+- Se ganhas 4 em 5 → estás bem mas preço pode subir</pre>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">4 arquétipos de positioning</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">🎯 Vertical-specialist</h4>
+          <p class="text-sm text-neutral-400 mb-3">"Só trabalho com [vertical X]"</p>
+          <p class="text-neutral-300 text-sm">Foco em 1 setor (legal-tech, fintech B2B, healthtech...). Permite preço premium e ciclo de venda curto. Risco: dependência setorial.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">🔧 Use-case-specialist</h4>
+          <p class="text-sm text-neutral-400 mb-3">"Só faço [use-case Y]"</p>
+          <p class="text-neutral-300 text-sm">Foco num caso (automação de propostas comerciais, onboarding de clientes...). Cross-vertical. Risco: comoditizar quando o use-case amadurece.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">📚 Método-próprio</h4>
+          <p class="text-sm text-neutral-400 mb-3">"Aplico o método [X-Framework]"</p>
+          <p class="text-neutral-300 text-sm">Diferencias-te por uma metodologia proprietária com nome. Permite IP defensável e escalar via formação. Risco: investimento alto em criar o método.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-red-400 mb-2">🚫 Anti-vende-banha</h4>
+          <p class="text-sm text-neutral-400 mb-3">"NÃO sou [estereótipo Y] · sou [oposto]"</p>
+          <p class="text-neutral-300 text-sm">Diferencias-te pela contra-narrativa. Ex.: "Não vendo IA, vendo eliminação de trabalho operacional". Alto contraste, polariza. Funciona se o nicho está saturado de hype.</p>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Combinar arquétipos</h3>
+        <p class="text-neutral-300 text-sm">Operadores avançados combinam 2-3: vertical (legal-tech) + use-case (automação de revisão de contratos) + método próprio (framework "Clause-Mining"). Resultado: positioning extremamente defendível mas requer investimento em narrativa e prova.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🤖 Como gerar tudo automaticamente</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Não precisas de redigir os 8+ ficheiros à mão. A skill <code>marketing-brand-voice</code> v2 tem <strong class="text-emerald-400">dupla via</strong>: artefactos reais (URLs públicos scrapados via Firecrawl) ou 15 simulações reais (5 por registo) que captam voz autêntica mesmo se não tens presença online.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal · dupla via</h3>
+        <p class="text-neutral-300 mb-4">Operadores ativos online dão URLs (LinkedIn, blog, YouTube) → Firecrawl scrapeia → análise extrai padrões. Operadores sem presença online respondem 15 simulações em texto → as respostas espontâneas captam a voz tão bem ou melhor que material curado.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Via artefactos</strong> — para quem tem arquivo público</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Via simulação</strong> — para quem escreve pouco online</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Via híbrida</strong> — diferente por registo (LinkedIn sim → A com artefactos; WhatsApp não dá → C com simulação)</span></li>
+        </ul>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Processo end-to-end · ~15-20 min</h4>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Inputs disponíveis</h5>
+            <p class="text-sm text-neutral-300">Pergunta URL de web, LinkedIn, YouTube, X · documentos próprios · voice profile prévio.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Deteção de via global</h5>
+            <p class="text-sm text-neutral-300">"És ativo nas redes / escreves muito online?" (a) sim (b) não (c) misto. Decide via por registo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Scraping (se há URLs)</h5>
+            <p class="text-sm text-neutral-300">Invoca <code>tool-firecrawl-scraper</code> em modo markdown. Extrai conteúdo + assets para <code>brand-context/assets/</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Captura por registo (15 simulações se aplicável)</h5>
+            <p class="text-sm text-neutral-300">Trabalha um registo de cada vez. Para cada: 5 simulações realistas (ex: "responde a este WhatsApp de um amigo às 22h"). Espera resposta antes de avançar.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">6 perguntas calibradoras</h5>
+            <p class="text-sm text-neutral-300">Tom dominante · vocabulário que foges · frases-assinatura · jargão próprio · anti-modelo · modelo a aspirar.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Análise combinada</h5>
+            <p class="text-sm text-neutral-300">Extrai personalidade (3-5 traits), spectrum 0-10 nas 5 dimensões, vocabulário (assinatura/proibido/jargão/muletas), estrutura típica por registo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">7</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Validação intermédia</h5>
+            <p class="text-sm text-neutral-300">ANTES de gerar ficheiros, devolve uma análise resumida ao operador e pede confirmação. "Faz sentido? Há algo a matizar?"</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">8</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Geração · 8 ficheiros</h5>
+            <p class="text-sm text-neutral-300">Voice-profile · samples · register-{a,b,c} · audit-prompt · vocabulary · installation. Tudo em <code>brand-context/voice/</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">As 5 simulações do Registo C (exemplo)</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+          <li>"Um amigo escreve às 22h: 'pá acabei de ver o teu direto, fiquei em pulgas. diz-me o que faço para começar'. Responde-lhe."</li>
+          <li>"Num grupo de WhatsApp de amigos sai 'a IA vai tirar todos os empregos'. Mete a tua opinião em 2-3 mensagens."</li>
+          <li>"Manda nota de voz ao sócio a explicar rápido porque mudaste de opinião sobre um cliente."</li>
+          <li>"Um amigo pergunta se vale a pena montar uma agência de IA agora. Responde o que pensas a sério."</li>
+          <li>"Escreve a alguém que admiras por DM para irem tomar um café. Sem pareceres fanboy."</li>
+        </ol>
+        <p class="text-neutral-400 text-xs mt-4">Responder estas 5 dá material autêntico suficiente para calibrar Registo C. As skill faz o mesmo para A (LinkedIn formal) e B (Reel/blog/post divulgativo).</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Firecrawl como auxiliar (opcional)</h3>
+        <p class="text-neutral-300 text-sm mb-3">Firecrawl é uma API de scraping. Plano grátis = 500 créditos (suficiente para 1 brand voice). Sem chave, o sistema cai para via simulação automaticamente — não bloqueia.</p>
+        <p class="text-neutral-300 text-sm">Para ativar: regista em <a href="https://firecrawl.dev" target="_blank" class="text-sky-400 hover:text-sky-300">firecrawl.dev</a> · copia a chave (formato <code>fc-...</code>) · cola em <code>.env</code> como <code>FIRECRAWL_API_KEY=fc-...</code>.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · respostas autênticas, não idealizadas</h3>
+        <p class="text-neutral-300 text-sm">O erro nº1 nas simulações: responder "como gostaria de soar" em vez de "como soas a sério". O Passo 7 (validação intermédia) deteta-o — se sentires que o resumo "não és tu", a skill pede para reformular: "responde-me como o farias um sábado às 23h, não como gostarias de soar num pitch".</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🔁 Refinar e iterar o brand context</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Brand context não é "instalar e esquecer". A tua voz evolui, o teu ICP afina-se com cada novo cliente, o positioning muda quando o mercado muda. Reservar <strong class="text-emerald-400">30 min por trimestre</strong> para refinar paga-se 10x em qualidade de output.
+      </p>
+
+      <h4 class="text-lg font-semibold mb-4">Quando refinar cada peça</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">Peça</th>
+              <th class="text-left p-4 font-semibold">Frequência típica</th>
+              <th class="text-left p-4 font-semibold">Gatilho</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4"><strong>Voice profile</strong></td><td class="p-4 text-neutral-400">Cada 3-6 meses</td><td class="p-4 text-neutral-400">Outputs começam a soar "fora de ti" · humanizer baixa consistentemente</td></tr>
+            <tr><td class="p-4"><strong>ICP</strong></td><td class="p-4 text-neutral-400">Após cada batch de 3-5 clientes novos</td><td class="p-4 text-neutral-400">Aprendes algo que muda quem é o ideal</td></tr>
+            <tr><td class="p-4"><strong>Positioning</strong></td><td class="p-4 text-neutral-400">Cada 6-12 meses</td><td class="p-4 text-neutral-400">Ganhas &lt;1 em 5 propostas · pivot de oferta · novo concorrente forte</td></tr>
+            <tr><td class="p-4"><strong>Vocabulary</strong></td><td class="p-4 text-neutral-400">Append contínuo</td><td class="p-4 text-neutral-400">Notas palavra-assinatura nova · ou anti-palavra que estás farto</td></tr>
+            <tr><td class="p-4"><strong>Assets</strong></td><td class="p-4 text-neutral-400">Cada rebrand</td><td class="p-4 text-neutral-400">Logo novo · paleta nova · fonte nova</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">3 modos de iteração</h4>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Edição manual direta</h5>
+            <p class="text-sm text-neutral-300">Para fixes pontuais. Abres <code>voice-profile.md</code>, mudas uma frase-assinatura, gravas. As skills <code>marketing-*</code> apanham imediatamente. Útil para correções mínimas (1-3 linhas).</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Refine via skill com <code>refine: true</code></h5>
+            <p class="text-sm text-neutral-300">Para retoque profundo sem rebuild. Invoca <code>marketing-brand-voice</code> em modo refine — pega no voice profile existente, faz 3-5 perguntas focadas, atualiza só o que mudou. Mantém histórico.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center"><span class="text-emerald-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Rebuild completo</h5>
+            <p class="text-sm text-neutral-300">Para mudanças grandes (pivot de oferta, mudança de tom estratégica). Backup do antigo em <code>brand-context/voice/_archive/YYYY-MM-DD/</code> e re-correr a skill do zero.</p>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Samples como ground-truth</h4>
+
+      <p class="text-neutral-300 mb-4 text-sm">
+        <code>samples.md</code> tem 10-15 frases representativas tuas. Quando refinas, este ficheiro é a <strong>tua âncora</strong>: se mudaste algo no voice profile e a regra contradiz uma sample, ou estás a forçar a regra ou a sample está desatualizada. Decide explicitamente.
+      </p>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão · refinar sempre que tens dúvida</h3>
+        <p class="text-neutral-300 text-sm">Cuidado com a tentação de mexer no voice profile cada vez que um output não soa perfeito. Antes de refinar, pergunta: <strong>"isto é um problema do voice profile, ou do prompt que dei?"</strong>. 80% das vezes é o prompt. Se mexes no voice profile com base em 1 output, vais ficar com voice profile incoerente em pouco tempo.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · audit-prompt.md como sentinela</h3>
+        <p class="text-neutral-300 text-sm">A v2 da skill gera <code>audit-prompt.md</code>: um prompt que copias e colas em Claude/ChatGPT para auditar se um texto está na tua voz. Quando algum output te soa esquisito mas não sabes porquê, passa-o pelo audit-prompt — ele dá pontuação T/E/V/S (Tom/Estrutura/Vocabulário/Spectrum) e marca o que está mal.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">brand-context/ tem 4 sub-pastas</strong><span class="text-neutral-400"> — voice, positioning, icp, assets · privada por defeito</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">3 registos A/B/C · auto-detetados</strong><span class="text-neutral-400"> — formal · divulgativo · próximo · spectrum 0-10 em 5 dimensões</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">ICP &gt; persona base</strong><span class="text-neutral-400"> — dor, linguagem, triggers, customer journey, anti-ICP</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Positioning · 4 arquétipos</strong><span class="text-neutral-400"> — vertical / use-case / método-próprio / anti-vende-banha (combináveis)</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">marketing-brand-voice v2 · dupla via</strong><span class="text-neutral-400"> — artefactos (Firecrawl) ou 15 simulações · ~15-20 min</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Refinar trimestralmente</strong><span class="text-neutral-400"> — 3 modos: edição manual / refine / rebuild · audit-prompt como sentinela</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 2 · Skills — as 23 skills core do OS, como invocá-las, como compõem fluxos completos, e como criar as tuas próprias.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 1
+          </a>
+          <a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Trilha 2: Skills →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

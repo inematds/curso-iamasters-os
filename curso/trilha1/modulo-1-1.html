@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.1 O que é o iAmasters OS | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .bg-emerald-600 { background-color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .bg-emerald-900\/30 { background-color: rgba(5,150,105,0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Skills</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Operação</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.1</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">
+        MÓDULO 1.1
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧠 O que é o iAmasters OS</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Conceito, arquitetura em 3 camadas, e o problema que o OS resolve face ao Claude Code vanilla. No fim deste módulo sabes o que estás a instalar e porquê.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Teoria</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🤖 O problema do Claude Code vanilla</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O Claude Code é poderoso, mas é <strong class="text-emerald-400">amnésico</strong>. Cada sessão começa de zero: ele não sabe quem és, que stack usas, que cliente é este, qual a tua voz, que decisões tomaste no mês passado. Tu sabes — mas tens de re-explicar tudo, todos os dias.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">O custo invisível do Claude Code vanilla é o <strong>tempo de re-onboarding</strong>. Se passas 10-15 min por sessão a explicar contexto, e fazes 4 sessões por dia, perdes <strong>1h diária</strong> só a repetir-te.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Outputs ficam genéricos (não sabe a tua voz)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Decisões anteriores são esquecidas (contradiz-te a ti próprio)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Skills úteis não se ativam (não sabe que existem)</span></li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Com iAmasters OS</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Memória persistente entre sessões (Sinapsis)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Skills ativam-se sozinhas pelo description</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Brand voice carregada automaticamente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Decisions-log mantém coerência</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Sem OS (vanilla)</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Re-explicas stack/contexto cada sessão</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Pides skills uma a uma manualmente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Outputs em "tom IA genérico"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Decisões esquecidas → contradições</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🏗️ As 3 camadas do OS</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O iAmasters OS empilha <strong class="text-emerald-400">três camadas independentes</strong>. Cada uma resolve um problema, e juntas formam o sistema completo. Conhecer a separação ajuda-te a debugar quando algo falha.
+      </p>
+
+      <div class="space-y-6 mb-6">
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">🧠 Sinapsis (engine de memória)</h4>
+            <p class="text-sm text-neutral-400 mb-3">Vendorizado intacto de <code>vendor/sinapsis/</code> · instalado em <code>~/.claude/</code></p>
+            <p class="text-neutral-300 text-sm">Operator state global, instincts auto-aprendidos, skills on-demand, dashboard, dream cycle. Original do Luis Pitik. Aplica-se a TODOS os teus repos Claude Code, não só ao iAmasters OS.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">📦 Camada OS (estrutura do repo)</h4>
+            <p class="text-sm text-neutral-400 mb-3"><code>brand-context/</code> · <code>context/</code> · <code>projects/</code> · <code>clients/</code></p>
+            <p class="text-neutral-300 text-sm">Brand context (voice + 3 registos + ICP + positioning), agent context setorizado (me, work, team, current-priorities, goals), projetos estruturados, e multi-cliente com 4 templates verticais.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">🎯 Skills curadas + commands + scripts</h4>
+            <p class="text-sm text-neutral-400 mb-3"><code>.claude/skills/</code> · <code>.claude/commands/</code> · <code>scripts/</code></p>
+            <p class="text-neutral-300 text-sm">23 skills validadas (marketing, automation, strategy, tools, visualization, _meta) + 10 slash commands + 6 scripts de gestão (install, add-client, update, validate-skill, check-translation).</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Quando algo falha, pergunta-te: <strong>"Isto vem do Sinapsis, da Camada OS ou de uma Skill?"</strong>. A resposta diz-te onde procurar. Sinapsis em <code>~/.claude/</code>. Resto no repo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📁 Estrutura do repo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Saber a árvore canónica permite-te encontrar tudo em segundos e — mais importante — saber <strong class="text-emerald-400">o que NÃO tocar</strong>.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">iamasters-os/
+├── CLAUDE.md                # Constituição (lida em cada sessão)
+├── README.md
+├── .claude/
+│   ├── settings.json        # Hooks + permissões
+│   ├── commands/            # 10 slash commands
+│   └── skills/              # 23 skills curadas
+│       ├── _meta/           # Sistema e rituais
+│       ├── marketing/       # 6 skills (voice, copy, ICP...)
+│       ├── automation/      # 2 skills (n8n)
+│       ├── strategy/        # 1 skill (web-research)
+│       ├── tools/           # 3 skills (humanizer, verifier...)
+│       └── visualization/   # 1 skill (visual-explainer)
+│
+├── brand-context/           # 🔒 Privado (.gitignore)
+│   ├── voice/               # Profile + 3 registos
+│   ├── positioning/
+│   └── icp/
+│
+├── context/                 # 🔒 Privado (parcial)
+│   ├── soul.md              # Personalidade agente (público)
+│   ├── me.md                # Identidade (privado)
+│   ├── work.md              # Negócio (privado)
+│   ├── decisions-log.md     # Diário (privado)
+│   └── learnings.md         # Feedback skills
+│
+├── clients/                 # 🔒 Privado (multi-cliente)
+│   └── _templates/          # 4 verticais (público)
+│
+├── scripts/                 # Installer, add-client, etc.
+└── vendor/
+    └── sinapsis/            # 🚫 NÃO TOCAR — engine vendorizado</pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Atenção</h3>
+        <p class="text-neutral-300 text-sm">NUNCA edites <code>vendor/sinapsis/</code> diretamente. É um espelho do upstream do Luis Pitik. Modificações são perdidas em cada `update.sh`. Se precisas mudar Sinapsis, abre issue lá.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⚡ Como skills se ativam sozinhas</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Não chamas skills. <strong class="text-emerald-400">Elas encontram-te</strong>. O segredo está no <code>description:</code> do frontmatter.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Anatomia de uma SKILL.md</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">---
+name: marketing-copywriting
+description: Gera copy para LinkedIn, blog, email, ads com brand
+  voice carregada + register auto-detetado. Invoca tool-output-verifier
+  antes de entregar.
+---
+
+# marketing-copywriting
+
+## Quando se invoca
+- Quando pedes "escreve post LinkedIn sobre..."
+- Quando pedes "email frio para..."
+- Quando outra skill (content-repurposing) precisa de copy
+
+## Process
+...</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que o Claude faz</h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Ao iniciar sessão, lê <strong>todas</strong> as <code>description:</code> de todas as SKILL.md</li>
+          <li>Cada vez que escreves, faz matching semântico contra essas descriptions</li>
+          <li>Se uma encaixa, ativa-a → lê o Process e segue os passos</li>
+          <li>Se nenhuma encaixa, responde com o conhecimento geral</li>
+        </ol>
+        <p class="text-neutral-400 text-sm mt-4">Resultado: tu pedes em linguagem natural, ele escolhe a ferramenta certa.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Description ideal: <strong>50-500 caracteres, com verbo de intenção</strong> (cria, gera, analisa, valida) e <strong>quando ativar</strong> ("quando pedes X, quando aparece Y"). Sem isso, a skill nunca ativa.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">👥 Para quem é o OS</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quatro avatares principais. Identifica o teu — define que template usar quando criares clientes na Trilha 3.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">👤 Freelance IA</h4>
+          <p class="text-sm text-neutral-400 mb-3">3-10 clientes, ticket 5-50K€/projeto</p>
+          <p class="text-neutral-300 text-sm">Operas sozinho ou em equipa de 1-2. Implementas + manutenção de IA nos processos dos clientes. Template: <code>freelance-ia</code>.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">🏢 Agência marketing</h4>
+          <p class="text-sm text-neutral-400 mb-3">Equipa 2-10, MRR recorrente</p>
+          <p class="text-neutral-300 text-sm">5-30 clientes em simultâneo. Entregáveis mensais (content calendar, ads, reports). Cada cliente tem A SUA voice. Template: <code>agencia-marketing</code>.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">🎓 Formador online</h4>
+          <p class="text-sm text-neutral-400 mb-3">Cursos/comunidade, 200-2000€</p>
+          <p class="text-neutral-300 text-sm">A tua marca pessoal É o produto. Audiência nas redes (LinkedIn, X, YouTube). Alta frequência de output. Template: <code>formador-online</code>.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">💼 Consultor B2B</h4>
+          <p class="text-sm text-neutral-400 mb-3">High-ticket 30-300K€, 3-12 meses</p>
+          <p class="text-neutral-300 text-sm">Engagements longos com empresas médias/grandes. Entregáveis formais (decks, frameworks). Voz formal-autoridade. Template: <code>consultoria-b2b</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">💰 Custo real e prerequisitos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de instalar, sabe quanto vai custar e o que precisas ter. <strong class="text-emerald-400">O OS é grátis, mas o Claude não.</strong>
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">Componente</th>
+              <th class="text-left p-4 font-semibold">Custo</th>
+              <th class="text-left p-4 font-semibold">Quando se paga</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr>
+              <td class="p-4">iAmasters OS (este repo)</td>
+              <td class="p-4 text-emerald-400 font-semibold">Grátis (MIT)</td>
+              <td class="p-4 text-neutral-400">Nunca</td>
+            </tr>
+            <tr>
+              <td class="p-4">Claude Desktop / Code</td>
+              <td class="p-4 text-emerald-400 font-semibold">Grátis (app)</td>
+              <td class="p-4 text-neutral-400">Nunca</td>
+            </tr>
+            <tr>
+              <td class="p-4"><strong>Anthropic Pro</strong></td>
+              <td class="p-4 text-primary font-semibold">$20/mês</td>
+              <td class="p-4 text-neutral-400">Mínimo necessário para uso real</td>
+            </tr>
+            <tr>
+              <td class="p-4">Anthropic Max</td>
+              <td class="p-4 text-neutral-300">$100-200/mês</td>
+              <td class="p-4 text-neutral-400">Se vais usar muito Code ou Cowork</td>
+            </tr>
+            <tr>
+              <td class="p-4">Firecrawl API (opcional)</td>
+              <td class="p-4 text-neutral-300">500 créditos grátis</td>
+              <td class="p-4 text-neutral-400">Para auto-extrair brand voice</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Plano Free não chega</h3>
+        <p class="text-neutral-300 text-sm">Com Anthropic Free, os modelos bons (Opus, Sonnet 4+) não estão disponíveis. O OS funciona tecnicamente mas os outputs ficam fracos. Mínimo real: <strong>Anthropic Pro $20/mês</strong>.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📋</span> Prerequisitos técnicos</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Claude Code CLI</strong> (incluído no Claude Desktop) — <a href="https://claude.ai/code" target="_blank" class="text-sky-400 hover:text-sky-300">claude.ai/code</a></li>
+          <li><strong>Node.js ≥18</strong> — <a href="https://nodejs.org" target="_blank" class="text-sky-400 hover:text-sky-300">nodejs.org</a></li>
+          <li><strong>Python ≥3.9</strong> (para hooks Sinapsis) — <a href="https://python.org" target="_blank" class="text-sky-400 hover:text-sky-300">python.org</a> (NÃO Microsoft Store)</li>
+          <li><strong>Git</strong> — provavelmente já tens</li>
+          <li><strong>OS</strong>: macOS, Linux, Windows (Git Bash ou WSL)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Claude vanilla é amnésico</strong><span class="text-neutral-400"> — perdes 1h/dia a re-explicar contexto</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">3 camadas: Sinapsis + Camada OS + Skills</strong><span class="text-neutral-400"> — cada uma com responsabilidade clara</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Sinapsis em ~/.claude/, OS no repo</strong><span class="text-neutral-400"> — separação importante para debugar</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Skills ativam-se sozinhas pelo description</strong><span class="text-neutral-400"> — tu não chamas, elas encontram-te</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">4 avatares · 4 templates</strong><span class="text-neutral-400"> — identifica o teu antes da Trilha 3</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Custo mínimo: $20/mês (Anthropic Pro)</strong><span class="text-neutral-400"> — Free não chega</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.2 — Instalação e Install Gate: state machine, validação profunda, anti "instalação fantasma".</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 1
+          </a>
+          <a href="modulo-1-2.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Módulo 1.2 →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

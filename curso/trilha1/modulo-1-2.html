@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.2 Instalação e Install Gate | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5,150,105,0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .bg-emerald-600 { background-color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500:hover { background-color: #10b981; }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .bg-emerald-900\/30 { background-color: rgba(5,150,105,0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+            <span class="sm:hidden">T1</span>
+            <span class="hidden sm:inline">Fundamentos</span>
+          </a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+            <span class="sm:hidden">T2</span>
+            <span class="hidden sm:inline">Skills</span>
+          </a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+            <span class="sm:hidden">T3</span>
+            <span class="hidden sm:inline">Operação</span>
+          </a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-emerald-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-emerald-400">Trilha 1</a>
+      <span>/</span>
+      <span class="text-emerald-400">Módulo 1.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-emerald-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full mb-4">
+        MÓDULO 1.2
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚙️ Instalação e Install Gate</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">State machine persistente, validação profunda e como o Install Gate impede que o OS reporte "instalado" quando na verdade só ficheiros vazios foram criados. Anti "instalação fantasma".</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-emerald-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">📋 Prerequisitos do sistema</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Antes de correres <code>install.sh</code> precisas de <strong class="text-emerald-400">4 dependências críticas</strong> no teu sistema. O instalador valida-as e bloqueia se faltar algo essencial — não vais ficar com meio-OS instalado por erro de Node em falta.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">O <code>install.sh</code> tem uma fase <strong>prereqs</strong> dedicada que faz <strong>deteção multi-plataforma</strong>. Não basta "tens python"; tem de ser Python 3.9-3.13, com binário correto (não o stub da Microsoft Store), encontrável em pelo menos um dos comandos <code>python3</code>, <code>py -3</code>, <code>python</code>, <code>python3.11</code>, etc.</p>
+        <ul class="space-y-2 text-neutral-300">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Git ≥2.0</strong> — para clonar o repo e atualizações futuras</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Node.js ≥18</strong> — obrigatório, os hooks Sinapsis usam-no</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Python ≥3.9</strong> — opcional mas recomendado (hooks de observação)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>Claude Code CLI ou Desktop</strong> — onde o OS vai correr</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <h4 class="font-semibold mb-3">Output esperado do <code>install.sh</code> na fase prereqs</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">── [1/2] A validar prerequisitos ──
+[OK]    OS: linux (x86_64)
+[OK]    git: 2.43.0
+[OK]    node: v20.10.0
+[OK]    python: python3 (Python 3.11.7)
+[OK]    Claude CLI no PATH</pre>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Instalações OK</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>macOS com Homebrew (<code>brew install node python git</code>)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Linux Ubuntu/Debian via apt</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Windows + WSL2 (Ubuntu) — experiência mais limpa</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Python desde <code>python.org</code> (Windows)</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Problemas frequentes</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Windows + Python da Microsoft Store (stub, não executa)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Node v16 ou inferior — Sinapsis precisa de v18+</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Git Bash sem WSL — funciona mas com latência maior</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span><code>nvm</code> a apontar para versão antiga numa shell</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Em Windows, se Python não é detetado mas tens a certeza que está instalado, abre PowerShell e corre <code>where.exe python</code>. Se aparece um path em <code>WindowsApps/</code>, é o stub da Store — desinstala e usa o instalador oficial de <a href="https://python.org" target="_blank" class="text-sky-400 hover:text-sky-300">python.org</a> marcando "Add to PATH".</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔄 Install.sh em 6 passos</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <code>scripts/install.sh</code> é <strong class="text-emerald-400">idempotente e reentrante</strong>. Podes correr 10 vezes — só refaz o que falta. Está estruturado em 6 fases técnicas (3 do script + 3 dentro do Claude Code).
+      </p>
+
+      <div class="space-y-6 mb-6">
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">1</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Validar prerequisitos</h4>
+            <p class="text-neutral-300 text-sm">Deteção de OS, git, node, python, claude. Falha bloqueante se Node &lt;18 ou Git ausente. Resultado registado em <code>phases.prereqs.checks</code>.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">2</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Instalar Sinapsis engine</h4>
+            <p class="text-neutral-300 text-sm">Executa <code>vendor/sinapsis/install.sh</code> que copia <code>~/.claude/</code> com 23 skills + hooks + operator-state. Validação <strong>profunda</strong> pós-instalação: JSON parseable, hooks com <code>+x</code>, ≥1 SKILL.md.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">3</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Configurar camada OS</h4>
+            <p class="text-neutral-300 text-sm">Cria <code>projects/</code>, <code>context/</code>, <code>brand-context/</code>. Gera <code>soul.md</code>, <code>decisions-log.md</code>, <code>learnings.md</code> com headers canónicos. Copia <code>.env.example</code> → <code>.env</code>.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">4</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Instalar Install Gate hook</h4>
+            <p class="text-neutral-300 text-sm">Copia <code>_install-gate.sh</code> para <code>~/.claude/skills/</code> com <code>chmod +x</code>. Regista-o como hook <code>SessionStart</code> em <code>~/.claude/settings.json</code> (idempotente — não duplica).</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">5</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Wizard conversacional (no Claude Code)</h4>
+            <p class="text-neutral-300 text-sm">Já não é o bash — abres Claude Code e o hook deteta fases pendentes. A skill <code>meta-onboarding-wizard</code> faz 4 sub-fases (identidade, negócio, prioridades, objetivos) e escreve <code>context/me.md</code>, <code>work.md</code>, etc.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">6</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Welcome quick-win</h4>
+            <p class="text-neutral-300 text-sm">A skill <code>welcome-quick-win</code> gera o primeiro deliverable em <code>projects/welcome/</code> usando o brand context recém-criado. Sinal claro de que o sistema funciona end-to-end.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Output estruturado [parseable]</h3>
+        <p class="text-neutral-300 text-sm mb-3">Todas as linhas do instalador seguem o formato <code>[CATEGORIA] mensagem</code>:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><code class="text-emerald-400">[OK]</code> — fase completada com sucesso</li>
+          <li><code class="text-yellow-400">[SKIP]</code> — já existia / não se aplica · motivo incluído</li>
+          <li><code class="text-yellow-400">[WARN]</code> — continua mas com limitação</li>
+          <li><code class="text-red-400">[ERROR]</code> — bloqueante, fase fica <code>failed</code> no state</li>
+          <li><code>&gt;&gt;</code> — info contextual (não muda state)</li>
+        </ul>
+        <p class="text-neutral-400 text-sm mt-3">Este formato permite <code>grep '\[ERROR\]'</code> para resumo rápido se algo falhar.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · flags úteis</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><code>bash scripts/install.sh</code> — execução normal · idempotente</li>
+          <li><code>bash scripts/install.sh --resume</code> — continua desde última fase não-done</li>
+          <li><code>bash scripts/install.sh --force-reinstall</code> — backup do state e arranque fresco (não apaga ficheiros pessoais)</li>
+          <li><code>bash scripts/install.sh --skip-sinapsis</code> — debug, salta Sinapsis (raro)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🗄️ State machine em _install-state.json</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Este é o coração do anti "instalação fantasma". <strong class="text-emerald-400">Um ficheiro JSON</strong> em <code>~/.claude/skills/_install-state.json</code> que regista o estado real de cada fase. Não é uma opinião do agente — é o contrato entre o instalador bash, as skills do wizard, e o gate.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Antes (v0.5.x) o script bash era um único disparo + wizard. Se algo falhasse a meio, o agente podia reportar "tudo bem" sem que fosse verdade. Desde v0.6: <strong>cada fase tem estado persistente e verificável</strong> independentemente do que o agente diga.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Source of truth única e externa ao modelo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Resume automático onde ficou (reentrante)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span>Validação profunda pós-cada-fase (não confia em declarações)</span></li>
+        </ul>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">As 6 fases canónicas</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">#</th>
+              <th class="text-left p-4 font-semibold">Fase</th>
+              <th class="text-left p-4 font-semibold">Required</th>
+              <th class="text-left p-4 font-semibold">Escreve</th>
+              <th class="text-left p-4 font-semibold">Validação de "done"</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4">1</td><td class="p-4"><code>prereqs</code></td><td class="p-4 text-emerald-400">sim</td><td class="p-4 text-neutral-400">install.sh</td><td class="p-4 text-neutral-400">git + node ≥18 + claude</td></tr>
+            <tr><td class="p-4">2</td><td class="p-4"><code>sinapsis-engine</code></td><td class="p-4 text-emerald-400">sim</td><td class="p-4 text-neutral-400">install.sh</td><td class="p-4 text-neutral-400">JSON válido + hooks +x + ≥1 SKILL.md</td></tr>
+            <tr><td class="p-4">3</td><td class="p-4"><code>context-files</code></td><td class="p-4 text-emerald-400">sim</td><td class="p-4 text-neutral-400">meta-onboarding-wizard</td><td class="p-4 text-neutral-400">4 ficheiros &gt;100 chars</td></tr>
+            <tr><td class="p-4">4</td><td class="p-4"><code>operator-state</code></td><td class="p-4 text-emerald-400">sim</td><td class="p-4 text-neutral-400">meta-onboarding-wizard</td><td class="p-4 text-neutral-400"><code>needsOnboarding: false</code> + nome real</td></tr>
+            <tr><td class="p-4">5</td><td class="p-4"><code>welcome-completed</code></td><td class="p-4 text-emerald-400">sim</td><td class="p-4 text-neutral-400">welcome-quick-win</td><td class="p-4 text-neutral-400">deliverable em projects/welcome/</td></tr>
+            <tr><td class="p-4">6</td><td class="p-4"><code>deep-dive-completed</code></td><td class="p-4 text-neutral-400">não</td><td class="p-4 text-neutral-400">meta-deep-dive</td><td class="p-4 text-neutral-400">22 dimensões cobertas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">5 estados possíveis por fase</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-6">
+        <div class="bg-dark-800 rounded-xl p-4 border border-dark-600 text-center">
+          <div class="text-2xl mb-2">⏳</div>
+          <div class="font-bold text-neutral-300">pending</div>
+          <div class="text-xs text-neutral-400 mt-1">Ainda não iniciada</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-4 border border-dark-600 text-center">
+          <div class="text-2xl mb-2">🟡</div>
+          <div class="font-bold text-yellow-400">in-progress</div>
+          <div class="text-xs text-neutral-400 mt-1">A meio · com checkpoint</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-4 border border-dark-600 text-center">
+          <div class="text-2xl mb-2">✅</div>
+          <div class="font-bold text-emerald-400">done</div>
+          <div class="text-xs text-neutral-400 mt-1">Validada externamente</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-4 border border-dark-600 text-center">
+          <div class="text-2xl mb-2">❌</div>
+          <div class="font-bold text-red-400">failed</div>
+          <div class="text-xs text-neutral-400 mt-1">Detalhe em errors[]</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-4 border border-dark-600 text-center">
+          <div class="text-2xl mb-2">⏭️</div>
+          <div class="font-bold text-neutral-300">skipped</div>
+          <div class="text-xs text-neutral-400 mt-1">Só se deferrable</div>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Exemplo real de state (instalação a meias)</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <pre class="text-xs text-neutral-300 font-mono leading-relaxed">{
+  "version": "0.6.0",
+  "schemaVersion": 1,
+  "repoPath": "/home/user/iamasters-os",
+  "startedAt": "2026-05-15T10:00:00Z",
+  "currentPhase": "context-files",
+  "completedPhases": ["prereqs", "sinapsis-engine"],
+  "phases": {
+    "prereqs":         { "status": "done",        "required": true, "checks": {...} },
+    "sinapsis-engine": { "status": "done",        "required": true, "checksum": "sha256:9a8b..." },
+    "context-files":   { "status": "in-progress", "required": true,
+                         "filesCreated": ["context/me.md"],
+                         "filesPending": ["context/work.md", "current-priorities.md", "goals.md"] },
+    "operator-state":  { "status": "pending",     "required": true },
+    "welcome-completed": { "status": "pending",   "required": true },
+    "deep-dive-completed": { "status": "pending", "required": false, "deferrable": true }
+  },
+  "pausedBy": "user",
+  "pausedAtPhase": "context-files",
+  "errors": []
+}</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> Leitura</h3>
+        <p class="text-neutral-300 text-sm">Operador começou instalação, terminou prereqs e Sinapsis, abriu Claude Code, o wizard arrancou <code>context-files</code>, escreveu <code>me.md</code>, e o operador disse "para, volto depois". Na próxima sessão, o hook lê isto e força <code>/install --resume</code> que retoma desde <code>work.md</code>. Nada se perde.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Podes inspecionar o state a qualquer momento com <code>cat ~/.claude/skills/_install-state.json | jq</code>. Útil para perceber porque o agente diz "instala primeiro" quando achas que já instalaste. O ficheiro não mente — se diz <code>pending</code>, é porque está pending.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">⛔ Install Gate · o hook SessionStart</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <code>_install-gate.sh</code> é um <strong class="text-emerald-400">hook bash + node</strong> que corre antes do modelo ver a tua primeira mensagem em cada sessão. Lê o state machine e, se há fases pendentes, injeta um <code>additionalContext</code> que instrui o agente a NÃO responder ao teu pedido até cerrar a instalação.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">É a peça que distingue v0.6 de versões anteriores: <strong>enforcement estrutural, não confiança no modelo</strong>. O hook não pede ao modelo "por favor verifica se está instalado". <strong>Injeta a verdade do disco</strong> antes do modelo poder responder.</p>
+        <p class="text-neutral-300 text-sm">Resultado: torna-se quase impossível "instalações fantasma" onde o modelo declara sucesso sem que os ficheiros existam.</p>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Comportamento por estado</h4>
+
+      <div class="space-y-4 mb-6">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-semibold text-red-400 mb-2">Caso 1 · State file NÃO existe</h5>
+          <p class="text-neutral-300 text-sm mb-2">Se <code>~/.claude/skills/_install-state.json</code> não existe E estás num repo iamasters-os (validado por <code>vendor/sinapsis/</code> + <code>CLAUDE.md</code>), injeta:</p>
+          <pre class="text-xs text-neutral-400 font-mono bg-dark-900 rounded p-3 mt-2 overflow-x-auto">[INSTALL GATE] iAmasters OS detetado mas NÃO instalado.
+Indica ao utilizador: 'Preciso que executes: bash scripts/install.sh'
+NÃO crias ficheiros manualmente para simular instalação.</pre>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-semibold text-yellow-400 mb-2">Caso 2 · State existe, fases pendentes</h5>
+          <p class="text-neutral-300 text-sm">Calcula required total e done, lista failed/in-progress/pending, e injeta instruções <strong>numeradas</strong> de 1 a 7 que o modelo deve seguir antes de responder. Inclui ações específicas por fase pendente (se é <code>context-files</code>, invoca o wizard; se é <code>welcome-completed</code>, invoca <code>welcome-quick-win</code>).</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-semibold text-emerald-400 mb-2">Caso 3 · Tudo done</h5>
+          <p class="text-neutral-300 text-sm">Sai com <code>exit 0</code> sem output. O agente nunca vê nada — passa direto para a tua mensagem.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h5 class="font-semibold text-red-400 mb-2">Caso 4 · State corrompido</h5>
+          <p class="text-neutral-300 text-sm">Injeta: <em>"State exists but is corrupted. Tell user to run: bash scripts/install.sh --force-reinstall"</em>. Nunca crasha silencioso.</p>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Anatomia do hook (excerpt)</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <pre class="text-xs text-neutral-300 font-mono leading-relaxed">#!/bin/bash
+set +e  # Nunca queremos que um hook partido bloqueie a sessão
+
+STATE_FILE="$HOME/.claude/skills/_install-state.json"
+
+# Se não temos node, saímos silencioso (fallback)
+if ! command -v node >/dev/null 2>&amp;1; then exit 0; fi
+
+# Caso 1: state file NÃO existe → OS não instalado
+if [ ! -f "$STATE_FILE" ]; then
+    if [ -d "$PWD/vendor/sinapsis" ] &amp;&amp; grep -q "iAmasters OS" "$PWD/CLAUDE.md"; then
+        cat &lt;&lt;'EOF'
+{"hookSpecificOutput":{"hookEventName":"SessionStart",
+ "additionalContext":"[INSTALL GATE] iAmasters OS detetado mas NÃO instalado..."}}
+EOF
+    fi
+    exit 0
+fi
+
+# Caso 2: state existe → avaliamos
+node &lt;&lt; NODE_EOF
+const s = JSON.parse(fs.readFileSync('$STATE_FILE','utf8'));
+const required = Object.entries(s.phases).filter(([k,v]) =&gt; v.required === true);
+const pending = required.filter(([k,v]) =&gt; v.status !== 'done');
+if (pending.length === 0) process.exit(0);  // Tudo OK, sair silencioso
+// Senão, construir mensagem detalhada com pending/failed/in-progress
+// e fazer process.stdout.write(JSON.stringify({hookSpecificOutput: {...}}))
+NODE_EOF</pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Fallback se node não existe</h3>
+        <p class="text-neutral-300 text-sm">O hook detecta ausência de Node e sai silencioso (<code>exit 0</code>). Racional: se Node não está, o Sinapsis também não funciona — o OS está partido na mesma. Não vale a pena bloquear a sessão por causa do hook quando o sistema em si não vai funcionar.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📊 Comandos /install e /install-status</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Estes dois slash commands são a <strong class="text-emerald-400">única via oficial</strong> para gerir a instalação a partir de dentro do Claude Code. Um orquestra, outro reporta.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">/install — orquestrador</h4>
+          <p class="text-neutral-300 text-sm mb-3">Lê state, identifica próxima fase, executa-a (ou diz-te para correres bash no terminal se for fase técnica).</p>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><strong>Reentrante</strong> — corres as vezes que for preciso</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><code>--resume</code> (default) retoma desde a última pendente</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span><code>--force-reinstall</code> requer confirmação explícita</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">•</span><span>Sabe distinguir fases técnicas (bash) vs conversacionais (Claude Code)</span></li>
+          </ul>
+        </div>
+        <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6">
+          <h4 class="font-bold text-blue-400 mb-4">/install-status — dashboard</h4>
+          <p class="text-neutral-300 text-sm mb-3">Read-only. Mostra o estado sem tocar em nada. Útil quando duvidas se algo está bem.</p>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>NÃO modifica state</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>NÃO executa fases</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Mostra: lista de fases, último erro, próximo passo sugerido</span></li>
+            <li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span>Seguro de correr a qualquer momento</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Output típico de /install-status</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">📦 iAmasters OS · Installation status
+
+✅ prereqs          · done · 2026-05-15 10:00:30
+✅ sinapsis-engine  · done · checksum sha256:9a8b7c6d...
+🟡 context-files    · in-progress · 1/4 files (me.md ✓, work.md ✗, priorities.md ✗, goals.md ✗)
+⏳ operator-state   · pending
+⏳ welcome-completed · pending
+⏭️  deep-dive-completed · deferrable
+
+Próximo passo: executa /install --resume
+
+Última atualização: 2026-05-15 10:08:42
+Pausa por: user (no fim de context-files)</pre>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Fluxo decisional do /install</h4>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">A</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Tudo done</h5>
+            <p class="text-sm text-neutral-300">Diz "já está tudo instalado, não há nada a fazer" e aborta. Sugere <code>/doctor</code> se algo te parecer estranho.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">B</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Fase técnica pendente (prereqs ou sinapsis-engine)</h5>
+            <p class="text-sm text-neutral-300">Diz "executa <code>bash scripts/install.sh --resume</code> no terminal" — não pode correr bash com privilégios suficientes a partir do chat.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">C</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Fase conversacional pendente</h5>
+            <p class="text-sm text-neutral-300">Invoca diretamente: <code>context-files</code>/<code>operator-state</code> → <code>meta-onboarding-wizard</code>. <code>welcome-completed</code> → <code>welcome-quick-win</code>. <code>deep-dive-completed</code> → <code>meta-deep-dive</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <span class="text-emerald-400 font-bold">D</span>
+          </div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Fase failed</h5>
+            <p class="text-sm text-neutral-300">Mostra o último erro de <code>errors[]</code>, propõe fix concreto, e oferece-se para retentar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Se o agente disser "tens a instalação completa" mas tens dúvidas, corre <code>/install-status</code>. É 100% confiável porque lê o ficheiro JSON diretamente. Se o status mostra <code>done</code> em todas as required mas algo continua estranho, então é caso para <code>/doctor</code> (drift detection).</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🩺 /doctor e drift detection</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A skill <code>health-check</code> (invocada por <code>/doctor</code>) é a tua <strong class="text-emerald-400">segunda linha de defesa</strong>. O state pode dizer que está tudo <code>done</code>, mas tu podes ter apagado um ficheiro por engano, mudado uma config, ou um update partiu algo. <code>/doctor</code> faz validação profunda e <strong>compara com o state</strong> para detetar drift.
+      </p>
+
+      <div class="bg-gradient-to-br from-emerald-900/30 to-dark-800 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-4 flex items-center"><span class="mr-2">💡</span> O que é drift</h3>
+        <p class="text-neutral-300 mb-4"><strong>Drift = desalinhamento entre estado declarado e estado real</strong>. Dois casos típicos:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>State diz done, ficheiros faltam</strong> — apagaste <code>context/me.md</code>; <code>/doctor</code> deteta e propõe reverter state para <code>in-progress</code> para o wizard reativar</span></li>
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">•</span><span><strong>State diz pending, ficheiros existem</strong> — atualizaste manualmente; <code>/doctor</code> pode re-validar e marcar done</span></li>
+        </ul>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">10 passos do health-check</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 0</div>
+          <p class="text-sm text-neutral-300">Lê <code>_install-state.json</code> como source of truth. Se não existe → 🔴 instalação não iniciada.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 1</div>
+          <p class="text-sm text-neutral-300">Verificação de ambiente · Node ≥18, Python 3, Git, Claude Code detetado, <code>.env</code> sem sintaxe partida.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 2</div>
+          <p class="text-sm text-neutral-300">Sinapsis profundo · JSONs parseáveis, 5 hooks <code>+x</code>, settings.json com secção hooks.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 3</div>
+          <p class="text-sm text-neutral-300">Brand context · <code>voice-profile.md</code>, samples, registers A/B/C, positioning, ICP &gt;100 chars.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 4</div>
+          <p class="text-sm text-neutral-300">Context sectorizado + drift check · 4 críticos com nome real / negócio / prioridades / objetivos.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 5</div>
+          <p class="text-sm text-neutral-300">23 skills core presentes. Faltantes → 🟡 sugere <code>bash scripts/update.sh</code>.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 6</div>
+          <p class="text-sm text-neutral-300">Settings JSON válido (repo + global), sem permissões perigosas, sem secrets hardcoded.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 7</div>
+          <p class="text-sm text-neutral-300">API keys opcionais · <code>FIRECRAWL_API_KEY</code> em <code>.env</code> com formato correto.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 8</div>
+          <p class="text-sm text-neutral-300">Compilar relatório 🟢🟡🔴 estruturado por categoria com contadores agregados.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <div class="text-emerald-400 font-bold mb-1">Passo 9</div>
+          <p class="text-sm text-neutral-300">Auto-fix limitado · só problemas reversíveis e seguros, com confirmação.</p>
+        </div>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Exemplo de relatório</h4>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed"># 🩺 iAmasters OS · Health Check v0.6
+
+📅 2026-05-17 14:23
+📂 Repo: /home/nei/projetos/iamasters-os
+👤 Operador: Nei
+🎯 Versão OS: v0.6.0
+
+## Resumen
+🟢 OK: 18 componentes
+🟡 AVISO: 2 componentes
+🔴 ERROR: 0 componentes
+
+State machine: 5/5 required phases done · stable
+
+## Detalhe
+
+### Sinapsis (validação profunda)
+🟢 _operator-state.json parseable + campos mínimos
+🟢 _catalog.json parseable
+🟢 5/5 hooks executáveis
+🟢 23 SKILL.md instaladas
+🟢 Install-gate registado em settings.json
+🟢 Sem drift detetado
+
+### Capa OS — Brand Context
+🟡 voice-profile.md vazio
+   → Acção: invoca marketing-brand-voice (10-20 min)
+
+### API keys
+🟡 FIRECRAWL_API_KEY não encontrada
+   → Acção: regista em https://firecrawl.dev (500 créditos grátis)
+
+## Próximas acções (por impacto)
+1. Configura voice-profile.md (skill marketing-brand-voice)
+2. Regista Firecrawl API key (opcional, para auto-scraping de URLs)</pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚨</span> Fix de DRIFT requer confirmação explícita extra</h3>
+        <p class="text-neutral-300 text-sm mb-3">Quando <code>/doctor</code> deteta drift, NÃO mexe sozinho. Pede confirmação literal:</p>
+        <pre class="text-xs text-neutral-400 font-mono bg-dark-900 rounded p-3 overflow-x-auto">🚨 STATE DRIFT detetado na fase "context-files".
+O state diz "done" mas a validação profunda falha.
+
+Quero reverter o state para "in-progress" para que o sistema
+force re-executar a fase. Isto NÃO apaga ficheiros — só muda o flag.
+
+Confirmas? (escreve "sim, reverter")</pre>
+        <p class="text-neutral-300 text-sm mt-3">Se respondes qualquer coisa diferente de <code>"sim, reverter"</code>, NÃO toca em nada. Segurança first.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · quando correr /doctor</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Após cada <code>update.sh</code></strong> — para confirmar que a atualização não partiu nada</li>
+          <li><strong>Quando algo "soa estranho"</strong> sem saberes o quê — output esquisito, skill que não ativa</li>
+          <li><strong>Antes de criar cliente novo</strong> — para evitar arrancar um cliente sobre um sistema partido</li>
+          <li><strong>1 vez por mês</strong> como rotina sanitária — apanha drift acumulado</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-emerald-900/40 via-dark-800 to-dark-800 rounded-xl border border-emerald-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">✅</span> Resumo do Módulo
+        </h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">4 prerequisitos críticos</strong><span class="text-neutral-400"> — Git, Node ≥18, Python 3.9+ (opc.), Claude Code</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">install.sh em 6 fases</strong><span class="text-neutral-400"> — 3 bash + 3 conversacionais · idempotente e reentrante</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">_install-state.json é fonte da verdade</strong><span class="text-neutral-400"> — 6 fases, 5 estados, validação externa ao modelo</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">Install Gate hook força enforcement estrutural</strong><span class="text-neutral-400"> — injeta state ao modelo antes de cada sessão</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">/install orquestra · /install-status reporta</strong><span class="text-neutral-400"> — única via oficial desde dentro do Claude Code</span></div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-emerald-400 mt-1">✓</span>
+            <div><strong class="text-white">/doctor deteta drift</strong><span class="text-neutral-400"> — segunda linha de defesa contra desalinhamentos disco↔state</span></div>
+          </div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-emerald-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">1.3 — Brand Context: voice profile com 3 registos A/B/C, ICP, positioning. A peça que faz os outputs soarem a TI, não a IA genérica.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            ← Voltar para Trilha 1
+          </a>
+          <a href="modulo-1-3.html" class="flex-1 text-center px-6 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-500 transition-colors">
+            Módulo 1.3 →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a> · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
