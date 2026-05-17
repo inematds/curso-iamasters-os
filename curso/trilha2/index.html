@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trilha 2 — Skills Curadas | Curso iAmasters OS</title>
+  <title>Trilha 2 — Instalação | Curso iAmasters OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,7 +25,6 @@
     .topic-explanation { display: none; }
     .topic-explanation.active { display: block; }
 
-    /* Light mode - base */
     html:not(.dark) body { background-color: #f8fafc; }
     html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
     html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
@@ -50,14 +49,21 @@
     html:not(.dark) .hover\:border-blue-500\/30:hover { border-color: rgba(37,99,235,0.25); }
     html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
+    html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .bg-blue-900\/40 { background-color: rgba(37,99,235,0.10); }
 
-    /* Light mode - hover emerald/purple para trilhas inativas no nav */
+    /* Light mode - hover cores trilhas inativas no nav */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-amber-700:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(146,64,14,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-700:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(159,18,57,0.08); }
 
-    /* Light mode - remove gradientes + cores especiais */
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
@@ -67,7 +73,6 @@
     html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
     html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
 
-    /* Light mode - nav */
     html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
   </style>
 </head>
@@ -85,18 +90,12 @@
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Skills</span>
-          </a>
-          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Operação</span>
-          </a>
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-700 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-700 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
@@ -108,67 +107,43 @@
 
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">
-        TRILHA 2
-      </span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧰 Skills Curadas</h1>
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">TRILHA 2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚙️ Instalação</h1>
       <p class="text-lg text-neutral-400 max-w-3xl">
-        O catálogo do que o OS sabe fazer. Skills de meta (rituais), marketing (voice, copy, ICP, distribuição) e tools (humanizer, verifier, scraper, visual). Aprende como cada uma se ativa, como se compõem, e quando NÃO usar nenhuma.
+        Install.sh em 6 passos, state machine persistente, install gate como hook SessionStart e <code>/doctor</code> para drift detection. À prova de "instalação fantasma".
       </p>
 
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
-          <div class="text-xl font-bold text-blue-400">3</div>
-          <div class="text-xs text-neutral-400">Módulos</div>
-        </div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
-          <div class="text-xl font-bold text-blue-400">18</div>
-          <div class="text-xs text-neutral-400">Tópicos</div>
-        </div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
-          <div class="text-xl font-bold text-blue-400">~3h</div>
-          <div class="text-xs text-neutral-400">Duração</div>
-        </div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
-          <div class="text-xl font-bold text-blue-400">Intermédio</div>
-          <div class="text-xs text-neutral-400">Nível</div>
-        </div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">2</div><div class="text-xs text-neutral-400">Módulos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">12</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~1h40</div><div class="text-xs text-neutral-400">Duração</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Nível</div></div>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- NAVEGAÇÃO RÁPIDA -->
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
         <a href="#modulo-2-1" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-5 transition-all">
           <div class="flex items-center justify-between mb-2">
             <span class="text-blue-400 font-bold text-sm">2.1</span>
-            <span class="text-xs text-neutral-500">~60 min</span>
+            <span class="text-xs text-neutral-500">~50 min</span>
           </div>
-          <h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">🪄 Meta skills</h3>
-          <p class="text-xs text-neutral-400">Wizard, deep-dive, rituais diários, decisions-log, six-hats</p>
+          <h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">🔧 Install.sh em 6 passos</h3>
+          <p class="text-xs text-neutral-400">Deteção Python multi-plataforma, idempotência, --resume, --force-reinstall</p>
         </a>
 
         <a href="#modulo-2-2" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-5 transition-all">
           <div class="flex items-center justify-between mb-2">
             <span class="text-blue-400 font-bold text-sm">2.2</span>
-            <span class="text-xs text-neutral-500">~60 min</span>
+            <span class="text-xs text-neutral-500">~50 min</span>
           </div>
-          <h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">✍️ Marketing skills</h3>
-          <p class="text-xs text-neutral-400">Copy, repurposing, email sequences, positioning, ICP</p>
-        </a>
-
-        <a href="#modulo-2-3" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-5 transition-all">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-blue-400 font-bold text-sm">2.3</span>
-            <span class="text-xs text-neutral-500">~60 min</span>
-          </div>
-          <h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">🛠️ Tools e Visualização</h3>
-          <p class="text-xs text-neutral-400">Humanizer, verifier, firecrawl, visual-explainer, camada 2</p>
+          <h3 class="font-semibold mb-1 group-hover:text-blue-400 transition-colors">⛔ Install Gate + State Machine + /doctor</h3>
+          <p class="text-xs text-neutral-400">Hook SessionStart, 6 fases, validação profunda, drift detection</p>
         </a>
 
       </div>
@@ -183,10 +158,10 @@
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-blue-400 font-bold">2.1</span>
-          <span class="text-xs text-neutral-500">~60 min</span>
+          <span class="text-xs text-neutral-500">~50 min</span>
         </div>
-        <h3 class="text-2xl font-bold mb-2">🪄 Meta skills</h3>
-        <p class="text-neutral-400 text-sm">As skills que configuram, mantêm e estruturam o teu pensamento. Onboarding express, deep-dive profundo, rituais de início/fecho, diário de decisões e os 6 chapéus.</p>
+        <h3 class="text-2xl font-bold mb-2">🔧 Install.sh em 6 passos</h3>
+        <p class="text-neutral-400 text-sm">Anatomia do installer: 6 passos, idempotência, modos resume/force, output estruturado.</p>
       </div>
 
       <div class="divide-y divide-dark-600">
@@ -194,26 +169,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
-            <span class="text-lg">🎙️</span>
-            <div>
-              <span class="font-medium">meta-onboarding-wizard</span>
-              <span class="text-neutral-500 text-sm ml-2">- Entrevista express em 4 sub-fases</span>
-            </div>
+            <span class="text-lg">📋</span>
+            <div><span class="font-medium">Os 6 passos do installer</span><span class="text-neutral-500 text-sm ml-2">- Prereqs → Sinapsis → OS → soul.md → gate → settings</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Entrevista conversacional adaptativa que cobre 8 dimensões críticas (identidade, negócio, foco, objetivos) em 10-12 min. v0.6: 4 sub-fases (W1 identidade · W2 negócio · W3 foco · W4 config) com <strong>commits incrementais</strong>. Se abandonas a meio, retoma exato.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É a porta de entrada do OS. Sem ela, o agente não te conhece. E perceber as 4 sub-fases ajuda-te a relançá-la com `/install --resume` sem perderes nada.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Conversa adaptativa vs formulário · commits incrementais · ≥100 chars úteis por ficheiro · retoma idempotente.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">1) Valida prereqs · 2) Instala Sinapsis em ~/.claude · 3) Cria estrutura OS · 4) Cria soul.md/decisions-log · 5) Instala install-gate hook · 6) Regista em settings.json.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para perceberes o que cada passo faz e debug rapidamente se algo trava num deles.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sequência determinística · ~30 segundos total · cada passo escreve no state file antes de avançar.</p></div>
             </div>
           </div>
         </div>
@@ -221,26 +184,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
-            <span class="text-lg">🔬</span>
-            <div>
-              <span class="font-medium">meta-deep-dive</span>
-              <span class="text-neutral-500 text-sm ml-2">- 22-25 dimensões para outputs "teus"</span>
-            </div>
+            <span class="text-lg">🐍</span>
+            <div><span class="font-medium">Deteção Python multi-plataforma</span><span class="text-neutral-500 text-sm ml-2">- macOS, Linux, Windows + caso Microsoft Store</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Segunda fase opcional pós-wizard. 22-25 dimensões em 4 blocos (Pessoa · Negócio · Equipa · Foco). Inclui ritmos, motivadores, palavras proibidas, faturação, ticket médio, top/maus clientes, decisões pendentes, medos.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É o que converte outputs "decentes" em outputs que parecem TUA voz, não IA genérica. Branching condicional: se trabalhas sozinho, salta o bloco equipa.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Entrevistador profissional vs coach · honestidade vs facto · idempotente · `/deep-dive`.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Script tenta <code>python3</code>, <code>python</code>, <code>py -3</code> consoante OS. Em Windows deteta se executável veio da Microsoft Store (path com WindowsApps) e bloqueia.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para resolveres em segundos o erro mais comum: "Python from Microsoft Store detected — install from python.org".</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">PATH detection · WindowsApps stub · WSL como alternativa · validação versão ≥3.9.</p></div>
             </div>
           </div>
         </div>
@@ -248,26 +199,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <span class="text-lg">☀️</span>
-            <div>
-              <span class="font-medium">meta-start-here</span>
-              <span class="text-neutral-500 text-sm ml-2">- Ritual diário de início</span>
-            </div>
+            <span class="text-lg">🔁</span>
+            <div><span class="font-medium">Idempotência</span><span class="text-neutral-500 text-sm ml-2">- Correr várias vezes não parte nada</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Carrega operator-state, me.md, daily summary de ontem, learnings, projetos abertos. Recapitula o que ficou pendente e propõe tarefa do dia. Invoca-se no primeiro turno ou via `/start-here`.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É a peça que evita "começar do zero" cada manhã. "Ontem deixaste X. Continuas com Y ou mudas?" — esse cumprimento contextual sai daqui.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Carregar continuidade · suggestDeepDive flag · sincronizar skills detetadas · propor próxima ação.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cada passo verifica se já está feito antes de fazer. Reentrante: podes correr <code>install.sh</code> 5x e o resultado é o mesmo da primeira vez.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para não teres medo de re-executar. Falhou a meio? Corre outra vez. Não duplica nada nem sobrescreve dados.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Check before write · [SKIP] em vez de duplicar · sem efeitos colaterais.</p></div>
             </div>
           </div>
         </div>
@@ -275,26 +214,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
-            <span class="text-lg">🌙</span>
-            <div>
-              <span class="font-medium">meta-wrap-up</span>
-              <span class="text-neutral-500 text-sm ml-2">- Fecho + daily summary + commit</span>
-            </div>
+            <span class="text-lg">▶️</span>
+            <div><span class="font-medium">Modo --resume</span><span class="text-neutral-500 text-sm ml-2">- Continuar desde a última fase pendente</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Recap da sessão (feito/meio/aprendido) · sync skills-catalog se houve alterações · update CLAUDE.md registry · append learnings · propõe commit Git se aprovas. Invoca-se com `/wrap-up`.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É o que liga uma sessão à seguinte. Sem wrap-up, o `start-here` de amanhã não tem o que ler. Disciplina: 2 min no fim poupam 15 min no início do dia seguinte.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Daily summary em `synapsis/daily-summaries/` · markers `skills-registry-start/end` · commit conventional opcional.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Default do <code>/install</code>. Lê o state file, identifica próxima fase pendente, executa só essa (e seguintes). Não toca no que já está done.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando uma fase falha (ex: deep-dive interrompido), <code>/install --resume</code> retoma sem reiniciar tudo.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">State-driven · resume from checkpoint · respeita pausedBy.</p></div>
             </div>
           </div>
         </div>
@@ -302,26 +229,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
-            <span class="text-lg">📒</span>
-            <div>
-              <span class="font-medium">decisions-log</span>
-              <span class="text-neutral-500 text-sm ml-2">- Diário append-only que evita contradições</span>
-            </div>
+            <span class="text-lg">💥</span>
+            <div><span class="font-medium">Modo --force-reinstall</span><span class="text-neutral-500 text-sm ml-2">- Backup + arranque limpo</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Formato canónico: data · decisão · raciocínio · contexto · quando reconsiderar. Append-only em `context/decisions-log.md`. O Claude lê-o no início de cada sessão. Inspirado em Luis Pitik / second-brain.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Para parar de te contradizeres. Tu mudas de opinião sem te aperceber; o log força a explicitar "isto está decidido até X acontecer". Track record honesto ao longo do tempo.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Append-only · critério concreto para reconsiderar · invocada por six-hats/positioning quando fecham decisão · "regista esta decisão".</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Faz backup automático em <code>~/.claude.backup-&lt;timestamp&gt;</code>, reinicia state file, e corre install do zero. Requer confirmação explícita.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para casos de corrupção ou quando queres começar do zero limpo sem perder dados anteriores.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Backup automático · confirmação obrigatória · destrutivo mas reversível.</p></div>
             </div>
           </div>
         </div>
@@ -329,26 +244,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
-            <span class="text-lg">🎩</span>
-            <div>
-              <span class="font-medium">welcome-quick-win + six-hats</span>
-              <span class="text-neutral-500 text-sm ml-2">- Primeiro entregável + análise multi-perspetiva</span>
-            </div>
+            <span class="text-lg">📤</span>
+            <div><span class="font-medium">Output estruturado [OK]/[SKIP]/[WARN]/[ERROR]</span><span class="text-neutral-500 text-sm ml-2">- Logs legíveis e parseáveis</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm"><strong>welcome-quick-win</strong>: primeiro entregável em 5 min após o onboarding (URL → análise → 3 hooks LinkedIn + 3 ações + HTML partilhável). <strong>six-hats</strong>: método De Bono para decisões — 6 perspetivas separadas + síntese.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">welcome-quick-win é o momento "wow" de adoção. six-hats é o teu apoio para qualquer decisão grande (lançar produto, fechar contrato, despedir alguém). Modos rápido (5 min) e profundo (15-20 min).</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Quick-win usa firecrawl + visual-explainer · six-hats fecha derivando para decisions-log · sai do bias do chapéu favorito.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cada linha do output tem prefixo: <code>[OK]</code> sucesso · <code>[SKIP]</code> já feito · <code>[WARN]</code> não-crítico · <code>[ERROR]</code> bloqueia.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para scanneares o output e veres rapidamente onde algo correu mal. Erros nunca se confundem com avisos.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">UNIX-friendly logs · cor opcional · timestamp por linha · exit code não-zero em ERROR.</p></div>
             </div>
           </div>
         </div>
@@ -356,12 +259,8 @@
       </div>
 
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
-        <button onclick="openModal('modal-2-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
-          Ver em Modal
-        </button>
-        <a href="modulo-2-1.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
-          Ver Completo
-        </a>
+        <button onclick="openModal('modal-2-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-1.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
       </div>
     </div>
 
@@ -370,10 +269,10 @@
       <div class="p-6 border-b border-dark-600">
         <div class="flex items-center justify-between mb-2">
           <span class="text-blue-400 font-bold">2.2</span>
-          <span class="text-xs text-neutral-500">~60 min</span>
+          <span class="text-xs text-neutral-500">~50 min</span>
         </div>
-        <h3 class="text-2xl font-bold mb-2">✍️ Marketing skills</h3>
-        <p class="text-neutral-400 text-sm">Copy com voice carregada, repurposing 1→N, sequências de email, positioning e ICP. O bloco que transforma o OS num gerador de conteúdo coerente.</p>
+        <h3 class="text-2xl font-bold mb-2">⛔ Install Gate + State Machine + /doctor</h3>
+        <p class="text-neutral-400 text-sm">Anti "instalação fantasma": state machine, hook SessionStart, comandos /install /install-status, /doctor com validação profunda.</p>
       </div>
 
       <div class="divide-y divide-dark-600">
@@ -381,26 +280,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
-            <span class="text-lg">📝</span>
-            <div>
-              <span class="font-medium">marketing-copywriting</span>
-              <span class="text-neutral-500 text-sm ml-2">- A skill estrela com register auto</span>
-            </div>
+            <span class="text-lg">🗄️</span>
+            <div><span class="font-medium">State machine em _install-state.json</span><span class="text-neutral-500 text-sm ml-2">- 6 fases, 5 estados</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Gera copy para uma plataforma específica (LinkedIn, X, email, landing, ad) usando brand-voice e detetando register A/B/C automaticamente. Passa por tool-output-verifier obrigatoriamente. Devolve 1-3 variações.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É o output mais frequente do OS no dia-a-dia. Saber pedir plataforma + purpose + tema poupa-te 2-3 turnos de refinamento.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Register auto-detection por plataforma · variações múltiplas · gate verifier obrigatório · invocável por outras skills.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">JSON em <code>~/.claude/skills/_install-state.json</code> com 6 fases: prereqs, sinapsis-engine, context-files, operator-state, welcome-completed, deep-dive-completed. Cada uma: done/failed/pending/in-progress/skipped.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a fonte da verdade. Tudo o que vês em <code>/install-status</code>, <code>/doctor</code> e o gate vem daqui.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">5 fases required + 1 deferrable · timestamp por transição · pausedBy: "user".</p></div>
             </div>
           </div>
         </div>
@@ -408,26 +295,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
-            <span class="text-lg">♻️</span>
-            <div>
-              <span class="font-medium">marketing-content-repurposing</span>
-              <span class="text-neutral-500 text-sm ml-2">- 1 fonte → 5-8 peças multiplataforma</span>
-            </div>
+            <span class="text-lg">⛔</span>
+            <div><span class="font-medium">Hook SessionStart (_install-gate.sh)</span><span class="text-neutral-500 text-sm ml-2">- Bloqueia respostas</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Converte uma peça fonte (vídeo, podcast, transcript, blog longo) em LinkedIn post + X thread + email newsletter + IG caption + clips ideas + headlines blog. Invoca marketing-copywriting por cada peça.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Multiplica ROI do conteúdo que já criaste. Uma talk de 60 min vira uma semana de distribuição em 15-20 min de trabalho.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Compõe copywriting + verifier · suporta transcripts colados · usa firecrawl para blogs · brand voice respeitada em cada peça.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Script bash+node em <code>~/.claude/skills/_install-gate.sh</code>. Corre antes de cada sessão começar. Lê state, se há fases required pendentes, injeta aviso ao modelo.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a peça que impede "o Claude inventou que instalou". Enforcement estrutural, não confia no modelo.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">SessionStart hook · fail-open (se script crashar, sessão continua) · zero dependências externas.</p></div>
             </div>
           </div>
         </div>
@@ -435,26 +310,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <span class="text-lg">📧</span>
-            <div>
-              <span class="font-medium">marketing-email-sequence</span>
-              <span class="text-neutral-500 text-sm ml-2">- Welcome, nurture, win-back</span>
-            </div>
+            <span class="text-lg">📥</span>
+            <div><span class="font-medium">additionalContext JSON injetado ao modelo</span><span class="text-neutral-500 text-sm ml-2">- Antes da tua mensagem</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Cria sequências multi-email automatizadas: welcome/onboarding, lead nurture, re-engagement, post-purchase, event-based, educational. Define gatilhos, cadência, segmentação e métricas-alvo.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É o asset com maior ROI a médio prazo. Saber decidir tipo de sequência → estrutura → cadência poupa-te lançar drips planos que não convertem.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Lifecycle emails · trigger-based vs schedule-based · cadência por tipo · invoca copywriting por email · diferente de cold-email.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O hook devolve JSON <code>{additionalContext: "..."}</code> que o Claude Code injeta no contexto da sessão. O modelo lê isso antes de qualquer mensagem tua.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para entenderes porque o agente diz "instala primeiro" mesmo quando não pediste nada de instalação.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">SystemContext-like · prioridade sobre user message · API oficial do Claude Code.</p></div>
             </div>
           </div>
         </div>
@@ -462,26 +325,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
-            <span class="text-lg">📐</span>
-            <div>
-              <span class="font-medium">marketing-positioning</span>
-              <span class="text-neutral-500 text-sm ml-2">- Deep dive na skill de posicionamento</span>
-            </div>
+            <span class="text-lg">📊</span>
+            <div><span class="font-medium">Comandos /install e /install-status</span><span class="text-neutral-500 text-sm ml-2">- Orquestrador + dashboard read-only</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Constrói ou refina o posicionamento. Analisa concorrentes com firecrawl, identifica buraco de mercado, propõe 3-5 ângulos. Output em `brand-context/positioning/positioning.md`.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Vista superficial em Trilha 1.3. Aqui aprendes a executar bem: que perguntas fazer ao operador, como ler concorrentes, como apresentar ângulos.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Modo construção vs refinamento · 3-5 ângulos para escolher · vertical-specialist · use-case-specialist · anti-vende-fumos.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm"><code>/install</code> lê state, identifica próxima fase, executa (ou pede para correres bash). <code>/install-status</code> é read-only — mostra dashboard sem tocar em nada.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para destrancar instalações a meio. <code>/install --resume</code> retoma onde ficou, <code>--force-reinstall</code> reinicia (com confirmação).</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Reentrante · fases técnicas (terminal) vs conversacionais (Claude Code).</p></div>
             </div>
           </div>
         </div>
@@ -489,26 +340,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
-            <span class="text-lg">🎯</span>
-            <div>
-              <span class="font-medium">marketing-icp</span>
-              <span class="text-neutral-500 text-sm ml-2">- Deep dive na skill de cliente ideal</span>
-            </div>
+            <span class="text-lg">🩺</span>
+            <div><span class="font-medium">/doctor + validação profunda</span><span class="text-neutral-500 text-sm ml-2">- Não só "ficheiro existe"</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Define ICP em detalhe: dor exata, linguagem que usa, buying triggers, anti-ICP. Combina interview com análise de clientes bons (3-5) e maus (1-3). Output em `brand-context/icp/icp.md`.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Sem ICP claro, copy e ads não segmentam. Aprende a fazer as 6 perguntas certas e a extrair frases de validação reais que vão para os outputs.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Clientes bons vs maus · anti-ICP · customer journey · frases de validação · vai antes de qualquer campanha paid.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Skill <code>health-check</code> (invocada por <code>/doctor</code>) faz validação real: JSON parseable, hooks executáveis, conteúdo &gt;100 chars em ficheiros críticos. Não só <code>test -f</code>.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para diagnosticares falhas subtis. Um ficheiro pode existir mas estar vazio ou corrompido — validação profunda apanha.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">🟢🟡🔴 report · auto-fix com confirmação · cruzamento com state machine.</p></div>
             </div>
           </div>
         </div>
@@ -516,26 +355,14 @@
         <div class="topic-item">
           <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
             <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
-            <span class="text-lg">🔗</span>
-            <div>
-              <span class="font-medium">Padrão de collaboration entre skills</span>
-              <span class="text-neutral-500 text-sm ml-2">- copywriting → verifier → humanizer</span>
-            </div>
+            <span class="text-lg">🌊</span>
+            <div><span class="font-medium">Drift detection</span><span class="text-neutral-500 text-sm ml-2">- State diz done, ficheiros faltam</span></div>
           </button>
           <div class="topic-explanation px-6 pb-4">
             <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">As skills marketing-* não vivem isoladas. Pipeline canónica: marketing-copywriting gera → tool-output-verifier valida (4 checks) → tool-humanizer pontua/reescreve se score &lt;8 → entrega final.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Quando uma skill "falha" muitas vezes a culpa é da composição. Saber o pipeline ajuda-te a debugar e a desativar gates quando o teu uso é interno.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Pipeline-mode vs standalone · gate obrigatório · degradação se um passo falhar · contexto JSON passado entre skills.</p>
-              </div>
+              <div><span class="text-blue-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O <code>/doctor</code> cruza state file com disco. Se state diz "context-files: done" mas <code>context/me.md</code> está vazio, é drift. Reporta e propõe fix.</p></div>
+              <div><span class="text-blue-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Quando algo falha sem deres conta — apagaste um ficheiro, sync entre máquinas correu mal — drift detection apanha.</p></div>
+              <div><span class="text-blue-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">State vs reality · auto-revert (state → pending) · sugestão de comando para corrigir.</p></div>
             </div>
           </div>
         </div>
@@ -543,222 +370,22 @@
       </div>
 
       <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
-        <button onclick="openModal('modal-2-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
-          Ver em Modal
-        </button>
-        <a href="modulo-2-2.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
-          Ver Completo
-        </a>
+        <button onclick="openModal('modal-2-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-2-2.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">Ver Completo</a>
       </div>
     </div>
 
-    <!-- MÓDULO 2.3 -->
-    <div id="modulo-2-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
-      <div class="p-6 border-b border-dark-600">
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-blue-400 font-bold">2.3</span>
-          <span class="text-xs text-neutral-500">~60 min</span>
-        </div>
-        <h3 class="text-2xl font-bold mb-2">🛠️ Tools e Visualização</h3>
-        <p class="text-neutral-400 text-sm">As skills utilitárias que sustentam tudo: humanizer (anti-AI), verifier (gate de qualidade), firecrawl (scraping resiliente), visual-explainer (HTML partilhável). E quando NÃO usar skills.</p>
-      </div>
-
-      <div class="divide-y divide-dark-600">
-
-        <div class="topic-item">
-          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
-            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
-            <span class="text-lg">🤖</span>
-            <div>
-              <span class="font-medium">tool-humanizer</span>
-              <span class="text-neutral-500 text-sm ml-2">- Deteta padrões AI, score 0-10</span>
-            </div>
-          </button>
-          <div class="topic-explanation px-6 pb-4">
-            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Deteta padrões de escrita AI ("delve", "in conclusion", "let me know if...", emoji-bullet pattern) e devolve score 0-10 (10 = humano puro) + reescrita com sugestões. Modos standalone ou pipeline.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Outputs "sospechosamente IA" matam a confiança do leitor. Esta skill é a defesa final. Threshold típico: bloquear se score &lt;7.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">AI-tell patterns · scoring 0-10 · contexto por plataforma · pipeline mode · "humaniza isto".</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="topic-item">
-          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
-            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
-            <span class="text-lg">✅</span>
-            <div>
-              <span class="font-medium">tool-output-verifier</span>
-              <span class="text-neutral-500 text-sm ml-2">- Gate de qualidade com 4 checks</span>
-            </div>
-          </button>
-          <div class="topic-explanation px-6 pb-4">
-            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Quality gate antes de entregar ao cliente. 4 checks: <strong>humanizer score</strong> + <strong>brand voice match</strong> + <strong>length per platform</strong> + <strong>factuality flags</strong>. Devolve score 0-10 com sugestões. Passa ou bloqueia.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É o último guardião. Todas as skills marketing-* o invocam no último passo. Aprender o seu critério permite-te confiar (ou desconfiar) do output.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Last-step gate · 4 dimensões ortogonais · pass/fail com threshold · invocação manual via "verifica isto".</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="topic-item">
-          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
-            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
-            <span class="text-lg">🔥</span>
-            <div>
-              <span class="font-medium">tool-firecrawl-scraper</span>
-              <span class="text-neutral-500 text-sm ml-2">- Scraping resiliente com fallback</span>
-            </div>
-          </button>
-          <div class="topic-explanation px-6 pb-4">
-            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Wrapper de Firecrawl API para scraping sem bot blockers. Lê `FIRECRAWL_API_KEY` do `.env`; se faltar, degrada para WebFetch nativo e avisa. 500 créditos grátis em <a href="https://firecrawl.dev" class="text-sky-400 hover:text-sky-300" target="_blank">firecrawl.dev</a>.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">É a fonte de "dados frescos" do OS. Brand-voice, positioning, competitor-monitor, repurposing, welcome-quick-win — todas o usam.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">API key opcional · degradação graceful · markdown extraction · respeita robots.txt · usado por 5+ skills.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="topic-item">
-          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
-            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
-            <span class="text-lg">🎨</span>
-            <div>
-              <span class="font-medium">tool-visual-explainer</span>
-              <span class="text-neutral-500 text-sm ml-2">- HTML autocontido partilhável</span>
-            </div>
-          </button>
-          <div class="topic-explanation px-6 pb-4">
-            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Gera HTML5 sem dependências externas (mobile-first, paleta sóbria com acento laranja iAmasters) para partilhar análises, comparativos, recaps de projeto, planos. Usado por welcome-quick-win, six-hats, positioning.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Para transformar output denso em algo "WhatsApp-friendly". Diferença entre cliente que lê e cliente que ignora.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Autocontido (1 ficheiro) · paleta iAmasters · mobile-first · NÃO usar para outputs internos &lt;200 palavras.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="topic-item">
-          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
-            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
-            <span class="text-lg">🚫</span>
-            <div>
-              <span class="font-medium">Quando NÃO usar uma skill</span>
-              <span class="text-neutral-500 text-sm ml-2">- Overhead vs valor</span>
-            </div>
-          </button>
-          <div class="topic-explanation px-6 pb-4">
-            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">Critérios anti-overhead: tarefa única &lt;5 min · texto interno que ninguém lê · brainstorming exploratório · pergunta factual rápida. Nestes casos, prompt direto sem skill é melhor.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Skills têm custo (tokens + tempo). Aplicá-las a tudo é como pôr 5 cintos de segurança para descer à esquina. Saber dizer "não" mantém o OS leve.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">Custo de skill (tokens + verifier) · "noise" de descriptions · prompt direto vs invocação · output interno vs entregável.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="topic-item">
-          <button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
-            <span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
-            <span class="text-lg">📦</span>
-            <div>
-              <span class="font-medium">Camada 2 e skills opcionais</span>
-              <span class="text-neutral-500 text-sm ml-2">- /install-skill catalogue</span>
-            </div>
-          </button>
-          <div class="topic-explanation px-6 pb-4">
-            <div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
-              <div>
-                <span class="text-blue-400 font-semibold">O que é:</span>
-                <p class="text-neutral-300 text-sm">A Camada 2 é uma biblioteca on-demand instalável via <code class="bg-dark-900 px-1 rounded">/install-skill &lt;github-url&gt;</code>. Validação local antes de globalizar (anti-inflação). Catálogo em <code class="bg-dark-900 px-1 rounded">docs/skills-recommended.md</code>.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Por que aprender:</span>
-                <p class="text-neutral-300 text-sm">Para expandires o OS sem inchá-lo. Instalas só o que vais usar. Cognito (Luis Pitik), plugins Anthropic (docx/xlsx/pdf/pptx), agências externas.</p>
-              </div>
-              <div>
-                <span class="text-blue-400 font-semibold">Conceitos-chave:</span>
-                <p class="text-neutral-300 text-sm">On-demand · validação prévia · `/install-skill` · skills opcionais em `_optional/` · marketplace Anthropic.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
-        <button onclick="openModal('modal-2-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">
-          Ver em Modal
-        </button>
-        <a href="modulo-2-3.html" class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors">
-          Ver Completo
-        </a>
-      </div>
-    </div>
-
-    <!-- Navegação entre trilhas -->
     <div class="flex flex-col sm:flex-row gap-4 mt-12">
-      <a href="../trilha1/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
-        ← Trilha 1: Fundamentos
-      </a>
-      <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
-        Trilha 3: Operação →
-      </a>
+      <a href="../trilha1/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 1: Conceitos</a>
+      <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Trilha 3: Brand →</a>
     </div>
 
   </main>
 
-  <!-- MODAIS -->
   <div id="modal-2-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
     <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
       <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
-        <div class="flex items-center space-x-3">
-          <span class="text-blue-400 font-bold">2.1</span>
-          <span class="font-semibold">Meta skills</span>
-        </div>
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.1</span><span class="font-semibold">Install.sh em 6 passos</span></div>
         <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
       <iframe src="modulo-2-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
@@ -767,25 +394,10 @@
   <div id="modal-2-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
     <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
       <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
-        <div class="flex items-center space-x-3">
-          <span class="text-blue-400 font-bold">2.2</span>
-          <span class="font-semibold">Marketing skills</span>
-        </div>
+        <div class="flex items-center space-x-3"><span class="text-blue-400 font-bold">2.2</span><span class="font-semibold">Install Gate + State Machine + /doctor</span></div>
         <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
       </div>
       <iframe src="modulo-2-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
-    </div>
-  </div>
-  <div id="modal-2-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
-    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
-      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
-        <div class="flex items-center space-x-3">
-          <span class="text-blue-400 font-bold">2.3</span>
-          <span class="font-semibold">Tools e Visualização</span>
-        </div>
-        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
-      </div>
-      <iframe src="modulo-2-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
     </div>
   </div>
 
@@ -808,10 +420,7 @@
 
     function openModal(modalId) {
       const modal = document.getElementById(modalId);
-      if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      }
+      if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
     }
     function closeModal() {
       document.querySelectorAll('.modal').forEach(modal => modal.classList.add('hidden'));

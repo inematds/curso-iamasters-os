@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.3 Tools + Visualização | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217,119,6,0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217,119,6,0.25); }
+    html:not(.dark) .bg-amber-900\/20 { background-color: rgba(217,119,6,0.06); }
+    html:not(.dark) .bg-amber-900\/30 { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .bg-amber-900\/40 { background-color: rgba(217,119,6,0.10); }
+    html:not(.dark) .bg-amber-600 { background-color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500:hover { background-color: #b45309; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .bg-teal-600 { background-color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500:hover { background-color: #14b8a6; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Trilha 4</a>
+      <span>/</span>
+      <span class="text-amber-400">Módulo 4.3</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🛠️ Tools + Visualização</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">As skills utilitárias que sustentam tudo: humanizer, verifier, firecrawl, visual-explainer. Plus: threshold por plataforma e patterns de skill collaboration.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~60</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Intermédio</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🤖 tool-humanizer (50+ AI tells documentados, scoring 0-10)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Deteta padrões de escrita IA num texto e devolve <strong class="text-amber-400">score 0-10</strong> (10 = humano puro) + reescrita com sugestões. É a defesa final contra outputs "suspeitosamente IA".
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">AI-tell patterns que deteta (50+ documentados)</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div class="bg-red-900/20 rounded p-3 border border-red-500/30"><strong class="text-red-400">Vocabulário-sinal</strong><p class="text-neutral-400 text-xs mt-1">delve, leverage, in conclusion, navigate, unlock, embark, tapestry, realm, foster</p></div>
+          <div class="bg-red-900/20 rounded p-3 border border-red-500/30"><strong class="text-red-400">Frases-template</strong><p class="text-neutral-400 text-xs mt-1">"Let me know if...", "I hope this helps", "It's important to note that"</p></div>
+          <div class="bg-red-900/20 rounded p-3 border border-red-500/30"><strong class="text-red-400">Estrutura</strong><p class="text-neutral-400 text-xs mt-1">Bullet point com emoji a abrir cada um, headers + sub-bullets simétricos</p></div>
+          <div class="bg-red-900/20 rounded p-3 border border-red-500/30"><strong class="text-red-400">Hedging excessivo</strong><p class="text-neutral-400 text-xs mt-1">"may potentially", "could possibly", excesso de "I think"</p></div>
+          <div class="bg-red-900/20 rounded p-3 border border-red-500/30"><strong class="text-red-400">Listas tripletas</strong><p class="text-neutral-400 text-xs mt-1">"X, Y, and Z" repetido 3+ vezes consecutivas em parágrafos curtos</p></div>
+          <div class="bg-red-900/20 rounded p-3 border border-red-500/30"><strong class="text-red-400">Transições mecânicas</strong><p class="text-neutral-400 text-xs mt-1">"Moreover", "Furthermore", "Additionally" 3+ vezes no mesmo texto</p></div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">📊</span> Modos de uso</h3>
+        <ul class="space-y-3 text-neutral-300 text-sm">
+          <li><strong class="text-amber-400">Standalone</strong>: colas texto, dizes "humaniza isto" ou "tira o tom AI". Devolve score + reescrita comentada.</li>
+          <li><strong class="text-amber-400">Pipeline</strong>: invocada por outra skill com JSON <code>{text, context}</code>. Devolve JSON estruturado para gate decision.</li>
+          <li><strong class="text-amber-400">Dentro do verifier</strong>: tool-output-verifier inclui-a como um dos seus 4 checks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">✅ tool-output-verifier (gate 4 checks obrigatório)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-amber-400">último guardião antes de entregar</strong>. Todas as skills marketing-* o invocam no último passo. 4 dimensões ortogonais, score 0-10 final, pass/fail.
+      </p>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Humanizer score</h4>
+            <p class="text-neutral-300 text-sm">Delega em <code>tool-humanizer</code>. Score 0-10 sobre padrões AI. Peso típico no agregado: 30%.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Brand voice match</h4>
+            <p class="text-neutral-300 text-sm">Lê <code>brand-context/voice/voice-profile.md</code> + register esperado. Compara vocabulário, ritmo, formalidade. Peso: 30%.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Length per platform</h4>
+            <p class="text-neutral-300 text-sm">LinkedIn 300-800w · X 280 chars · email 150-700w · landing section 50-200w. Fora do range → flag. Peso: 20%.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Factuality flags</h4>
+            <p class="text-neutral-300 text-sm">Deteta números, datas, nomes próprios, claims auditáveis. Não verifica — sinaliza para tu confirmares. Peso: 20%.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Exemplo de output JSON</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">{
+  "verdict": "pass-with-warnings",
+  "score": 7.6,
+  "checks": {
+    "humanizer": 8,
+    "voice_match": 7,
+    "length": 9,
+    "factuality_flags": ["3 claims auditáveis", "1 número não-cited"]
+  },
+  "suggestions": [
+    "Voice: muito uso de &#39;importante notar&#39; — não é do teu registo B",
+    "Confirmar: &#39;crescemos 40% YoY&#39; (de onde sai este número?)"
+  ]
+}</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🚪</span> Pass / fail criteria</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>pass</strong>: score &gt;=8 e zero flags críticas</li>
+          <li><strong>pass-with-warnings</strong>: score 6-7.99 ou flags não-críticas (entrega mas avisa)</li>
+          <li><strong>fail</strong>: score &lt;6 ou flag crítica (factuality em número específico) → volta para refinamento</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔥 tool-firecrawl-scraper (wrapper com fallback graceful)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Wrapper de Firecrawl API para scraping sem bot blockers. Lê <code>FIRECRAWL_API_KEY</code> do <code>.env</code>; se faltar, <strong class="text-amber-400">degrada para WebFetch nativo</strong> e avisa. É a fonte de "dados frescos" do OS.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Process em 3 passos</h4>
+        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong class="text-amber-400">Verificar API key</strong> — lê <code>.env</code>. Se existe, usa <code>https://api.firecrawl.dev/v1/scrape</code>. Se não, degrada para WebFetch built-in e avisa.</li>
+          <li><strong class="text-amber-400">Validar input</strong> — URL válido, scheme http/https, sem auth requerido. Rejeita ficheiros locais.</li>
+          <li><strong class="text-amber-400">Extrair markdown</strong> — Firecrawl devolve markdown limpo (sem ads, sem nav, sem footer). Cache local de 24h para evitar reqs duplicados.</li>
+        </ol>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Skills que dependem dele</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span><code>marketing-brand-voice</code> — extrai voice samples de web/LinkedIn</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span><code>marketing-positioning</code> — analisa concorrentes</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span><code>marketing-content-repurposing</code> — lê blog posts longos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span><code>welcome-quick-win</code> — extrai conteúdo do URL público do operador</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400">→</span><span><code>strategy-web-research</code> — múltiplos URLs em paralelo</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💸</span> 500 créditos grátis</h3>
+        <p class="text-neutral-300 text-sm">Regista-te em <a href="https://firecrawl.dev" target="_blank" class="text-sky-400 hover:text-sky-300">firecrawl.dev</a> (500 créditos grátis, ~500 páginas). Adiciona <code>FIRECRAWL_API_KEY=fc-xxx</code> em <code>.env</code> do repo. Para uso pesado: $19/mês cobre 3.000 páginas.</p>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Degradação graceful</h3>
+        <p class="text-neutral-300 text-sm">Se a API key falta, a skill <strong>não bloqueia</strong> — tenta WebFetch nativo. Mas avisa: <em>"Sem Firecrawl API key. Algumas webs com bot-blockers (LinkedIn, sites com Cloudflare agressivo) vão falhar. Considera ativar."</em></p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🎨 tool-visual-explainer (HTML autocontido para WhatsApp)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Gera <strong class="text-amber-400">HTML5 autocontido</strong> (1 ficheiro, sem dependências externas, mobile-first) para partilhar análises, comparativos, recaps. Paleta sóbria com acento laranja iAmasters. Pequeno o suficiente para caber em DM, WhatsApp, email attach.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Quando usar</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Outras skills fecham com análise para partilhar</li>
+            <li>"Faz-me HTML disto", "põe bonito"</li>
+            <li>Apresentar a cliente, sócio, conselheiro</li>
+            <li>Tabelas longas (4+ linhas, 3+ colunas)</li>
+            <li>Quick-win, six-hats output, positioning</li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Quando NÃO usar</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Outputs internos (só o Claude lê)</li>
+            <li>Já estás em ferramenta visual (Notion, Figma)</li>
+            <li>Output &lt;200 palavras (markdown chega)</li>
+            <li>Conteúdo dinâmico que muda diariamente</li>
+            <li>Quando o cliente quer texto plano para copiar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Características técnicas</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>1 ficheiro HTML</strong> com CSS + JS inline (sem CDN exceto Tailwind opcional)</li>
+          <li><strong>Mobile-first</strong> — funciona em ecrã 360px</li>
+          <li><strong>Paleta</strong>: dark mode default (slate 900), acento laranja iAmasters (#FACC15), toggle light/dark</li>
+          <li><strong>Tipografia</strong>: Inter via Google Fonts (única dependência externa)</li>
+          <li><strong>Tamanho típico</strong>: 30-80 KB. Cabe em DM, WhatsApp, email attach.</li>
+          <li><strong>Acessibilidade</strong>: contraste AA mínimo, headers hierárquicos, labels em forms</li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📤</span> Output path</h3>
+        <p class="text-neutral-300 text-sm">Salva em <code>projects/visual/YYYY-MM-DD-titulo-curto/index.html</code>. Operador depois copia para onde quiser (Drive, Notion attach, S3, GitHub Pages).</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">🎚️ Threshold por plataforma (humanizer ≥8 email, ≥7 LinkedIn, ≥6 WhatsApp)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Não há um threshold único para humanizer. Cada plataforma tem <strong class="text-amber-400">tolerância diferente</strong> a padrões IA. Email cold a desconhecido exige score &gt;=8; WhatsApp a amigo aguenta 6. Calibrar isto evita gates desnecessários (bloquear "demasiado" em casos onde não importa).
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">Plataforma</th>
+              <th class="text-left p-4 font-semibold">Threshold</th>
+              <th class="text-left p-4 font-semibold">Porquê</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4"><strong>Email cold (B2B)</strong></td><td class="p-4 text-amber-400 font-bold">≥8</td><td class="p-4 text-neutral-400">Receptor crítico, deteta IA imediatamente</td></tr>
+            <tr><td class="p-4"><strong>Email premium (C-level)</strong></td><td class="p-4 text-amber-400 font-bold">≥9</td><td class="p-4 text-neutral-400">Zero tolerância a fluff</td></tr>
+            <tr><td class="p-4"><strong>Proposta comercial</strong></td><td class="p-4 text-amber-400 font-bold">≥8</td><td class="p-4 text-neutral-400">Investimento alto, escrutínio alto</td></tr>
+            <tr><td class="p-4"><strong>LinkedIn post</strong></td><td class="p-4 text-amber-400 font-bold">≥7</td><td class="p-4 text-neutral-400">Audiência alguma tolerância, mas tells visíveis</td></tr>
+            <tr><td class="p-4"><strong>Blog post</strong></td><td class="p-4 text-amber-400 font-bold">≥7</td><td class="p-4 text-neutral-400">Leitor escolheu ler, mais paciente</td></tr>
+            <tr><td class="p-4"><strong>Newsletter</strong></td><td class="p-4 text-amber-400 font-bold">≥7</td><td class="p-4 text-neutral-400">Subscritor já confia, mas baixa atenção</td></tr>
+            <tr><td class="p-4"><strong>X thread</strong></td><td class="p-4 text-amber-400 font-bold">≥7</td><td class="p-4 text-neutral-400">Plataforma sensível a tells</td></tr>
+            <tr><td class="p-4"><strong>WhatsApp / DM</strong></td><td class="p-4 text-amber-400 font-bold">≥6</td><td class="p-4 text-neutral-400">Conversação informal aguenta fricção</td></tr>
+            <tr><td class="p-4"><strong>Resposta comentário</strong></td><td class="p-4 text-amber-400 font-bold">≥6</td><td class="p-4 text-neutral-400">Espera-se rapidez, não polimento</td></tr>
+            <tr><td class="p-4"><strong>Notas internas</strong></td><td class="p-4 text-amber-400 font-bold">N/A</td><td class="p-4 text-neutral-400">Sem leitor externo, gate desativado</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Threshold uniforme produz dois problemas: (1) bloqueia outputs WhatsApp por "demasiado AI" quando ninguém vai reparar, (2) deixa passar emails frios com score 7 que vão para o spam mental imediatamente. <strong>Calibragem por plataforma</strong> reflete o custo real de falso positivo vs falso negativo em cada canal.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · ajusta ao teu ICP</h3>
+        <p class="text-neutral-300 text-sm">Os thresholds acima são padrão geral. Se o teu ICP são desenvolvedores ou marketers (alta sensibilidade a IA), sobe todos 1 ponto. Se o teu ICP são executivos não-técnicos, podes descer 1 em LinkedIn/blog. Documenta a tua calibração específica em <code>brand-context/voice/audit-prompt.md</code>.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🔗 Patterns de skill collaboration entre tools</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As 4 tools cobertas neste módulo <strong class="text-amber-400">compõem-se</strong> em padrões repetidos. Reconhecer os patterns acelera debug e permite-te construir as tuas próprias skills compostas.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Pattern 1 · Gate composto (verifier compõe humanizer)</h4>
+        <p class="text-neutral-300 text-sm mb-3">O verifier não é uma skill autónoma — é um <strong>composer</strong> que orquestra humanizer + voice match + length + factuality. Cada check pode ser invocado isolado, ou todos juntos pelo verifier.</p>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">verifier(text)
+  ├── humanizer(text) → score
+  ├── voice_match(text, register) → score
+  ├── length_check(text, platform) → flag
+  └── factuality_scan(text) → flags[]
+  → aggregate → verdict</pre>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Pattern 2 · Source → Skill → Visual (firecrawl → analysis → explainer)</h4>
+        <p class="text-neutral-300 text-sm mb-3">Para análises partilháveis (positioning competitivo, brand audit, market research), padrão típico: firecrawl extrai dados, skill marketing analisa, visual-explainer empacota.</p>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">URLs[] → firecrawl → markdown[]
+            ↓
+       marketing-positioning analysis
+            ↓
+   tool-visual-explainer → HTML standalone
+            ↓
+       projects/visual/YYYY-MM-DD-titulo/</pre>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Pattern 3 · Fallback graceful (firecrawl → WebFetch → manual)</h4>
+        <p class="text-neutral-300 text-sm mb-3">Para tornar skills resilientes, padrão de degradação: tentar API premium → tentar nativo → pedir input manual. Nunca bloquear o fluxo.</p>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">if FIRECRAWL_API_KEY exists:
+  use firecrawl scrape
+else if URL is fetchable:
+  use built-in WebFetch + warn
+else:
+  ask user to paste content manually</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Pattern 4 · Loop com sanity break</h3>
+        <p class="text-neutral-300 text-sm">Quando humanizer-score &lt;threshold, verifier devolve para refinamento. Mas há um <strong>contador interno</strong>: ao fim de 3 iterações sem chegar ao threshold, devolve o melhor output com aviso ("não consegui chegar a score 8, entrego com 7.4 e estas notas"). Evita loops infinitos.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · debug por JSON</h3>
+        <p class="text-neutral-300 text-sm">Quando algo no pipeline falha, pede ao agente: <em>"mostra-me o JSON passado entre cada skill"</em>. Ele expõe o objeto em cada hop. 90% dos problemas resolvem-se ao ver: voice não carregada (campo <code>voice_loaded: false</code>), platform errada, register não passado.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">tool-humanizer deteta 50+ AI-tell patterns (score 0-10)</strong><span class="text-neutral-400"> — vocabulário-sinal, frases-template, estrutura, hedging</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">tool-output-verifier corre 4 checks ortogonais</strong><span class="text-neutral-400"> — humanizer · voice · length · factuality (pesos 30/30/20/20)</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">tool-firecrawl-scraper degrada gracefully sem API key</strong><span class="text-neutral-400"> — 500 créditos grátis · fallback WebFetch nativo</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">tool-visual-explainer gera HTML autocontido partilhável</strong><span class="text-neutral-400"> — 30-80 KB, mobile-first, cabe em DM</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Threshold humanizer varia por plataforma</strong><span class="text-neutral-400"> — ≥8 email, ≥7 LinkedIn, ≥6 WhatsApp · calibra ao teu ICP</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">4 patterns canónicos de skill collaboration</strong><span class="text-neutral-400"> — gate composto · source-skill-visual · fallback · loop com sanity break</span></div></div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 5 — Multi-cliente: como gerir N clientes em simultâneo com brand-context próprio, templates verticais (freelance-ia, agência, formador, consultor), isolamento e workflows.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="modulo-4-2.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 4.2</a>
+          <a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Trilha 5: Multi-cliente →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

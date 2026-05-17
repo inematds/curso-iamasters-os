@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.1 Meta skills | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Amber (trilha ativa) */
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217,119,6,0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217,119,6,0.25); }
+    html:not(.dark) .bg-amber-900\/20 { background-color: rgba(217,119,6,0.06); }
+    html:not(.dark) .bg-amber-900\/30 { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .bg-amber-900\/40 { background-color: rgba(217,119,6,0.10); }
+    html:not(.dark) .bg-amber-600 { background-color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500:hover { background-color: #b45309; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+    kbd { background: rgba(255,255,255,0.05); padding: 0.1em 0.4em; border-radius: 0.25em; font-size: 0.85em; border: 1px solid rgba(255,255,255,0.1); }
+    html:not(.dark) kbd { background: #f3f4f6; color: #1f2937; border-color: #d1d5db; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-amber-400 bg-amber-500/10"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-amber-400">Início</a>
+      <span>/</span>
+      <a href="index.html" class="hover:text-amber-400">Trilha 4</a>
+      <span>/</span>
+      <span class="text-amber-400">Módulo 4.1</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-amber-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full mb-4">MÓDULO 4.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🪄 Meta skills</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">As skills que configuram, mantêm e estruturam o teu pensamento. Os 6 pilares que fazem o OS conhecer-te e manter coerência sessão após sessão.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">~60</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Intermédio</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-amber-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🎙️ meta-onboarding-wizard (4 sub-fases com commits incrementais)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O <strong class="text-amber-400">wizard inicial</strong> é a porta de entrada do OS. Não é um formulário com 15 campos — é uma <strong>entrevista conversacional adaptativa</strong>. As perguntas são decididas em cada turno pelo agente conforme respondes. Fixo: as 8 dimensões a cobrir e as regras de aprofundamento.
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/30 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal · 4 sub-fases com commits incrementais</h3>
+        <p class="text-neutral-300 mb-4">Mudança da v0.6: a entrevista divide-se em <strong>4 sub-fases</strong> e cada uma <strong>escreve o seu ficheiro e atualiza o state machine antes de avançar</strong>. Se abandonas a meio (cansaste, tens reunião), a próxima sessão retoma <strong>exatamente onde ficaste</strong>.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>W1 · Identidade</strong> → <code>context/me.md</code> (nome, 1 frase pro, localização, idioma)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>W2 · Negócio</strong> → <code>context/work.md</code> (negócio principal, modelo receitas, cliente ideal, stack)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>W3 · Foco</strong> → <code>context/current-priorities.md</code> + <code>goals.md</code> (foco do mês + objetivo 12 meses)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-amber-400 mt-1">•</span><span><strong>W4 · Config</strong> → <code>~/.claude/skills/_operator-state.json</code> (nível, idioma outputs, Firecrawl)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">As 8 dimensões críticas que TEM de capturar</h4>
+        <table class="w-full text-sm">
+          <thead class="text-neutral-400">
+            <tr class="border-b border-dark-600"><th class="text-left p-2">#</th><th class="text-left p-2">Dimensão</th><th class="text-left p-2">Sub-fase</th></tr>
+          </thead>
+          <tbody class="divide-y divide-dark-700 text-neutral-300">
+            <tr><td class="p-2">1-2</td><td class="p-2">Identidade + localização/idioma</td><td class="p-2 text-amber-400">W1</td></tr>
+            <tr><td class="p-2">3</td><td class="p-2">Negócio principal</td><td class="p-2 text-amber-400">W2</td></tr>
+            <tr><td class="p-2">4</td><td class="p-2">Modelo de receitas</td><td class="p-2 text-amber-400">W2</td></tr>
+            <tr><td class="p-2">5</td><td class="p-2">Cliente ideal (1ª passagem)</td><td class="p-2 text-amber-400">W2</td></tr>
+            <tr><td class="p-2">6</td><td class="p-2">Stack diário</td><td class="p-2 text-amber-400">W2</td></tr>
+            <tr><td class="p-2">7</td><td class="p-2">Foco do mês</td><td class="p-2 text-amber-400">W3</td></tr>
+            <tr><td class="p-2">8</td><td class="p-2">Objetivo 12 meses</td><td class="p-2 text-amber-400">W3</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">⏱️</span> Tempo objetivo</h3>
+        <p class="text-neutral-300 text-sm">10-12 minutos total. Se demorar mais, provavelmente fazes follow-up demais. Mínimo de qualidade: <strong>100 caracteres de conteúdo útil</strong> por ficheiro (não placeholders).</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔬 meta-deep-dive (22-25 dimensões em 4 blocos)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O wizard inicial deixa-te <strong>operacional</strong>. O deep-dive deixa-te <strong>específico</strong>. Diferença entre outputs "decentes" e outputs que parecem mesmo teus. Cobre <strong class="text-amber-400">22-25 dimensões residuais</strong> em 4 blocos com branching condicional.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">A</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Pessoa (7 dimensões)</h4>
+            <p class="text-sm text-neutral-400 mb-3">→ <code>context/me.md</code> + <code>soul.md</code></p>
+            <p class="text-neutral-300 text-sm">Horário produtivo · interrupções · contexto vital relevante · motivadores profundos · drenadores · estilo preferido de comunicação com IA · palavras/tons proibidos.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">B</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Negócio (6 dimensões)</h4>
+            <p class="text-sm text-neutral-400 mb-3">→ <code>context/work.md</code></p>
+            <p class="text-neutral-300 text-sm">Saúde financeira (faixa faturação) · margem aproximada · ticket médio · diferencial real · side projects · fricções do modelo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">C</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Equipa (6 dimensões · gate condicional)</h4>
+            <p class="text-sm text-neutral-400 mb-3">→ <code>context/team.md</code></p>
+            <p class="text-neutral-300 text-sm">Tamanho equipa (gate) · papéis e dinâmica · comunicação interna · delegação · clientes top (3-5) · clientes problemáticos. Se trabalhas sozinho, salta blocos internos mas mantém top/maus clientes.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center"><span class="text-amber-400 font-bold">D</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Foco e visão (5-7 dimensões)</h4>
+            <p class="text-sm text-neutral-400 mb-3">→ <code>current-priorities.md</code> + <code>goals.md</code> + <code>decisions-log.md</code></p>
+            <p class="text-neutral-300 text-sm">Decisões pendentes · metas a 3 anos · medos · métricas que segues · definição pessoal de sucesso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🎭</span> Tom: entrevistador profissional</h3>
+        <p class="text-neutral-300 text-sm">Aqui o operador <strong>pode sentir-se exposto</strong> (perguntas sobre faturação, medos, clientes maus). Tom de <strong>entrevistador profissional</strong>, não de coach motivacional. Sem "isso é fantástico!", sem emojis de validação. Pergunta, escuta, anota, próximo.</p>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Como invocar</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Comando explícito
+/deep-dive
+
+# Ou pede em texto livre
+"Quero fazer o deep-dive"
+"Vamos aprofundar o meu perfil"
+
+# meta-start-here sugere-o automaticamente se:
+# - operator-state.deepDiveCompleted === false
+# - passaram &gt;12h desde o wizard inicial</pre>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">☀️ meta-start-here · ritual diário</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada manhã (ou cada nova sessão) o OS faz um <strong class="text-amber-400">ritual de entrada</strong>. Carrega o que precisa de saber, recapitula pendentes, propõe próxima ação. Nunca começas do zero.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">4 passos canónicos</h4>
+        <ol class="space-y-4 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong class="text-amber-400">Detetar estado do repo</strong> — lê <code>~/.claude/skills/_operator-state.json</code>, <code>context/me.md</code>, <code>brand-context/voice/voice-profile.md</code>. Se algo crítico falta, deriva para wizard.</li>
+          <li><strong class="text-amber-400">Carregar continuidade</strong> — daily summary de ontem, última entrada de <code>learnings.md</code>, projetos com <code>status: active</code>.</li>
+          <li><strong class="text-amber-400">Sincronizar skills</strong> — se há <code>.claude/.skills-pending.json</code>, atualiza catalog Sinapsis.</li>
+          <li><strong class="text-amber-400">Cumprimento contextual</strong> — "Ontem deixaste X. Continuas com Y ou mudas?". Curto. Sem fluff.</li>
+        </ol>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Cumprimento bom</h4>
+          <p class="text-neutral-300 text-sm italic">"Ontem fechaste a positioning v2 e ficou pendente escolher o ângulo final entre &#34;vertical-specialist&#34; ou &#34;método próprio&#34;. Decides hoje ou prefieres dormir mais 1 dia?"</p>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Cumprimento mau</h4>
+          <p class="text-neutral-300 text-sm italic">"Olá! Espero que esteja a ter um dia produtivo! Estou aqui para te ajudar com o que precisares. Em que posso assistir hoje?" 🤖</p>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚦</span> suggestDeepDive flag</h3>
+        <p class="text-neutral-300 text-sm">Se passaram &gt;12h desde wizard inicial e <code>deepDiveCompleted: false</code>, start-here marca flag interna e <strong>lembra-te no cumprimento</strong> — não força. "Já se passou um dia desde o setup inicial. Queres aprofundar o teu perfil (15 min)?".</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🌙 meta-wrap-up · fecho do dia</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        O wrap-up é o gémeo do start-here. Sem fecho, o início de amanhã não tem o que ler. <strong class="text-amber-400">2 minutos no fim poupam 15 no início</strong>. Invoca-se com <code>/wrap-up</code> ou quando token usage passa 80% sustentado.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">5 passos canónicos</h4>
+        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>Recap mental</strong>: completado · meio · aprendido.</li>
+          <li><strong>Sync skills</strong>: se <code>.claude/.skills-pending.json</code> existe, atualizar <code>synapsis/skills-catalog.json</code>.</li>
+          <li><strong>Update CLAUDE.md registry</strong>: tabela entre <code>&lt;!-- skills-registry-start --&gt;</code> e <code>end</code>.</li>
+          <li><strong>Append learnings</strong>: se falharam skills, gotcha técnico, escreve para <code>context/learnings.md</code>.</li>
+          <li><strong>Daily summary + commit</strong>: gera <code>synapsis/daily-summaries/YYYY-MM-DD.md</code> com "Did · Pending · For tomorrow". Propõe commit conventional.</li>
+        </ol>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Formato daily summary</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># 2026-05-17
+
+## Did
+- Fechou positioning v2 (ângulo: vertical-specialist agrónomos)
+- 3 posts LinkedIn semana (agendados via marketing-content-repurposing)
+- Decisão: subir ticket médio de 8k para 12k (registado em decisions-log)
+
+## Pending
+- Refinar ICP secundário (consultores agrónomos PME &gt;10 pessoas)
+- Email sequence onboarding novos clientes (welcome 5 emails)
+
+## For tomorrow
+- Começar pelo ICP secundário (1h)
+- Se sobrar tempo, esboçar primeira versão do welcome sequence</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">⚙️</span> Não corre sozinho ao fechar</h3>
+        <p class="text-neutral-300 text-sm">Ao fazer <kbd>Ctrl+C</kbd> ou fechar o terminal, o wrap-up <strong>NÃO se invoca automaticamente</strong>. Tens de pedir <code>/wrap-up</code> explicitamente. É deliberado: melhor perder daily summary do que assumir que o que ficou em meio era "final".</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">📒 decisions-log · diário append-only</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Padrão inspirado em <a href="https://github.com/Luispitik/claude-code-second-brain" target="_blank" class="text-sky-400 hover:text-sky-300">Luispitik/claude-code-second-brain</a>. Cada decisão importante fica num ficheiro append-only que o Claude lê ao início. <strong class="text-amber-400">Anti-contradições</strong> — para o agente e para ti.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Formato canónico</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">## 2026-05-17 · Subir ticket médio para 12k
+
+**Decisão**: a partir de junho, o ticket mínimo para projetos
+novos sobe de 8k para 12k.
+
+**Raciocínio**: nos últimos 6 meses, 80% das fricções (atrasos,
+churn em 30 dias, pedidos de scope-creep) vêm de projetos &lt;10k.
+Ao mesmo tempo, fila de espera tem 4 leads qualificados &gt;15k.
+Custa-me dizer não aos pequenos mas o sinal é claro.
+
+**Contexto**: estou em capacidade de quase 100%, sozinho, sem
+plano de contratar. Subir preço é a forma de filtrar sem perder
+qualidade de entrega.
+
+**Quando reconsiderar**: se ficar com &lt;2 leads/mês durante 3
+meses seguidos, ou se chegar nova pessoa à equipa que liberte
+capacidade.
+
+---</pre>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Critério de "quando reconsiderar" bom</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>"Se chegar a 50k MRR"</li>
+            <li>"Após contratar primeira pessoa"</li>
+            <li>"Em janeiro 2027 (revisão anual)"</li>
+            <li>"Se 3 clientes pedirem o mesmo módulo extra"</li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Critério mau</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>"Se correr mal"</li>
+            <li>"Quando achar que faz sentido"</li>
+            <li>"No futuro"</li>
+            <li>"Quando vier vontade"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🔄</span> Quem invoca a skill</h3>
+        <p class="text-neutral-300 text-sm">Tu (<em>"regista esta decisão"</em>), ou outra skill (<code>six-hats</code>, <code>marketing-positioning</code>) ao fechar com decisão clara, ou <code>/wrap-up</code> ao detetar decisão tomada na sessão e ainda não registada.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🎩 welcome-quick-win + six-hats</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Duas skills muito diferentes mas com algo em comum: <strong class="text-amber-400">são as que entregam o "wow"</strong>. A primeira no momento de adoção (primeiro entregável em 5 min). A segunda em momentos de decisão grande (análise multi-perspetiva).
+      </p>
+
+      <div class="bg-gradient-to-br from-amber-900/40 to-dark-800 rounded-xl border border-amber-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎁</span> welcome-quick-win</h3>
+        <p class="text-neutral-300 text-sm mb-4">O primeiro entregável do OS, em 5 minutos. Invoca-se automaticamente após o wizard (se <code>welcomeCompleted: false</code>) ou à mão com <code>/welcome</code>.</p>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Pede um URL público teu (LinkedIn, web, portfolio)</li>
+          <li>Invoca <code>tool-firecrawl-scraper</code> para extrair conteúdo</li>
+          <li>Analisa posicionamento e gera: <strong>3 hooks LinkedIn</strong> + <strong>plano de 3 ações para a semana</strong></li>
+          <li>Empacota tudo em HTML autocontido via <code>tool-visual-explainer</code></li>
+        </ol>
+        <p class="text-neutral-400 text-xs mt-4">Se firecrawl falhar (sem API key, bot blocker): pede para colar 2-3 parágrafos chave à mão. Sem URL público: pede parágrafo de 3-5 frases sobre o que fazes.</p>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-amber-400 mb-4 flex items-center"><span class="mr-2">🎩</span> six-hats · método De Bono</h3>
+        <p class="text-neutral-300 text-sm mb-4">Para qualquer decisão grande (lançar produto, fechar contrato, despedir alguém), os 6 chapéus <strong>separam modos de pensamento</strong> para que cada um receba atenção completa antes de misturar.</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">⚪</div><div class="text-xs font-semibold text-neutral-300">Branco</div><div class="text-xs text-neutral-500">Dados</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🔴</div><div class="text-xs font-semibold text-neutral-300">Vermelho</div><div class="text-xs text-neutral-500">Intuição</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">⚫</div><div class="text-xs font-semibold text-neutral-300">Preto</div><div class="text-xs text-neutral-500">Riscos</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🟡</div><div class="text-xs font-semibold text-neutral-300">Amarelo</div><div class="text-xs text-neutral-500">Oportunidades</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🟢</div><div class="text-xs font-semibold text-neutral-300">Verde</div><div class="text-xs text-neutral-500">Criatividade</div></div>
+          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🔵</div><div class="text-xs font-semibold text-neutral-300">Azul</div><div class="text-xs text-neutral-500">Processo</div></div>
+        </div>
+
+        <p class="text-neutral-300 text-sm"><strong>Dois modos</strong>: rápido (5 min, ~1500 palavras, o agente escreve os 6 chapéus) ou profundo (15-20 min, percorre cada chapéu contigo). Por defeito: rápido.</p>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🔗</span> Encadeia com decisions-log</h3>
+        <p class="text-neutral-300 text-sm">No fim, six-hats <strong>sempre</strong> propõe registar a decisão tomada via <code>decisions-log</code>. Se aceitas, gera entrada com formato canónico (decisão, raciocínio derivado dos chapéus, contexto, critério para reconsiderar). Tudo amarrado.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-amber-900/40 via-dark-800 to-dark-800 rounded-xl border border-amber-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Wizard inicial em 4 sub-fases com commits incrementais</strong><span class="text-neutral-400"> — 10-12 min, idempotente, abandonável sem perda</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">Deep-dive aprofunda 22-25 dimensões em 4 blocos</strong><span class="text-neutral-400"> — tom de entrevistador, branching condicional na equipa</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">start-here carrega continuidade ao entrar</strong><span class="text-neutral-400"> — "Ontem deixaste X" em vez de "Olá!"</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">wrap-up fecha o dia (daily summary + commit)</strong><span class="text-neutral-400"> — 2 min hoje poupam 15 amanhã</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">decisions-log append-only evita contradições</strong><span class="text-neutral-400"> — formato canónico com "quando reconsiderar"</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-amber-400 mt-1">✓</span><div><strong class="text-white">welcome-quick-win + six-hats entregam "wow"</strong><span class="text-neutral-400"> — primeiro deliverable e análise multi-perspetiva</span></div></div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-amber-400 mb-2">Próximo Módulo:</h3>
+          <p class="text-neutral-300">4.2 — Marketing skills: copywriting com voice carregada, repurposing 1→N, email sequences, padrão de skill collaboration.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 4</a>
+          <a href="modulo-4-2.html" class="flex-1 text-center px-6 py-3 bg-amber-600 text-white rounded-lg font-semibold hover:bg-amber-500 transition-colors">Módulo 4.2 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

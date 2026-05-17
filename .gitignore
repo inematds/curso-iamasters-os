@@ -6,3 +6,6 @@ Thumbs.db
 node_modules/
 *.log
 .backup/
+
+# Backup da v1 (3 trilhas)
+.backup-3-trilhas/

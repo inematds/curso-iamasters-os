@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6.3 Criar skill própria + contribuir | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225,29,72,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225,29,72,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-600 { background-color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500:hover { background-color: #be123c; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(225,29,72,0.06); }
+    html:not(.dark) .bg-rose-900\/30 { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .bg-rose-900\/40 { background-color: rgba(225,29,72,0.10); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-rose-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-rose-400">Trilha 6</a><span>/</span>
+      <span class="text-rose-400">Módulo 6.3</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">MÓDULO 6.3</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">✍️ Criar a tua skill própria + contribuir ao catálogo</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">O template canónico (meta-skill-creator), quando criar vs quando prompt simples, estrutura references/, skill collaboration, quality gate com tool-output-verifier, e processo de PR.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🏗️ meta-skill-creator: o template canónico</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        A skill <code>meta-skill-creator</code> faz <strong class="text-rose-400">scaffolding completo</strong> de uma skill nova seguindo o padrão iAmasters: YAML frontmatter, secções padronizadas, edge cases, gates de qualidade.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Contrato de qualidade de uma skill iAmasters</h4>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li><strong>YAML frontmatter completo</strong> — <code>name</code> kebab-case com prefixo, <code>description</code> 50-500 chars com quando ativar</li>
+          <li><strong>Progressive disclosure</strong> — SKILL.md não tem tudo; <code>references/</code> guarda knowledge extenso</li>
+          <li><strong>Passos numerados e testáveis</strong> — cada passo verificável</li>
+          <li><strong>Skill collaboration explícita</strong> — se invoca outras skills, nomeia quando e porquê</li>
+          <li><strong>Output verifier gate</strong> se gera conteúdo entregável</li>
+          <li><strong>Learnings hook</strong> — no fim regista em <code>context/learnings.md</code></li>
+          <li><strong>Idioma</strong> — SKILL.md em português, code/JSON em inglês</li>
+        </ol>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">SKILL.md de referência (skeleton)</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">---
+name: marketing-cold-email
+description: Gera secuência de cold email para B2B SaaS com brand
+  voice carregada, subject lines testadas, e gate de output-verifier.
+  Ativar quando user pede "email frio para X" ou "secuência outbound".
+---
+
+# marketing-cold-email
+
+## Quando se invoca
+- Quando pedes: "email frio para...", "secuência outbound...", "cold sequence"
+- Quando outra skill (marketing-content-repurposing) precisa de email
+
+## Process
+1. Carrega brand-context/voice/voice-profile.md
+2. Determina registo (B por defeito, A se prospect formal)
+3. Gera 3 emails: F-up 1, F-up 2, breakup
+4. Cada email com: subject A/B, body &lt;120 palavras, CTA único
+5. Invoca tool-output-verifier antes de entregar
+6. Append em context/learnings.md se descobre padrão novo
+
+## Edge cases
+- Sem brand-context → pede setup antes
+- ICP B2C → recusa (skill é B2B-only)
+- ...</pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Estrutura de pastas gerada</h3>
+        <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded-lg p-3 overflow-x-auto leading-relaxed">.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/
+├── SKILL.md                    # Processo principal
+├── references/                 # (opcional) Knowledge separado
+│   ├── examples.md             # 2-3 exemplos reais
+│   ├── checklist.md            # (opcional) QA
+│   └── &lt;outros&gt;.md
+└── scripts/                    # (opcional) Executáveis
+    └── &lt;nome&gt;.py               # ou .sh</pre>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🤔 Quando criar skill (vs prompt simples)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Inflar skills é o erro mais comum. <strong class="text-rose-400">Skills devem capturar padrões validados</strong>, não experiências one-off. Critérios objetivos abaixo.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Criar skill se</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Vais repetir o padrão <strong>3+ vezes</strong> nas próximas semanas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tem <strong>knowledge separável</strong> da execução (templates, checklists, exemplos)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Beneficia de <strong>colaboração com outras skills</strong> (voice, verifier)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Tem <strong>edge cases recorrentes</strong> que vale a pena documentar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Output requer <strong>gate de qualidade</strong> (humanizer, output-verifier)</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Prompt simples (ou slash command) se</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Vais usar 1-2 vezes só (experimentação)</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Não há knowledge separável — só "faz X"</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Fluxo curto (1-2 passos) — slash command em <code>.claude/commands/</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Específico demais (só serve a um cliente) — mete em <code>clients/&lt;X&gt;/.claude/skills/</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Ainda não validaste o padrão funciona consistentemente</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Sintoma claro de "graduar para skill"</h3>
+        <p class="text-neutral-300 text-sm">Quando estás a copiar-colar o mesmo prompt longo de uma sessão para outra, com pequenas adaptações, é momento. A skill captura o padrão estável, tu adaptas só o input específico.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Filosofia "max 30 skills"</h3>
+        <p class="text-neutral-300 text-sm">Com 1000 skills, Claude não sabe qual escolher. Com 30 bem feitas, cada prompt aciona a certa. Cria conscientemente, despromove se não usas em 1 mês.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">📁 Estrutura references/ (knowledge separado)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Progressive disclosure: <strong class="text-rose-400">SKILL.md fica curto</strong> e Claude lê sempre que avalia ativar. References/ só quando precisa executar.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50"><tr>
+            <th class="text-left p-4 font-semibold">Ficheiro</th>
+            <th class="text-left p-4 font-semibold">Conteúdo</th>
+            <th class="text-left p-4 font-semibold">Obrigatório?</th>
+          </tr></thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4"><code>SKILL.md</code></td><td class="p-4 text-neutral-300">YAML + Quando se invoca + Process numerado + Edge cases</td><td class="p-4 text-red-400">Sim</td></tr>
+            <tr><td class="p-4"><code>references/examples.md</code></td><td class="p-4 text-neutral-300">2-3 exemplos reais de uso com input/output</td><td class="p-4 text-primary">Recomendado</td></tr>
+            <tr><td class="p-4"><code>references/checklist.md</code></td><td class="p-4 text-neutral-300">Validações QA antes de entregar</td><td class="p-4 text-neutral-400">Opcional</td></tr>
+            <tr><td class="p-4"><code>references/&lt;domain&gt;.md</code></td><td class="p-4 text-neutral-300">Knowledge extenso (taxonomias, templates, regras)</td><td class="p-4 text-neutral-400">Se aplicável</td></tr>
+            <tr><td class="p-4"><code>scripts/&lt;name&gt;.sh</code></td><td class="p-4 text-neutral-300">Executáveis (validações, conversões)</td><td class="p-4 text-neutral-400">Se precisa código</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Regra: references/ se SKILL.md &gt;2500 chars</h3>
+        <p class="text-neutral-300 text-sm">SKILL.md grande pesa no descobrimento (Claude lê todas em cada sessão). Se cresce além de 2500 chars, move secções longas (exemplos, knowledge, listas) para <code>references/</code>. Mantém SKILL.md como "menu" que aponta lá quando precisa.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que examples.md ajuda muito</h3>
+        <p class="text-neutral-300 text-sm">Claude usa os exemplos para calibrar ativação. 2-3 exemplos reais com input típico → output esperado tornam o matching muito mais preciso. Especialmente útil para skills cujo nome/descrição poderia ser ambíguo.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">🔗 Skill collaboration (uma skill chama outra)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Em vez de criar <strong class="text-rose-400">"skill mamute"</strong> que faz tudo, compõe skills pequenas que se invocam explicitamente. Cada uma faz uma coisa bem.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Exemplo: cadeia de marketing-copywriting</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">user → marketing-copywriting
+         ├→ marketing-brand-voice    (carrega voice + 3 registos)
+         ├→ marketing-icp            (carrega ICP target)
+         ├→ &lt;executa o copy&gt;
+         ├→ tool-humanizer           (remove AI-tells)
+         └→ tool-output-verifier     (gate final)
+              ↓
+            output entregue ao user</pre>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Como nomear skills chamadas</h3>
+        <p class="text-neutral-300 text-sm mb-3">Na secção "Process" ou "Quando se invoca" da SKILL.md, lista explicitamente:</p>
+        <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded-lg p-3 overflow-x-auto">## Process
+1. Carrega contexto via marketing-brand-voice
+2. Se ICP &gt; B2C → invoca marketing-icp para refinar
+3. Gera o copy
+4. Antes de entregar: invoca tool-output-verifier
+5. Se verifier acende vermelho: itera + reinvoca</pre>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Dependências circulares</h3>
+        <p class="text-neutral-300 text-sm">Skill A chama B, B chama A → loop. O validate-skill.sh deteta o caso simples, mas casos transitivos (A → B → C → A) podem passar. Mantém o grafo acíclico.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Output-verifier como gate final</h3>
+        <p class="text-neutral-300 text-sm">Skills que entregam conteúdo ao user devem invocar <code>tool-output-verifier</code> como último passo. Skills internas (que só preparam dados) não precisam.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">✅ Quality gate: tool-output-verifier obrigatório</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <code>tool-output-verifier</code> é o <strong class="text-rose-400">último filtro de qualidade</strong>. Sem ele, entregáveis saem "ok-mas-IA-óbvio" ou desalinhados com a voice. Com ele, pedem revisão menos vezes.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">O que o verifier checa</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span><strong>Brand voice alignment</strong> — confere contra voice-profile.md (formality, directness, warmth, humor)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span><strong>Vocabulário proibido</strong> — palavras na lista de "nunca usar" (leverage, sinergia, etc.)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span><strong>Registo certo</strong> — A/B/C correto para a plataforma</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span><strong>AI-tells</strong> — frases robóticas ("Espero que esteja bem", "Sem mais delongas")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span><strong>Factualidade</strong> — números, datas, nomes coerentes com contexto</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400">•</span><span><strong>Formato</strong> — respeitado o pedido (tamanho, headers, CTAs)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> 3 estados do verifier</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-emerald-400 mt-1">🟢</span><span><strong>Pass</strong>: entrega ao user com 1-line de confirmação</span></li>
+          <li class="flex items-start space-x-2"><span class="text-primary mt-1">🟡</span><span><strong>Warn</strong>: entrega mas avisa o operador dos avisos (decidir se itera)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">🔴</span><span><strong>Fail</strong>: NÃO entrega; volta à skill chamadora para iterar (max 2 retries)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Combinar com tool-humanizer</h3>
+        <p class="text-neutral-300 text-sm"><code>tool-humanizer</code> remove AI-tells antes do verifier. Ordem típica: <code>gera</code> → <code>humanizer</code> → <code>verifier</code> → entrega. Para conteúdo curto (subject line, CTA), pode saltar humanizer.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">🤝 Contribuir ao catálogo</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        As skills mais úteis que criares para ti podem servir <strong class="text-rose-400">100 outros operadores</strong>. O catálogo iAmasters aceita PRs com critérios objetivos e revisão trimestral.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Critérios para uma skill entrar no catálogo</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Validada em produção ≥2 semanas</strong> — não "instalei e parece OK"</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Serve a ≥3 avatares iAmasters</strong> (freelance-ia, agencia-marketing, formador-online, consultoria-b2b)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Output útil sem contexto prévio</strong> do operador específico</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Não depende de integrações privadas</strong> (Skool, ferramentas fechadas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Não contém informação confidencial</strong> (clientes, decisões internas)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-rose-400 mt-1">✓</span><span><strong>Passa validate-skill.sh</strong> sem bloqueantes</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Processo de PR</h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Abre issue ou PR em <a href="https://github.com/inematds/iamasters-os" target="_blank" class="text-sky-400 hover:text-sky-300">inematds/iamasters-os</a></li>
+          <li>Inclui: <strong>link à skill</strong>, <strong>1-2 exemplos de uso real</strong>, <strong>categoria sugerida</strong>, <strong>porque encaixa na Camada 2</strong></li>
+          <li>Maintainer revê — pode pedir ajustes (description, examples, edge cases)</li>
+          <li>As que passam adicionam-se ao catálogo na próxima release trimestral</li>
+          <li>Skills obsoletas saem na mesma revisão — catálogo vive, não cresce indefinidamente</li>
+        </ol>
+      </div>
+
+      <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">✓</span> Devolver é a melhor forma de aprender</h3>
+        <p class="text-neutral-300 text-sm">Escrever uma skill para "ti" é diferente de a escrever para "outros operadores". Quando submetes, és forçado a generalizar, documentar bem, pensar em edge cases que não tinhas no teu setup. <strong>O catálogo melhora-te a ti</strong>, não só o ecossistema.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Antes de PR, instala-a "como externa"</h3>
+        <p class="text-neutral-300 text-sm">Publica a tua skill no teu GitHub público. Pede a 2-3 colegas para a instalarem com <code>/install-skill &lt;url&gt;</code>. Vê se a description ativa nos casos certos, se os passos correm, se a documentação chega. Esse feedback vale mais que o PR direto.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO FINAL DO CURSO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-rose-900/40 via-dark-800 to-dark-800 rounded-xl border border-rose-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="mr-3">🎉</span> Resumo do Módulo · e do Curso
+        </h2>
+
+        <p class="text-neutral-300 mb-6 leading-relaxed">
+          <strong class="text-rose-400">Completaste o curso iAmasters OS.</strong> Sabes o que é o sistema, como o instalar de forma à prova de falhas, como configurá-lo com a tua voz e brand, que skills tens disponíveis, como operar com multi-cliente, e como esticar tudo isto com skills externas, MCPs, e skills tuas próprias.
+        </p>
+
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Deste módulo levas</h3>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">meta-skill-creator com 7 itens de qualidade</strong><span class="text-neutral-400"> — YAML, progressive disclosure, passos testáveis, verifier gate</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Skill vs prompt: 3+ usos + knowledge separável</strong><span class="text-neutral-400"> — filosofia "max 30 skills"</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">references/ se SKILL.md &gt;2500 chars</strong><span class="text-neutral-400"> — progressive disclosure, examples.md ajuda ativação</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Skill collaboration explícita</strong><span class="text-neutral-400"> — compõe pequenas em vez de "mamute"</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">tool-output-verifier obrigatório se entrega</strong><span class="text-neutral-400"> — 3 estados (pass/warn/fail), combina com humanizer</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-rose-400 mt-1">✓</span><div><strong class="text-white">Contribuir: ≥2 semanas, ≥3 avatares, PR em inematds/iamasters-os</strong><span class="text-neutral-400"> — devolver é aprender</span></div></div>
+        </div>
+
+        <h3 class="text-lg font-semibold text-rose-400 mb-4">Do curso completo levas</h3>
+        <div class="space-y-2 mb-8 text-sm">
+          <p class="text-neutral-300">🧠 <strong>T1 — Conceitos</strong> · Arquitetura 3 camadas, problema do Claude vanilla, custo real</p>
+          <p class="text-neutral-300">⚙️ <strong>T2 — Instalação</strong> · Install gate, state machine, validação profunda</p>
+          <p class="text-neutral-300">🎯 <strong>T3 — Brand</strong> · Voice profile, 3 registos, ICP, positioning</p>
+          <p class="text-neutral-300">🛠️ <strong>T4 — Skills</strong> · As 23 skills core e como cada uma se ativa</p>
+          <p class="text-neutral-300">👥 <strong>T5 — Multi-cliente</strong> · 4 templates verticais, workflow diário, separação segura</p>
+          <p class="text-neutral-300">🧩 <strong>T6 — Estender</strong> · install-skill, install-mcp, criar skills, contribuir</p>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-6 mb-8 border border-rose-500/30">
+          <h3 class="font-semibold text-rose-400 mb-3">Próximos passos reais</h3>
+          <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+            <li>Se ainda não instalaste: <code>bash scripts/install.sh</code> no teu repo</li>
+            <li>Se ainda não fizeste deep-dive: <code>/deep-dive</code> (25-30 min)</li>
+            <li>Cria o teu primeiro cliente real: <code>bash scripts/add-client.sh &lt;nome&gt; &lt;vertical&gt;</code></li>
+            <li>Instala os 5 MCPs top + plugin Anthropic skills</li>
+            <li>Detecta um padrão repetido nas próximas 3 sessões e cria a tua primeira skill custom</li>
+            <li>Se a skill funcionar, considera contribuir ao catálogo iAmasters</li>
+          </ol>
+        </div>
+
+        <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-8">
+          <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🦎</span> Comunidade</h3>
+          <p class="text-neutral-300 text-sm mb-3">Issues, propostas, partilha de skills: <a href="https://github.com/inematds/iamasters-os" target="_blank" class="text-sky-400 hover:text-sky-300">github.com/inematds/iamasters-os</a></p>
+          <p class="text-neutral-300 text-sm">Sinapsis upstream (engine de memória): <a href="https://github.com/Luispitik/sinapsis" target="_blank" class="text-sky-400 hover:text-sky-300">github.com/Luispitik/sinapsis</a> · Comunidade INEMA: <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">inema.club</a></p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 6</a>
+          <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">🎉 Completaste o curso · Voltar à landing</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

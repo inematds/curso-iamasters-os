@@ -3,19 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3.1 Multi-cliente | Curso iAmasters OS</title>
+  <title>3.1 Voice profile · 3 registos A/B/C | Curso iAmasters OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#FACC15',
-            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
-          }
-        }
-      }
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -35,34 +28,39 @@
     html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
     html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
 
+    /* Purple (trilha ativa) */
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
     html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
     html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
-    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
-    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
-    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
-    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
     html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.06); }
     html:not(.dark) .bg-purple-900\/30 { background-color: rgba(124,58,237,0.08); }
     html:not(.dark) .bg-purple-900\/40 { background-color: rgba(124,58,237,0.10); }
+    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
 
-    html:not(.dark) .text-emerald-400 { color: #059669; }
-    html:not(.dark) .bg-emerald-500\/30 { background-color: rgba(5,150,105,0.18); }
-    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
-    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    /* Hover cores das outras trilhas no nav */
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
-
-    html:not(.dark) .text-blue-400 { color: #2563eb; }
-    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
-    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
-    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
 
+    /* Cores auxiliares */
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
     html:not(.dark) .text-red-400 { color: #dc2626; }
-    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
     html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
     html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
 
@@ -70,7 +68,6 @@
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
     html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
-    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
     html:not(.dark) .text-sky-400 { color: #0369a1; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
     html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
@@ -96,18 +93,12 @@
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Skills</span>
-          </a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Operação</span>
-          </a>
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
@@ -129,16 +120,14 @@
 
   <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">
-        MÓDULO 3.1
-      </span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">👥 Multi-cliente</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Uma instalação do OS, N clientes em paralelo. Cada um com a sua voice, ICP, positioning, decisions-log. Como criar, isolar e operar sem misturar contextos.</p>
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🗣️ Voice profile · 3 registos A/B/C</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A peça que faz os outputs soarem a TI, não a IA. Três registos calibrados independentemente, spectrum 0-10, e auto-deteção por plataforma. Configura-se uma vez, paga-se em cada output.</p>
 
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~55</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
@@ -150,40 +139,39 @@
     <section id="topico-1" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
-        <h2 class="text-2xl font-bold">🤔 Quando usar (e quando não) multi-cliente</h2>
+        <h2 class="text-2xl font-bold">📂 Anatomia da pasta brand-context/voice/</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Multi-cliente não é "obrigatório". É uma <strong class="text-purple-400">capacidade opcional</strong> do OS. Ativá-lo sem o precisar adiciona fricção; não o ativar quando devias leva a copy errada, mistura de contextos e leaks de info entre clientes.
+        O voice profile vive numa pasta dedicada: <code>brand-context/voice/</code>. <strong class="text-purple-400">8 ficheiros gerados</strong> que juntos formam a tua identidade vocal completa. Privada por defeito (<code>.gitignore</code>), uma instância por repo/cliente.
       </p>
 
       <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Regra de ouro</h3>
-        <p class="text-neutral-300 mb-4">Se trabalhas com <strong>2+ clientes</strong> que têm <strong>voice, ICP e positioning distintos</strong> → multi-cliente. Caso contrário, fica na raiz.</p>
-        <p class="text-neutral-400 text-sm">O setup multi-cliente acrescenta ~30s por sessão (cd, claude, wrap-up). Compensa só quando há separação real para manter.</p>
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Voice profile = o que a tua marca <strong>É</strong> a falar (estático, muda pouco). Diferente de agent context, que muda todas as semanas. A separação é deliberada — a voz da tua marca não pivota mensalmente; as tuas prioridades sim.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Todas as skills <code>marketing-*</code> leem aqui antes de gerar output</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>1 brand-context por repo/cliente — multi-cliente cria 1 por cada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Não comites em repos públicos (a voz é asset)</span></li>
+        </ul>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Ativa multi-cliente se</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>És freelance / agência com 2+ clientes em simultâneo</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Cada cliente tem brand voice distinta da tua</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Queres separação clara de outputs no filesystem</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Geras deliverables que não devem ter pegada tua</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Queres decisions-log independente por cliente</span></li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ NÃO ativar se</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>És single-business (uma marca/produto só)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Os "clientes" são verticais do mesmo produto</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trabalhas só na tua marca pessoal</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Os clientes querem que uses a TUA voice (consultor cara visível)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Estás a começar e tens 1 cliente piloto</span></li>
-          </ul>
-        </div>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
+        <h4 class="font-semibold mb-3">Árvore canónica de voice/</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">brand-context/voice/
+├── voice-profile.md            # Personalidade + spectrum 0-10
+├── samples.md                  # 10-15 frases representativas (ground-truth)
+├── register-a-formal.md        # Quando A · regras · exemplos
+├── register-b-divulgativo.md   # Quando B · regras · exemplos
+├── register-c-cercano.md       # Quando C · regras · exemplos
+├── audit-prompt.md             # Prompt sistema para auditar voz
+├── vocabulary.md               # Palavras-assinatura e anti-vocab
+└── installation.md             # Como instalar em Claude/ChatGPT/etc.</pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Se tens dúvida se algo é brand context ou agent context, pergunta-te: <strong>"isto muda mais que 2 vezes por ano?"</strong>. Se sim, agent context (dinâmico). Se não, brand context (estático). Voice profile = estático. Prioridade do mês = dinâmico.</p>
       </div>
     </section>
 
@@ -191,57 +179,51 @@
     <section id="topico-2" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
-        <h2 class="text-2xl font-bold">🛠️ add-client.sh — criar cliente novo</h2>
+        <h2 class="text-2xl font-bold">📧 Registo A · formal / profissional</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um comando, ~3 segundos, cliente pronto a trabalhar. O script <strong class="text-purple-400">add-client.sh</strong> valida o nome, clona um template, substitui placeholders e gera o CLAUDE.md de overrides.
+        Registo A é o teu <strong class="text-purple-400">modo "C-level"</strong>. Email premium, propostas comerciais, contratos, pitch a investidor, follow-up de uma reunião com diretor financeiro. Volume baixo (~5% do conteúdo), mas alto impacto por unidade.
       </p>
 
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">A é o registo onde a tua credibilidade está mais exposta. Um typo, uma piada mal posta, um emoji a mais — e perdeste a oportunidade. Por isso o ficheiro <code>register-a-formal.md</code> é o mais conservador dos três: regras estritas, vocabulário restrito, exemplos canónicos para o agente nunca improvisar.</p>
+      </div>
+
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">Uso</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">bash scripts/add-client.sh &lt;nome-cliente&gt; [vertical]
-
-# Exemplos
-bash scripts/add-client.sh acme-corp freelance-ia
-bash scripts/add-client.sh widget-shop agencia-marketing
-bash scripts/add-client.sh north-star consultoria-b2b
-bash scripts/add-client.sh nova-coach formador-online
-bash scripts/add-client.sh xpto-startup vacio   # sem template</pre>
+        <h4 class="font-semibold mb-3">Regras típicas do Registo A</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Comprimento de frase</strong>: 15-25 palavras (sem frases curtas estilo Twitter)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Vocabulário</strong>: preciso, sem jargão técnico não-definido, sem coloquialismos</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Emojis</strong>: zero</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Abreviaturas</strong>: zero (escrever "por exemplo", não "ex.")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Tratamento</strong>: você por defeito; tu só se relação já estabelecida</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Cierre formal</strong>: "Cumprimentos", "Com os melhores cumprimentos", "Atentamente"</span></li>
+        </ul>
       </div>
 
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> O que o script faz (por baixo)</h3>
-        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
-          <li>Valida que o nome é <strong>kebab-case puro</strong> (regex <code>^[a-z0-9-]+$</code>) — recusa "Acme Corp"</li>
-          <li>Verifica que <code>clients/&lt;nome&gt;/</code> NÃO existe (não sobrescreve)</li>
-          <li>Cria estrutura: <code>brand-context/{voice,positioning,icp,assets}</code>, <code>context/</code>, <code>projects/briefs/</code></li>
-          <li>Clona ficheiros do template escolhido (voice-profile, positioning, icp, soul, user)</li>
-          <li>Faz <code>sed</code> de <code>{{CLIENT_NAME}}</code> → nome real em todos os .md</li>
-          <li>Gera <code>CLAUDE.md</code> do cliente com header, regras e referências ao brand-context</li>
-          <li>Mostra a árvore criada e o próximo passo: <code>cd clients/&lt;nome&gt; && claude</code></li>
-        </ol>
-      </div>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
-        <h4 class="font-semibold mb-3">Estrutura resultante</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono leading-relaxed">clients/acme-corp/
-├── CLAUDE.md                       # Overrides específicos
-├── brand-context/
-│   ├── voice/voice-profile.md      # Com placeholders do template
-│   ├── positioning/positioning.md
-│   ├── icp/icp.md
-│   └── assets/
-├── context/
-│   ├── soul.md                     # Personalidade ajustada ao vertical
-│   └── user.md                     # Template com campos típicos
-└── projects/
-    └── briefs/</pre>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
-        <p class="text-neutral-300 text-sm">Mesmo com template, os ficheiros vêm com <strong>placeholders <code>{{...}}</code></strong> que tens de preencher (cliente real, site, tom específico). O script avisa-te no fim com a lista exata.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Quando ativar A</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Email a C-level desconhecido</li>
+            <li>Proposta comercial 1ª iteração</li>
+            <li>Contrato, termos legais</li>
+            <li>Pitch a investidor ou board</li>
+            <li>Press release ou comunicado oficial</li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Quando NÃO usar A</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Post LinkedIn (parece postiço)</li>
+            <li>Newsletter (afasta o leitor)</li>
+            <li>Resposta a WhatsApp (alienígena)</li>
+            <li>Brainstorm interno (overhead)</li>
+            <li>Cliente com relação próxima já estabelecida</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -249,44 +231,45 @@ bash scripts/add-client.sh xpto-startup vacio   # sem template</pre>
     <section id="topico-3" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
-        <h2 class="text-2xl font-bold">📦 Os 4 templates verticais</h2>
+        <h2 class="text-2xl font-bold">📣 Registo B · divulgativo (95% do output público)</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada vertical é um <strong class="text-purple-400">ponto de partida com voice, positioning e ICP típicos</strong> do tipo de operação. Economiza 30-60 min de scaffolding por cliente novo.
+        Registo B é o <strong class="text-purple-400">cavalo de batalha</strong>. LinkedIn posts, blog, YouTube descriptions, newsletter, talks, Twitter threads, podcast scripts. <strong>~95% do conteúdo público</strong> sai daqui. É o registo que o agente assume por defeito quando não detecta sinais para A ou C.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-bold text-purple-400 mb-2">👤 freelance-ia</h4>
-          <p class="text-sm text-neutral-400 mb-3">Operador IA solo, 3-10 clientes</p>
-          <p class="text-neutral-300 text-sm mb-3">Voice: profissional mas acessível, formality 6/10, directness 8/10, warmth 7/10. Vocabulário proibido: "leverage", "transformação digital integral", "ecossistema holístico".</p>
-          <p class="text-neutral-400 text-xs">Inclui jargão técnico moderado (LLM, RAG, embeddings — se o cliente é técnico).</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-bold text-purple-400 mb-2">🏢 agencia-marketing</h4>
-          <p class="text-sm text-neutral-400 mb-3">Equipa 2-10, MRR recorrente</p>
-          <p class="text-neutral-300 text-sm mb-3">Voice: criativa, pro, com toque humano. Diferente do freelance — fala como equipa ("nós", não "eu"). Vocabulário mais marketing-aware.</p>
-          <p class="text-neutral-400 text-xs">Cada cliente da agência tem A SUA voice — este template é da AGÊNCIA, não dos clientes dela.</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-bold text-purple-400 mb-2">🎓 formador-online</h4>
-          <p class="text-sm text-neutral-400 mb-3">Cursos/comunidade, marca pessoal</p>
-          <p class="text-neutral-300 text-sm mb-3">Voice: didática, calorosa, com personalidade. Alta frequência. Tem que se sentir um humano específico, não "academia genérica".</p>
-          <p class="text-neutral-400 text-xs">Inclui padrões para LinkedIn, X, YouTube. Adapta-se ao registo da audiência.</p>
-        </div>
-        <div class="bg-dark-800 rounded-xl p-6 border border-dark-600">
-          <h4 class="font-bold text-purple-400 mb-2">💼 consultoria-b2b</h4>
-          <p class="text-sm text-neutral-400 mb-3">High-ticket 30-300K€, formal</p>
-          <p class="text-neutral-300 text-sm mb-3">Voice: formal-autoridade, formality 8-9/10, humor 1-2/10. Decks, frameworks, propostas. Sem casualismos.</p>
-          <p class="text-neutral-400 text-xs">Vocabulário técnico-empresarial. Evita meme-talk, emojis, "uau".</p>
-        </div>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">B vive na tensão "profissional mas humano". Suficientemente sério para credibilizar, suficientemente próximo para alguém ler até ao fim. Se o teu B soa a A → ninguém termina o post. Se soa a C → diretores não te levam a sério. Calibrar B bem é a habilidade de marketing crítica.</p>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Regras típicas do Registo B</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Frases mistas</strong>: 10-20 palavras com algumas curtas para ritmo</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Jargão próprio</strong>: OK (sinaliza expertise), mas explicado se não-óbvio</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Emojis</strong>: 0-2 intencionais (não decorativos)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Números</strong>: apoia-te neles para credibilizar ("40% de churn", "3 meses")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Estrutura típica</strong>: hook → contexto → insight → detalhe → pergunta/CTA</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Voz ativa</strong> &gt; passiva (rejeitar "foi decidido que", preferir "decidimos")</span></li>
+        </ul>
       </div>
 
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Como escolher</h3>
-        <p class="text-neutral-300 text-sm mb-3">Se nenhum template encaixa bem, usa <code>vacio</code> e configura tudo de zero. Mas tenta primeiro o mais próximo — é mais rápido editar do que criar.</p>
-        <p class="text-neutral-300 text-sm">Os templates são <strong>ponto de partida, não destino</strong>. Edita o voice-profile depois da primeira semana real de trabalho com o cliente.</p>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Plataformas que mapeiam para B</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">LinkedIn post</strong><p class="text-neutral-400 text-xs mt-1">300-800 palavras</p></div>
+          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Blog post</strong><p class="text-neutral-400 text-xs mt-1">800-2000 palavras</p></div>
+          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Newsletter</strong><p class="text-neutral-400 text-xs mt-1">400-700 palavras</p></div>
+          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">X thread</strong><p class="text-neutral-400 text-xs mt-1">5-9 tweets, 280 chars cada</p></div>
+          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">YouTube descript.</strong><p class="text-neutral-400 text-xs mt-1">100-300 palavras</p></div>
+          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Talk / podcast</strong><p class="text-neutral-400 text-xs mt-1">Notas estruturadas</p></div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · sinaliza humanidade em B</h3>
+        <p class="text-neutral-300 text-sm">Em B vale incluir 1-2 detalhes pessoais quando relevantes ("ontem numa call com cliente X", "aprendi isto da pior maneira em 2023"). Sinaliza humano. Mas <strong>não force</strong> — se for genuíno emerge; se for postiço cheira a IA de imediato.</p>
       </div>
     </section>
 
@@ -294,59 +277,45 @@ bash scripts/add-client.sh xpto-startup vacio   # sem template</pre>
     <section id="topico-4" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
-        <h2 class="text-2xl font-bold">🧬 Herança CLAUDE.md (raiz + cliente)</h2>
+        <h2 class="text-2xl font-bold">💬 Registo C · próximo / conversacional</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Quando fazes <code>cd clients/acme && claude</code>, o Claude lê <strong class="text-purple-400">dois CLAUDE.md em cascata</strong>: o da raiz (instruções gerais) e o do cliente (overrides específicos). Saber a ordem evita conflitos.
+        Registo C é onde escreves <strong class="text-purple-400">como falas a sério</strong>. WhatsApp, DMs, respostas a comentários, mensagens à equipa, stories captions. Volume ~20%, mas é onde se gera relação real — e onde a "voz IA" se nota mais por contraste.
       </p>
 
-      <div class="space-y-6 mb-6">
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">1</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">CLAUDE.md raiz (do repo)</h4>
-            <p class="text-sm text-neutral-400 mb-3">Regras gerais que se aplicam a TODOS os clientes + ao operador</p>
-            <p class="text-neutral-300 text-sm">Idioma, convenções de pastas, install gate, paths, skills registry. Não tem regras específicas de cliente — só sistema.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">2</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">clients/&lt;X&gt;/CLAUDE.md (do cliente)</h4>
-            <p class="text-sm text-neutral-400 mb-3">Overrides específicos — só ativos quando estás <code>cd</code> no cliente</p>
-            <p class="text-neutral-300 text-sm">Nome do cliente, template base, regras particulares ("nunca usar 'vocês' formal"), skills prioritárias, notas operativas, referências ao brand-context do cliente.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">3</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">brand-context/ + context/ do cliente</h4>
-            <p class="text-sm text-neutral-400 mb-3">Carregados automaticamente pelas skills marketing-*</p>
-            <p class="text-neutral-300 text-sm">Voice profile, ICP, positioning, soul, user — todos do cliente. Skills da raiz (.claude/skills/) continuam disponíveis e operam sobre o brand-context do cliente.</p>
-          </div>
-        </div>
-
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">C é o registo mais difícil de calibrar bem, e o mais óbvio quando está mal. Toda a gente sabe distinguir um WhatsApp humano de um WhatsApp gerado. Por isso o ficheiro <code>register-c-cercano.md</code> recolhe-se quase sempre via simulação (não via artefactos), porque os teus WhatsApps reais não estão em URLs públicos.</p>
       </div>
 
-      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Skills custom por cliente</h3>
-        <p class="text-neutral-300 text-sm mb-2">Se um cliente requer skill que NÃO se aplica a outros, cria em <code>clients/&lt;X&gt;/.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/</code>.</p>
-        <p class="text-neutral-300 text-sm">Essa skill só está disponível quando estás <code>cd</code> nesse cliente. Não polui os outros nem a raiz.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Regras típicas do Registo C</h4>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Frases curtas</strong>: 5-12 palavras, fragmentos OK</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Tom coloquial</strong>: muletas pessoais permitidas ("pá", "olha", "tipo")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Contrações</strong>: permitidas ("tá", "tô", "pra")</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Emojis</strong>: 1-3 OK (sem decorativos a abrir bullets)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Tratamento</strong>: tu sempre, nunca você</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Pontuação</strong>: relaxada (pontos finais opcionais em mensagens curtas)</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">5 simulações canónicas para calibrar C</h4>
+        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
+          <li>"Um amigo escreve às 22h: <em>'pá acabei de ver o teu direto, fiquei em pulgas. diz-me o que faço para começar'</em>. Responde-lhe."</li>
+          <li>"Num grupo de WhatsApp de amigos sai <em>'a IA vai tirar todos os empregos'</em>. Mete a tua opinião em 2-3 mensagens."</li>
+          <li>"Manda nota de voz ao sócio a explicar rápido porque mudaste de opinião sobre um cliente."</li>
+          <li>"Um amigo pergunta se vale a pena montar uma agência de IA agora. Responde o que pensas a sério."</li>
+          <li>"Escreve a alguém que admiras por DM para irem tomar um café. Sem pareceres fanboy."</li>
+        </ol>
+        <p class="text-neutral-400 text-xs mt-4">Responder estas 5 dá material autêntico suficiente para a skill <code>marketing-brand-voice</code> calibrar C.</p>
       </div>
 
       <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sinapsis é global</h3>
-        <p class="text-neutral-300 text-sm">O <code>operator-state.json</code> de Sinapsis é UM, em <code>~/.claude/skills/</code>, partilhado entre todos os clientes. Aplica-se a ti como operador, não ao cliente. É o esperado — tu és o mesmo profissional para todos.</p>
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Anti-padrão · responder idealizado</h3>
+        <p class="text-neutral-300 text-sm">O erro nº1 nas simulações de C: responder "como gostaria de soar" em vez de "como soas a sério um sábado às 23h". Resultado: voice profile que não bate com a tua escrita real, outputs C que parecem postiços. <strong>Responde como o farias mesmo</strong>, não como achas que ficaria bem num pitch.</p>
       </div>
     </section>
 
@@ -354,64 +323,51 @@ bash scripts/add-client.sh xpto-startup vacio   # sem template</pre>
     <section id="topico-5" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
-        <h2 class="text-2xl font-bold">🔄 Workflow diário multi-cliente</h2>
+        <h2 class="text-2xl font-bold">📐 Spectrum 0-10 · 5 dimensões quantificadas</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Um ritual simples que respeita a separação. <strong class="text-purple-400">Sempre <code>cd</code> antes de <code>claude</code></strong>. Sempre <code>/wrap-up</code> antes de mudar de cliente.
+        Cada registo é calibrado em <strong class="text-purple-400">5 eixos numéricos 0-10</strong>. Permite às skills <code>marketing-*</code> validar outputs automaticamente — não basta "soa formal", tem de bater num número específico que tu calibraste.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">Segunda-feira típica · 3 clientes</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Cliente A (freelance-ia)
-cd clients/acme-corp && claude
-&gt; "Cria post LinkedIn sobre case study X"
-  → marketing-copywriting gera com voice de Acme
-&gt; /wrap-up
-exit
-
-# Cliente B (agencia-marketing)
-cd ../widget-shop && claude
-&gt; "Repurpose último vídeo do CEO em 5 peças"
-  → marketing-content-repurposing
-&gt; /wrap-up
-exit
-
-# Cliente C (consultoria-b2b)
-cd ../north-star-consult && claude
-&gt; "Redige proposta comercial para novo lead"
-  → marketing-copywriting com registo A formal
-&gt; /wrap-up
-exit</pre>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50">
+            <tr>
+              <th class="text-left p-4 font-semibold">Dimensão</th>
+              <th class="text-left p-4 font-semibold">0</th>
+              <th class="text-left p-4 font-semibold">10</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4"><strong>Formality</strong></td><td class="p-4 text-neutral-400">muito próximo</td><td class="p-4 text-neutral-400">muito formal</td></tr>
+            <tr><td class="p-4"><strong>Directness</strong></td><td class="p-4 text-neutral-400">rodeios e contexto</td><td class="p-4 text-neutral-400">sem rodeios, à cara</td></tr>
+            <tr><td class="p-4"><strong>Humor</strong></td><td class="p-4 text-neutral-400">sério total</td><td class="p-4 text-neutral-400">muito humor / ironia</td></tr>
+            <tr><td class="p-4"><strong>Authority</strong></td><td class="p-4 text-neutral-400">humilde, em dúvida</td><td class="p-4 text-neutral-400">afirmativo, sem dúvidas</td></tr>
+            <tr><td class="p-4"><strong>Warmth</strong></td><td class="p-4 text-neutral-400">distante, técnico</td><td class="p-4 text-neutral-400">caloroso, próximo</td></tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Best practices</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sempre <code>cd</code> antes de <code>claude</code></span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><code>/wrap-up</code> ao mudar de contexto (daily summary separa-se por cliente)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Brand voice por cliente, não partilhar</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>2 terminais para sessões simultâneas em clientes diferentes</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Backup separado para clientes com info crítica</span></li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Anti-patterns</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trabalhar conteúdo de cliente desde a raiz do repo</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mudar de cliente sem wrap-up (perdes summary)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>1 sessão a saltar entre clientes via cd interno</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Copiar voice profile de um cliente para outro</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esquecer-te de qual cliente estás (verifica com <code>pwd</code>)</span></li>
-          </ul>
-        </div>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Exemplo de calibração por registo</h3>
+        <p class="text-neutral-300 text-sm mb-3">Operador "consultor B2B sénior" típico:</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong class="text-purple-400">Registo A</strong> · Formality 9 · Directness 6 · Humor 1 · Authority 8 · Warmth 4</li>
+          <li><strong class="text-purple-400">Registo B</strong> · Formality 5 · Directness 8 · Humor 4 · Authority 8 · Warmth 6</li>
+          <li><strong class="text-purple-400">Registo C</strong> · Formality 2 · Directness 9 · Humor 6 · Authority 6 · Warmth 8</li>
+        </ul>
+        <p class="text-neutral-400 text-xs mt-4">Notar: Directness e Authority mantêm-se altos em todos (consistência pessoal). Formality e Humor é onde varia mais entre registos.</p>
       </div>
 
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Operador próprio + clientes</h3>
-        <p class="text-neutral-300 text-sm mb-3">Quando trabalhas na <strong>tua marca pessoal</strong> (LinkedIn próprio, blog, marca operador): fica na raiz. Skills marketing-* usam o teu brand-context da raiz.</p>
-        <p class="text-neutral-300 text-sm">Quando trabalhas <strong>com/para um cliente</strong>: <code>cd clients/&lt;X&gt;</code>. Skills usam o brand-context do cliente. Regra: <em>nunca</em> geres conteúdo de cliente desde a raiz.</p>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Como o verifier usa o spectrum</h3>
+        <p class="text-neutral-300 text-sm">Quando <code>tool-output-verifier</code> avalia um post LinkedIn (esperado: Registo B), pontua-o nas 5 dimensões. Se Authority sai 4 quando o teu B esperado é 8, marca como "fora do voice". Devolve sugestão: <em>"texto demasiado hedging. Cortar 'talvez', 'penso que', 'pode ser'."</em></p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · honestidade brutal</h3>
+        <p class="text-neutral-300 text-sm">Tentação: dar Humor 7 porque <em>gostarias</em> de ser engraçado. Realidade: se o teu humor real é 3, calibra 3. Voice profile que descreve quem queres ser produz outputs forçados. Voice profile que descreve quem és produz outputs autênticos. O agente calibra ao que existe, não ao que aspiras.</p>
       </div>
     </section>
 
@@ -419,118 +375,118 @@ exit</pre>
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
-        <h2 class="text-2xl font-bold">🔒 Segurança: separação de info entre clientes</h2>
+        <h2 class="text-2xl font-bold">🤖 marketing-brand-voice v2 · dupla rota</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Por <strong class="text-purple-400">design</strong>, o OS não partilha info entre clientes automaticamente. Mas a disciplina diária é tua — o sistema apenas remove a maioria das oportunidades de erro.
+        Não rediges os 8 ficheiros à mão. A skill <code>marketing-brand-voice</code> v2 tem <strong class="text-purple-400">dupla via</strong>: artefactos reais (URLs scrapados via Firecrawl) ou 15 simulações (5 por registo). Captura voz autêntica mesmo se não tens presença online forte.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
-        <table class="w-full text-sm">
-          <thead class="bg-dark-700/50">
-            <tr>
-              <th class="text-left p-4 font-semibold">Mecanismo</th>
-              <th class="text-left p-4 font-semibold">O que protege</th>
-              <th class="text-left p-4 font-semibold">Limitação</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-dark-600">
-            <tr>
-              <td class="p-4"><code>.gitignore</code> de clients/</td>
-              <td class="p-4 text-neutral-300">Não exporta clientes para git público</td>
-              <td class="p-4 text-neutral-400">Tens que mover para repo privado se quiseres sync</td>
-            </tr>
-            <tr>
-              <td class="p-4">Skills isoladas por <code>cd</code></td>
-              <td class="p-4 text-neutral-300">Skills marketing-* só veem o cliente atual</td>
-              <td class="p-4 text-neutral-400">Falha se ignoras a regra do cd</td>
-            </tr>
-            <tr>
-              <td class="p-4">update.sh skip user-data</td>
-              <td class="p-4 text-neutral-300">Updates do OS nunca tocam em <code>clients/&lt;X&gt;/</code></td>
-              <td class="p-4 text-neutral-400">Templates de <code>_templates/</code> podem mudar — copy é manual</td>
-            </tr>
-            <tr>
-              <td class="p-4">Brand-context separado</td>
-              <td class="p-4 text-neutral-300">Voice/ICP de A não influencia copy de B</td>
-              <td class="p-4 text-neutral-400">Operator-state (Sinapsis) é global — tu és o mesmo</td>
-            </tr>
-            <tr>
-              <td class="p-4">Decisions-log por cliente</td>
-              <td class="p-4 text-neutral-300">Decisões de A não aparecem em sessões de B</td>
-              <td class="p-4 text-neutral-400">Decisões operador-próprio ficam na raiz</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal · dupla via</h3>
+        <p class="text-neutral-300 mb-4">Operadores ativos online dão URLs (LinkedIn, blog, YouTube) → Firecrawl scrapeia → análise extrai padrões. Operadores sem presença online respondem 15 simulações em texto → as respostas espontâneas captam voz tão bem ou melhor que material curado.</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Via artefactos</strong> — para quem tem arquivo público</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Via simulação</strong> — para quem escreve pouco online</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Via híbrida</strong> — diferente por registo (LinkedIn sim → A com artefactos; WhatsApp não dá → C com simulação)</span></li>
+        </ul>
+      </div>
+
+      <h4 class="text-lg font-semibold mb-4">Processo end-to-end · ~15-20 min</h4>
+
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Inputs disponíveis</h5>
+            <p class="text-sm text-neutral-300">Pergunta URLs web/LinkedIn/YouTube/X, documentos próprios, voice profile prévio se existe.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Deteção de via global</h5>
+            <p class="text-sm text-neutral-300">"És ativo nas redes / escreves muito online?" (a) sim (b) não (c) misto. Decide via por registo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Scraping (se há URLs)</h5>
+            <p class="text-sm text-neutral-300">Invoca <code>tool-firecrawl-scraper</code> em modo markdown. Extrai conteúdo + assets para <code>brand-context/assets/</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Captura por registo (15 simulações se aplicável)</h5>
+            <p class="text-sm text-neutral-300">Trabalha um registo de cada vez. Para cada: 5 simulações realistas. Espera resposta antes de avançar.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">6 perguntas calibradoras</h5>
+            <p class="text-sm text-neutral-300">Tom dominante · vocabulário que foges · frases-assinatura · jargão próprio · anti-modelo · modelo a aspirar.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Análise combinada</h5>
+            <p class="text-sm text-neutral-300">Extrai personalidade (3-5 traits), spectrum 0-10, vocabulário, estrutura típica por registo.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">7</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Validação intermédia</h5>
+            <p class="text-sm text-neutral-300">ANTES de gerar ficheiros, devolve análise resumida e pede confirmação. "Faz sentido? Há algo a matizar?"</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">8</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Geração · 8 ficheiros</h5>
+            <p class="text-sm text-neutral-300">voice-profile · samples · register-{a,b,c} · audit-prompt · vocabulary · installation. Tudo em <code>brand-context/voice/</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Firecrawl como auxiliar (opcional)</h3>
+        <p class="text-neutral-300 text-sm mb-3">Firecrawl é uma API de scraping. Plano grátis = 500 créditos (suficiente para 1 brand voice completo). Sem chave, o sistema cai para via simulação automaticamente — não bloqueia.</p>
+        <p class="text-neutral-300 text-sm">Para ativar: regista em <a href="https://firecrawl.dev" target="_blank" class="text-sky-400 hover:text-sky-300">firecrawl.dev</a> · copia a chave (formato <code>fc-...</code>) · cola em <code>.env</code> como <code>FIRECRAWL_API_KEY=fc-...</code>.</p>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Reutilizar info entre clientes</h3>
-        <p class="text-neutral-300 text-sm mb-2">Se queres usar aprendizagens do cliente A para o cliente B:</p>
-        <ol class="space-y-1 text-neutral-300 text-sm list-decimal list-inside ml-2">
-          <li>Faz <strong>manual e consciente</strong> (não acidental)</li>
-          <li>Gera "<strong>case study anonimizado</strong>" como output do cliente A</li>
-          <li>Referencia esse case study no cliente B</li>
-        </ol>
-      </div>
-
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Troubleshooting comum</h3>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li><strong>"O Claude não aplica voice do cliente"</strong> → verifica <code>pwd</code> (estás no cliente?), <code>voice-profile.md</code> está preenchido (sem <code>{{...}}</code>), <code>CLAUDE.md</code> do cliente referencia o path correto.</li>
-          <li><strong>"Skills da raiz não aparecem"</strong> → reinicia Claude Code (Ctrl+C × 2 + claude).</li>
-          <li><strong>"Misturo info acidentalmente"</strong> → sinal de não respeitar <code>cd</code>. Implementa: sair do Claude entre clientes, NÃO abrir 2 sessões na mesma terminal.</li>
-        </ul>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · audit-prompt.md como sentinela</h3>
+        <p class="text-neutral-300 text-sm">A v2 gera <code>audit-prompt.md</code>: um prompt que copias e colas em Claude/ChatGPT para auditar se um texto está na tua voz. Quando algum output te soa esquisito mas não sabes porquê, passa-o pelo audit-prompt — dá pontuação T/E/V/S (Tom/Estrutura/Vocabulário/Spectrum) e marca o que está mal.</p>
       </div>
     </section>
 
     <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <span class="mr-3">✅</span> Resumo do Módulo
-        </h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
 
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">Multi-cliente é opcional</strong><span class="text-neutral-400"> — ativar se 2+ clientes com voice distinta</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">add-client.sh cria estrutura completa em 3s</strong><span class="text-neutral-400"> — valida, clona template, substitui placeholders</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">4 templates verticais</strong><span class="text-neutral-400"> — freelance-ia, agencia-marketing, formador-online, consultoria-b2b</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">Cascade CLAUDE.md raiz + cliente</strong><span class="text-neutral-400"> — overrides por cliente sem duplicar regras</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">Sempre cd + wrap-up ao mudar cliente</strong><span class="text-neutral-400"> — daily summary e decisions-log separados</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">Separação por design + disciplina diária</strong><span class="text-neutral-400"> — .gitignore, update.sh skip user-data, brand-context isolado</span></div>
-          </div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">brand-context/voice/ tem 8 ficheiros gerados</strong><span class="text-neutral-400"> — profile, samples, 3 registos, audit, vocabulary, installation</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Registo A formal · ~5% do output</strong><span class="text-neutral-400"> — email premium, propostas, contratos, C-level</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Registo B divulgativo · ~95% do público</strong><span class="text-neutral-400"> — LinkedIn, blog, newsletter, talks, podcasts</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Registo C próximo · ~20% mas alto contraste</strong><span class="text-neutral-400"> — WhatsApp, DM, comentários, equipa</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Spectrum 0-10 em 5 dimensões</strong><span class="text-neutral-400"> — formality, directness, humor, authority, warmth</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">marketing-brand-voice v2 · dupla via</strong><span class="text-neutral-400"> — artefactos (Firecrawl) ou 15 simulações · ~15-20 min</span></div></div>
         </div>
 
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">3.2 — Operação diária: os rituais (start-here, wrap-up, decisions-log, deep-dive, doctor, update) que mantêm o OS vivo.</p>
+          <p class="text-neutral-300">3.2 — ICP (cliente ideal): dor exata, linguagem que o cliente usa, buying triggers, anti-ICP, e como a skill marketing-icp constrói via análise de clientes bons vs maus.</p>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
-            ← Voltar para Trilha 3
-          </a>
-          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
-            Módulo 3.2 →
-          </a>
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 3</a>
+          <a href="modulo-3-2.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Módulo 3.2 →</a>
         </div>
       </div>
     </section>

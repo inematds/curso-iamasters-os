@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2.1 Meta skills | Curso iAmasters OS</title>
+  <title>2.1 Install.sh em 6 passos | Curso iAmasters OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,18 +38,16 @@
     html:not(.dark) .text-blue-400 { color: #2563eb; }
     html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
     html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
-    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
     html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
     html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
     html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37,99,235,0.08); }
     html:not(.dark) .bg-blue-900\/40 { background-color: rgba(37,99,235,0.10); }
-    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
-    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
-    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
-    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
 
     html:not(.dark) .text-emerald-400 { color: #059669; }
-    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
     html:not(.dark) .bg-emerald-500\/30 { background-color: rgba(5,150,105,0.18); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
     html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
@@ -64,8 +62,12 @@
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
-    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
-    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+    html:not(.dark) .hover\:text-amber-700:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(146,64,14,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-700:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(159,18,57,0.08); }
 
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
@@ -97,18 +99,12 @@
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Skills</span>
-          </a>
-          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Operação</span>
-          </a>
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-700 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-700 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
@@ -130,17 +126,15 @@
 
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">
-        MÓDULO 2.1
-      </span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🪄 Meta skills</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">As skills que configuram, mantêm e estruturam o teu pensamento. Aqui aprendes os 6 pilares que fazem o OS conhecer-te e manter-se coerente sessão após sessão.</p>
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.1</span>
+      <h1 class="text-2xl font-bold mb-4">🔧 Install.sh em 6 passos</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Anatomia completa do installer: os 6 passos, deteção Python multi-plataforma, idempotência, modos resume/force e output estruturado.</p>
 
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~60</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Intermédio</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prático</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Hands-on</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
@@ -151,45 +145,61 @@
     <section id="topico-1" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
-        <h2 class="text-2xl font-bold">🎙️ meta-onboarding-wizard</h2>
+        <h2 class="text-2xl font-bold">📋 Os 6 passos do installer</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O <strong class="text-blue-400">wizard inicial</strong> é a porta de entrada do OS. Não é um formulário com 15 campos — é uma <strong>entrevista conversacional adaptativa</strong>. As perguntas são decididas em cada turno pelo agente, conforme respondes. O que está fixo são as <strong>8 dimensões a cobrir</strong> e as <strong>regras de aprofundamento</strong>.
+        O <code>scripts/install.sh</code> faz <strong class="text-blue-400">6 passos sequenciais</strong>. Cada um valida-se antes do seguinte. Total: ~30 segundos numa máquina já preparada.
       </p>
 
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal · 4 sub-fases com commits incrementais</h3>
-        <p class="text-neutral-300 mb-4">A grande mudança da v0.6: a entrevista divide-se em <strong>4 sub-fases</strong> e cada uma <strong>escreve o seu ficheiro e atualiza o state machine antes de avançar</strong>. Se abandonas a meio (cansaste, tens reunião, mudou o vento), a próxima sessão retoma <strong>exatamente onde ficaste</strong>.</p>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>W1 · Identidade</strong> → <code>context/me.md</code> (nome, 1 frase pro, localização, idioma)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>W2 · Negócio</strong> → <code>context/work.md</code> (negócio principal, modelo receitas, cliente ideal, stack)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>W3 · Foco</strong> → <code>context/current-priorities.md</code> + <code>goals.md</code> (foco do mês + objetivo 12 meses)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>W4 · Config</strong> → <code>~/.claude/skills/_operator-state.json</code> (nível, idioma outputs, Firecrawl)</span></li>
-        </ul>
-      </div>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">As 8 dimensões críticas que TEM de capturar</h4>
-        <table class="w-full text-sm">
-          <thead class="text-neutral-400">
-            <tr class="border-b border-dark-600"><th class="text-left p-2">#</th><th class="text-left p-2">Dimensão</th><th class="text-left p-2">Sub-fase</th></tr>
-          </thead>
-          <tbody class="divide-y divide-dark-700 text-neutral-300">
-            <tr><td class="p-2">1-2</td><td class="p-2">Identidade + localização/idioma</td><td class="p-2 text-blue-400">W1</td></tr>
-            <tr><td class="p-2">3</td><td class="p-2">Negócio principal</td><td class="p-2 text-blue-400">W2</td></tr>
-            <tr><td class="p-2">4</td><td class="p-2">Modelo de receitas</td><td class="p-2 text-blue-400">W2</td></tr>
-            <tr><td class="p-2">5</td><td class="p-2">Cliente ideal (1ª passagem)</td><td class="p-2 text-blue-400">W2</td></tr>
-            <tr><td class="p-2">6</td><td class="p-2">Stack diário</td><td class="p-2 text-blue-400">W2</td></tr>
-            <tr><td class="p-2">7</td><td class="p-2">Foco do mês</td><td class="p-2 text-blue-400">W3</td></tr>
-            <tr><td class="p-2">8</td><td class="p-2">Objetivo 12 meses</td><td class="p-2 text-blue-400">W3</td></tr>
-          </tbody>
-        </table>
+      <div class="space-y-4 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Valida prereqs</h4>
+            <p class="text-neutral-300 text-sm">Node ≥18, Python ≥3.9, Git, Claude Code CLI. Se algo falta ou versão antiga, bloqueia com mensagem clara.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Instala Sinapsis em ~/.claude</h4>
+            <p class="text-neutral-300 text-sm">Copia <code>vendor/sinapsis/</code> para <code>~/.claude/skills/</code> + comandos globais (/system-status, /evolve, etc.).</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Cria estrutura OS (Camada)</h4>
+            <p class="text-neutral-300 text-sm">Garante <code>brand-context/</code>, <code>context/</code>, <code>projects/</code>, <code>clients/_templates/</code> com placeholders.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Cria soul.md + decisions-log.md</h4>
+            <p class="text-neutral-300 text-sm">Ficheiros seed que o agente lê em cada sessão. soul.md = personalidade. decisions-log = histórico append-only.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Instala _install-gate.sh hook</h4>
+            <p class="text-neutral-300 text-sm">Copia o hook para <code>~/.claude/skills/_install-gate.sh</code> e dá-lhe permissões de execução.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">6</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h4 class="font-semibold text-white mb-1">Regista hook em settings.json</h4>
+            <p class="text-neutral-300 text-sm">Adiciona o hook à secção <code>hooks.SessionStart</code> em <code>~/.claude/settings.json</code>. A partir daqui, cada sessão passa pelo gate.</p>
+          </div>
+        </div>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">⏱️</span> Tempo objetivo</h3>
-        <p class="text-neutral-300 text-sm">10-12 minutos total. Se demorar mais, algo está mal com o aprofundamento — provavelmente estás a fazer follow-up demais. Mínimo de qualidade: <strong>100 caracteres de conteúdo útil</strong> por ficheiro (não placeholders, não "lorem").</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática</h3>
+        <p class="text-neutral-300 text-sm">Cada passo escreve no <code>_install-state.json</code> ANTES de avançar. Se o passo 4 falha, passos 1-3 ficam marcados <code>done</code> e <code>--resume</code> retoma no 4.</p>
       </div>
     </section>
 
@@ -197,70 +207,41 @@
     <section id="topico-2" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
-        <h2 class="text-2xl font-bold">🔬 meta-deep-dive</h2>
+        <h2 class="text-2xl font-bold">🐍 Deteção Python multi-plataforma</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O wizard inicial deixa-te <strong>operacional</strong>. O deep-dive deixa-te <strong>específico</strong>. É a diferença entre outputs "decentes" e outputs que parecem mesmo teus. Cobre <strong class="text-blue-400">22-25 dimensões residuais</strong> em 4 blocos com branching condicional.
+        Python é o ponto de fricção #1 da instalação. Diferentes OS, diferentes binários, e em Windows o <strong class="text-blue-400">caso da Microsoft Store</strong> que parece funcionar mas não.
       </p>
 
-      <div class="space-y-6 mb-6">
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">A</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Pessoa (7 dimensões)</h4>
-            <p class="text-sm text-neutral-400 mb-3">→ <code>context/me.md</code> + <code>soul.md</code></p>
-            <p class="text-neutral-300 text-sm">Horário produtivo · interrupções · contexto vital relevante · motivadores profundos · drenadores · estilo preferido de comunicação com IA · palavras/tons proibidos.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">B</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Negócio (6 dimensões)</h4>
-            <p class="text-sm text-neutral-400 mb-3">→ <code>context/work.md</code></p>
-            <p class="text-neutral-300 text-sm">Saúde financeira (faixa faturação) · margem aproximada · ticket médio · diferencial real (não genérico) · side projects · fricções do modelo.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">C</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Equipa (6 dimensões · gate condicional)</h4>
-            <p class="text-sm text-neutral-400 mb-3">→ <code>context/team.md</code></p>
-            <p class="text-neutral-300 text-sm">Tamanho equipa (gate) · papéis e dinâmica · comunicação interna · delegação · clientes top (3-5 com faturação aprox) · clientes problemáticos. Se trabalhas sozinho, salta os blocos internos mas mantém top/maus clientes.</p>
-          </div>
-        </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center"><span class="text-blue-400 font-bold">D</span></div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Foco e visão (5-7 dimensões)</h4>
-            <p class="text-sm text-neutral-400 mb-3">→ <code>current-priorities.md</code> + <code>goals.md</code> + <code>decisions-log.md</code></p>
-            <p class="text-neutral-300 text-sm">Decisões pendentes · metas a 3 anos · medos · métricas que segues · definição pessoal de sucesso.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🎭</span> Tom: entrevistador profissional</h3>
-        <p class="text-neutral-300 text-sm">Aqui o operador <strong>pode sentir-se exposto</strong> (perguntas sobre faturação, medos, clientes maus). O teu tom é de <strong>entrevistador profissional</strong>, não de coach motivacional. Sem "isso é fantástico!", sem emojis de validação. Pergunta, escuta, anota, próximo.</p>
-      </div>
-
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-3">Como invocar</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Comando explícito
-/deep-dive
+        <h4 class="font-semibold mb-4">Estratégia de deteção</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">detect_python() {
+  for cmd in python3 python py; do
+    if command -v "$cmd" &gt;/dev/null 2&gt;&1; then
+      # Verifica se é Microsoft Store stub (Windows)
+      local path=$(command -v "$cmd")
+      if [[ "$path" == *"WindowsApps"* ]]; then
+        echo "[ERROR] Python from Microsoft Store detected at $path"
+        echo "        Install from python.org instead"
+        exit 1
+      fi
+      # Verifica versão ≥3.9
+      local version=$("$cmd" -c 'import sys; print(sys.version_info[:2])')
+      if [[ "$version" &gt;= "(3, 9)" ]]; then
+        PYTHON_CMD="$cmd"
+        return 0
+      fi
+    fi
+  done
+  echo "[ERROR] No Python ≥3.9 found"
+  exit 1
+}</pre>
+      </div>
 
-# Ou pede em texto livre
-"Quero fazer o deep-dive"
-"Vamos aprofundar o meu perfil"
-
-# meta-start-here sugere-o automaticamente se:
-# - operator-state.deepDiveCompleted === false
-# - passaram >12h desde o wizard inicial</pre>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Caso Microsoft Store</h3>
+        <p class="text-neutral-300 text-sm">Em Windows, se correres <code>python</code> sem ter Python instalado, abre a Microsoft Store. Mesmo depois de "instalar" daí, o binário fica em <code>WindowsApps/</code> como stub limitado. Hooks falham silenciosamente. Solução: instala de <a href="https://python.org" target="_blank" class="text-sky-400 hover:text-sky-300">python.org</a> e adiciona ao PATH manualmente.</p>
       </div>
     </section>
 
@@ -268,37 +249,37 @@
     <section id="topico-3" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
-        <h2 class="text-2xl font-bold">☀️ meta-start-here · ritual diário</h2>
+        <h2 class="text-2xl font-bold">🔁 Idempotência</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada manhã (ou cada nova sessão) o OS faz um <strong class="text-blue-400">ritual de entrada</strong>. Carrega o que precisa de saber, recapitula o que ficou pendente, e propõe a próxima ação. Resultado: nunca começas do zero.
+        Idempotente = <strong class="text-blue-400">correr 5 vezes dá o mesmo resultado que correr 1 vez</strong>. Cada passo verifica se já está feito antes de fazer.
       </p>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">4 passos canónicos</h4>
-        <ol class="space-y-4 text-neutral-300 text-sm list-decimal list-inside">
-          <li><strong class="text-blue-400">Detetar estado do repo</strong> — lê <code>~/.claude/skills/_operator-state.json</code>, <code>context/me.md</code>, <code>brand-context/voice/voice-profile.md</code>. Se algo crítico falta, deriva para o wizard.</li>
-          <li><strong class="text-blue-400">Carregar continuidade</strong> — daily summary de ontem (<code>synapsis/daily-summaries/</code>), última entrada de <code>learnings.md</code>, projetos com <code>status: active</code>.</li>
-          <li><strong class="text-blue-400">Sincronizar skills</strong> — se há <code>.claude/.skills-pending.json</code>, atualiza o catalog Sinapsis.</li>
-          <li><strong class="text-blue-400">Cumprimento contextual</strong> — "Ontem deixaste X. Continuas com Y ou mudas?". Curto. Sem fluff.</li>
-        </ol>
-      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ Cumprimento bom</h4>
-          <p class="text-neutral-300 text-sm italic">"Ontem fechaste a positioning v2 e ficou pendente escolher o ângulo final entre &#34;vertical-specialist&#34; ou &#34;método próprio&#34;. Decides hoje ou prefieres dormir mais 1 dia?"</p>
+          <h4 class="font-bold text-emerald-400 mb-4">✓ O que acontece se já está feito</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Fase prereqs → <code>[SKIP] All prereqs OK</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sinapsis já em ~/.claude → <code>[SKIP] Sinapsis present</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>soul.md existe e &gt;100 chars → <code>[SKIP]</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Hook já em settings.json → <code>[SKIP]</code></span></li>
+          </ul>
         </div>
         <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ Cumprimento mau</h4>
-          <p class="text-neutral-300 text-sm italic">"Olá! Espero que esteja a ter um dia produtivo! Estou aqui para te ajudar com o que precisares. Em que posso assistir hoje?" 🤖</p>
+          <h4 class="font-bold text-red-400 mb-4">✗ O que NUNCA acontece</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Sobrescrever soul.md com placeholder</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Adicionar hook 2x ao settings.json</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Apagar contexto que já editaste</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Modificar vendor/sinapsis/ local</span></li>
+          </ul>
         </div>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🚦</span> suggestDeepDive flag</h3>
-        <p class="text-neutral-300 text-sm">Se passaram &gt;12h desde o wizard inicial e <code>deepDiveCompleted: false</code>, start-here marca uma flag interna e <strong>lembra-te no cumprimento</strong> — não força. "Já se passou um dia desde o setup inicial. Queres aprofundar o teu perfil (15 min)?".</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Sem medo de re-executar</h3>
+        <p class="text-neutral-300 text-sm">Se algo travou a meio ou tens dúvidas, corre <code>bash scripts/install.sh</code> outra vez. No pior caso, vês uma lista de <code>[SKIP]</code>. Idempotência é uma rede de segurança.</p>
       </div>
     </section>
 
@@ -306,45 +287,37 @@
     <section id="topico-4" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
-        <h2 class="text-2xl font-bold">🌙 meta-wrap-up · fecho do dia</h2>
+        <h2 class="text-2xl font-bold">▶️ Modo --resume</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O wrap-up é o gémeo do start-here. Sem fecho, o início de amanhã não tem o que ler. <strong class="text-blue-400">2 minutos no fim poupam 15 no início</strong>. Invoca-se com <code>/wrap-up</code> ou quando token usage passa 80% sustentado.
+        Default do <code>/install</code>. Lê o state file, identifica a próxima fase <code>pending</code> ou <code>failed</code>, e executa só essa (e seguintes). <strong class="text-blue-400">Não toca no que já está done.</strong>
       </p>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">5 passos canónicos</h4>
-        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
-          <li><strong>Recap mental</strong>: completado · meio · aprendido.</li>
-          <li><strong>Sync skills</strong>: se <code>.claude/.skills-pending.json</code> existe, atualizar <code>synapsis/skills-catalog.json</code>.</li>
-          <li><strong>Update CLAUDE.md registry</strong>: tabela entre <code>&lt;!-- skills-registry-start --&gt;</code> e <code>end</code>.</li>
-          <li><strong>Append learnings</strong>: se falharam skills, se houve gotcha técnico, escreve para <code>context/learnings.md</code>.</li>
-          <li><strong>Daily summary + commit</strong>: gera <code>synapsis/daily-summaries/YYYY-MM-DD.md</code> com "Did · Pending · For tomorrow". Propõe commit conventional.</li>
-        </ol>
-      </div>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-3">Formato daily summary</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># 2026-05-17
-
-## Did
-- Fechou positioning v2 (ângulo: vertical-specialist agrónomos)
-- 3 posts LinkedIn semana (agendados via marketing-content-repurposing)
-- Decisão: subir ticket médio de 8k para 12k (registado em decisions-log)
-
-## Pending
-- Refinar ICP secundário (consultores agrónomos PME &gt;10 pessoas)
-- Email sequence onboarding novos clientes (welcome 5 emails)
-
-## For tomorrow
-- Começar pelo ICP secundário (1h)
-- Se sobrar tempo, esboçar primeira versão do welcome sequence</pre>
+        <h4 class="font-semibold mb-3">Cenário real</h4>
+        <p class="text-neutral-300 text-sm mb-3">Imagina que o welcome-quick-win foi a meio (criaste cliente, mas o agente parou para perguntar algo e tu fechaste o terminal). State fica:</p>
+        <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">{
+  "phases": {
+    "prereqs": { "status": "done" },
+    "sinapsis-engine": { "status": "done" },
+    "context-files": { "status": "done" },
+    "operator-state": { "status": "done" },
+    "welcome-completed": { "status": "in-progress", "pausedBy": "user" },
+    "deep-dive-completed": { "status": "pending" }
+  }
+}</pre>
+        <p class="text-neutral-300 text-sm mt-3">Próxima sessão, <code>/install --resume</code> retoma <strong>do welcome</strong>, não do prereqs.</p>
       </div>
 
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">⚙️</span> Não corre sozinho ao fechar</h3>
-        <p class="text-neutral-300 text-sm">Ao fazer <kbd class="px-2 py-1 bg-dark-900 rounded text-xs">Ctrl+C</kbd> ou fechar o terminal, o wrap-up <strong>NÃO se invoca automaticamente</strong>. Tens de pedir <code>/wrap-up</code> explicitamente. É deliberado: melhor perder daily summary do que assumir que o que ficou em meio era "final".</p>
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📊</span> O que --resume respeita</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>pausedBy: "user"</strong> — retoma exatamente nessa fase, não tenta avançar</li>
+          <li><strong>failed</strong> — re-tenta a fase falhada, não as anteriores</li>
+          <li><strong>in-progress</strong> — assume que crashou e retoma com aviso</li>
+          <li><strong>skipped</strong> — não re-tenta (foi decisão consciente)</li>
+        </ul>
       </div>
     </section>
 
@@ -352,60 +325,32 @@
     <section id="topico-5" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
-        <h2 class="text-2xl font-bold">📒 decisions-log · diário append-only</h2>
+        <h2 class="text-2xl font-bold">💥 Modo --force-reinstall</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Padrão inspirado em <a href="https://github.com/Luispitik/claude-code-second-brain" target="_blank" class="text-sky-400 hover:text-sky-300">Luispitik/claude-code-second-brain</a>. Cada decisão importante fica registada num ficheiro append-only que o Claude lê no início de cada sessão. <strong class="text-blue-400">Anti-contradições</strong> — para o agente e para ti.
+        Arranque limpo. <strong class="text-blue-400">Backup automático + reset do state file + correr install do zero.</strong> Requer confirmação explícita do utilizador — não fazes isto por acidente.
       </p>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-3">Formato canónico</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">## 2026-05-17 · Subir ticket médio para 12k
-
-**Decisão**: a partir de junho, o ticket mínimo para projetos
-novos sobe de 8k para 12k.
-
-**Raciocínio**: nos últimos 6 meses, 80% das fricções (atrasos,
-churn em 30 dias, pedidos de scope-creep) vêm de projetos &lt;10k.
-Ao mesmo tempo, fila de espera tem 4 leads qualificados &gt;15k.
-Custa-me dizer não aos pequenos mas o sinal é claro.
-
-**Contexto**: estou em capacidade de quase 100%, sozinho, sem
-plano de contratar. Subir preço é a forma de filtrar sem perder
-qualidade de entrega.
-
-**Quando reconsiderar**: se ficar com &lt;2 leads/mês durante 3
-meses seguidos, ou se chegar nova pessoa à equipa que liberte
-capacidade.
-
----</pre>
+        <h4 class="font-semibold mb-3">O que acontece em sequência</h4>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Pede confirmação: <code>"Vais perder estado atual. Confirma escrevendo: confirmo-reinstall"</code></li>
+          <li>Cria backup em <code>~/.claude.backup-YYYYMMDD-HHMMSS/</code></li>
+          <li>Apaga <code>_install-state.json</code></li>
+          <li>Mantém <code>operator-state.json</code> e <code>_daily-summaries/</code> (Sinapsis preserva memória)</li>
+          <li>Corre install.sh do passo 1 (sem flag --resume)</li>
+        </ol>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-3">✓ Critério de "quando reconsiderar" bom</h4>
-          <ul class="space-y-2 text-neutral-300 text-sm">
-            <li>"Se chegar a 50k MRR"</li>
-            <li>"Após contratar primeira pessoa"</li>
-            <li>"Em janeiro 2027 (revisão anual)"</li>
-            <li>"Se 3 clientes pedirem o mesmo módulo extra"</li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-3">✗ Critério mau</h4>
-          <ul class="space-y-2 text-neutral-300 text-sm">
-            <li>"Se correr mal"</li>
-            <li>"Quando achar que faz sentido"</li>
-            <li>"No futuro"</li>
-            <li>"Quando vier vontade"</li>
-          </ul>
-        </div>
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Quando NÃO usar</h3>
+        <p class="text-neutral-300 text-sm">Se só uma fase está partida, usa <code>--resume</code>. <code>--force-reinstall</code> é só para casos de corrupção real (state file inválido, conflitos não-recuperáveis). Backup garante reversibilidade, mas é mais trabalho.</p>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🔄</span> Quem invoca a skill</h3>
-        <p class="text-neutral-300 text-sm">Tu (<em>"regista esta decisão"</em>), ou outra skill (<code>six-hats</code>, <code>marketing-positioning</code>, <code>pricing-strategy</code>) ao fechar com decisão clara, ou o <code>/wrap-up</code> ao detetar decisão tomada na sessão e ainda não registada.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Recuperar do backup</h3>
+        <p class="text-neutral-300 text-sm">Se <code>--force-reinstall</code> deu mau resultado: <code>rm -rf ~/.claude && mv ~/.claude.backup-&lt;timestamp&gt; ~/.claude</code>. Estás de volta ao estado anterior.</p>
       </div>
     </section>
 
@@ -413,93 +358,75 @@ capacidade.
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
-        <h2 class="text-2xl font-bold">🎩 welcome-quick-win + six-hats</h2>
+        <h2 class="text-2xl font-bold">📤 Output estruturado [OK]/[SKIP]/[WARN]/[ERROR]</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Duas skills muito diferentes mas com algo em comum: <strong class="text-blue-400">são as que entregam o "wow"</strong>. A primeira no momento de adoção (primeiro entregável em 5 min). A segunda em momentos de decisão grande (análise multi-perspetiva).
+        Cada linha do output do <code>install.sh</code> tem um <strong class="text-blue-400">prefixo claro</strong>. Scanneias o log e vês imediatamente o que correu mal — sem ler mensagens longas.
       </p>
 
-      <div class="bg-gradient-to-br from-blue-900/40 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎁</span> welcome-quick-win</h3>
-        <p class="text-neutral-300 text-sm mb-4">O primeiro entregável do OS, em 5 minutos. Invoca-se automaticamente após o wizard (se <code>welcomeCompleted: false</code>) ou à mão com <code>/welcome</code>.</p>
-        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
-          <li>Pede um URL público teu (LinkedIn, web, portfolio)</li>
-          <li>Invoca <code>tool-firecrawl-scraper</code> para extrair conteúdo</li>
-          <li>Analisa posicionamento e gera: <strong>3 hooks LinkedIn</strong> + <strong>plano de 3 ações para a semana</strong></li>
-          <li>Empacota tudo em HTML autocontido via <code>tool-visual-explainer</code></li>
-        </ol>
-        <p class="text-neutral-400 text-xs mt-4">Se firecrawl falhar (sem API key, bot blocker): pede para colar 2-3 parágrafos chave à mão. Sem URL público: pede parágrafo de 3-5 frases sobre o que fazes.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-emerald-400 mb-2">[OK]</h4>
+          <p class="text-neutral-300 text-sm">Operação fez-se com sucesso. Continua para a próxima.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-sky-400 mb-2">[SKIP]</h4>
+          <p class="text-neutral-300 text-sm">Já estava feito (idempotência). Nada a fazer.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-primary mb-2">[WARN]</h4>
+          <p class="text-neutral-300 text-sm">Algo não-crítico. Instalação continua mas vê depois.</p>
+        </div>
+        <div class="bg-dark-800 rounded-xl p-5 border border-dark-600">
+          <h4 class="font-bold text-red-400 mb-2">[ERROR]</h4>
+          <p class="text-neutral-300 text-sm">Bloqueia. Exit code não-zero. Marca fase como failed.</p>
+        </div>
       </div>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎩</span> six-hats · método De Bono</h3>
-        <p class="text-neutral-300 text-sm mb-4">Para qualquer decisão grande (lançar produto, fechar contrato, despedir alguém), os 6 chapéus <strong>separam modos de pensamento</strong> para que cada um receba atenção completa antes de misturar.</p>
-
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">⚪</div><div class="text-xs font-semibold text-neutral-300">Branco</div><div class="text-xs text-neutral-500">Dados</div></div>
-          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🔴</div><div class="text-xs font-semibold text-neutral-300">Vermelho</div><div class="text-xs text-neutral-500">Intuição</div></div>
-          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">⚫</div><div class="text-xs font-semibold text-neutral-300">Preto</div><div class="text-xs text-neutral-500">Riscos</div></div>
-          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🟡</div><div class="text-xs font-semibold text-neutral-300">Amarelo</div><div class="text-xs text-neutral-500">Oportunidades</div></div>
-          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🟢</div><div class="text-xs font-semibold text-neutral-300">Verde</div><div class="text-xs text-neutral-500">Criatividade</div></div>
-          <div class="bg-dark-700/50 rounded-lg p-3 text-center"><div class="text-2xl mb-1">🔵</div><div class="text-xs font-semibold text-neutral-300">Azul</div><div class="text-xs text-neutral-500">Processo</div></div>
-        </div>
-
-        <p class="text-neutral-300 text-sm"><strong>Dois modos</strong>: rápido (5 min, ~1500 palavras, o agente escreve os 6 chapéus) ou profundo (15-20 min, percorre cada chapéu contigo, muito mais customizado). Por defeito: rápido.</p>
+        <h4 class="font-semibold mb-3">Exemplo de log real</h4>
+        <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">[OK]    Phase 1/6: Prereqs validation
+[OK]    Node v20.10.0 found
+[OK]    Python 3.11.4 found at /usr/bin/python3
+[SKIP]  Phase 2/6: Sinapsis already in ~/.claude
+[OK]    Phase 3/6: OS structure created
+[WARN]  brand-context/voice/ empty — run /deep-dive later
+[OK]    Phase 4/6: soul.md + decisions-log.md created
+[OK]    Phase 5/6: install-gate hook installed
+[OK]    Phase 6/6: settings.json registered
+[OK]    Install complete in 28s</pre>
       </div>
 
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🔗</span> Encadeia com decisions-log</h3>
-        <p class="text-neutral-300 text-sm">No fim, six-hats <strong>sempre</strong> propõe registar a decisão tomada via <code>decisions-log</code>. Se aceitas, gera entrada com formato canónico (decisão, raciocínio derivado dos chapéus, contexto, critério para reconsiderar). Tudo amarrado.</p>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Para CI/CD</h3>
+        <p class="text-neutral-300 text-sm">O exit code é não-zero em qualquer ERROR. Podes usar isto em scripts: <code>bash scripts/install.sh && echo "ready"</code>.</p>
       </div>
     </section>
 
     <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <span class="mr-3">✅</span> Resumo do Módulo
-        </h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
 
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">Wizard inicial em 4 sub-fases com commits incrementais</strong><span class="text-neutral-400"> — 10-12 min, idempotente, abandonável sem perda</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">Deep-dive aprofunda 22-25 dimensões em 4 blocos</strong><span class="text-neutral-400"> — tom de entrevistador, branching condicional na equipa</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">start-here carrega continuidade ao entrar</strong><span class="text-neutral-400"> — "Ontem deixaste X" em vez de "Olá!"</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">wrap-up fecha o dia (daily summary + commit)</strong><span class="text-neutral-400"> — 2 min hoje poupam 15 amanhã</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">decisions-log append-only evita contradições</strong><span class="text-neutral-400"> — formato canónico com "quando reconsiderar"</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">welcome-quick-win + six-hats entregam "wow"</strong><span class="text-neutral-400"> — primeiro deliverable e análise multi-perspetiva</span></div>
-          </div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">6 passos sequenciais</strong><span class="text-neutral-400"> — prereqs · sinapsis · OS · soul · gate · settings</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Cada passo escreve no state ANTES de avançar</strong><span class="text-neutral-400"> — checkpoint para --resume</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Python multi-plataforma + bloqueio Microsoft Store</strong><span class="text-neutral-400"> — apanha erro #1 em Windows</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Idempotente: correr 5x = correr 1x</strong><span class="text-neutral-400"> — sem medo de re-executar</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">--resume retoma desde a fase pendente</strong><span class="text-neutral-400"> — respeita pausedBy</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">--force-reinstall com backup automático</strong><span class="text-neutral-400"> — reversível, mas requer confirmação</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Output [OK]/[SKIP]/[WARN]/[ERROR]</strong><span class="text-neutral-400"> — scanneable, CI/CD-friendly</span></div></div>
         </div>
 
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">2.2 — Marketing skills: copywriting com voice carregada, repurposing 1→N, email sequences, deep dive em positioning e ICP, padrão de skill collaboration.</p>
+          <p class="text-neutral-300">2.2 — Install Gate + State Machine + /doctor: hook SessionStart, 6 fases, drift detection.</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
-            ← Voltar para Trilha 2
-          </a>
-          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
-            Módulo 2.2 →
-          </a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 2</a>
+          <a href="modulo-2-2.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">Módulo 2.2 →</a>
         </div>
       </div>
     </section>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 6 · Estender | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Acento trilha 6 — Rose (rose-800 para contraste) */
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225,29,72,0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225,29,72,0.25); }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .bg-rose-600 { background-color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500:hover { background-color: #be123c; }
+    html:not(.dark) .bg-rose-900\/20 { background-color: rgba(225,29,72,0.06); }
+    html:not(.dark) .bg-rose-900\/30 { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .bg-rose-900\/40 { background-color: rgba(225,29,72,0.10); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-rose-400 bg-rose-500/10"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-rose-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full mb-4">TRILHA 6</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🧩 Estender o sistema</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Instala skills externas de GitHub com validação prévia, liga MCP servers aos teus serviços, cria as tuas skills próprias seguindo o padrão canónico e contribui ao catálogo.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">3</div><div class="text-xs text-neutral-400">Módulos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">18</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">~2h30</div><div class="text-xs text-neutral-400">Duração</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-rose-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- MAPA -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="#modulo-6-1" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold text-sm">6.1</span><span class="text-xs text-neutral-500">~50 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-rose-400 transition-colors">📥 Install-skill</h3>
+          <p class="text-xs text-neutral-400">Skills externas de GitHub, validação anti-inflação</p>
+        </a>
+        <a href="#modulo-6-2" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold text-sm">6.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-rose-400 transition-colors">🔌 Install-mcp</h3>
+          <p class="text-xs text-neutral-400">context7, github, supabase, notion, firecrawl</p>
+        </a>
+        <a href="#modulo-6-3" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold text-sm">6.3</span><span class="text-xs text-neutral-500">~50 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-rose-400 transition-colors">✍️ Criar skill própria + contribuir</h3>
+          <p class="text-xs text-neutral-400">meta-skill-creator, padrão canónico, PR ao catálogo</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="border-t border-dark-600 my-12"></div>
+    <h2 class="text-2xl font-bold mb-8">Conteúdo detalhado</h2>
+
+    <!-- MÓDULO 6.1 -->
+    <div id="modulo-6-1" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.1</span><span class="text-xs text-neutral-500">~50 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">📥 Install-skill: skills externas de GitHub</h3>
+        <p class="text-neutral-400 text-sm">Anatomia do comando, validação anti-inflação, deteção de patterns destrutivos, e o catálogo curado.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">📥</span>
+          <div><span class="font-medium">Anatomia do /install-skill</span><span class="text-neutral-500 text-sm ml-2">- URL → validação → instalar</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Comando que aceita URL de GitHub (repo, pasta ou SKILL.md direto), descarrega temporário com <code>git archive</code>, valida estrutura, mostra resultado e instala em <code>.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/</code>.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para esticares o catálogo conforme precisas, sem inflar com lixo. Cada passo é defensivo: validação antes de instalar, backup automático em conflito, teste de ativação no fim.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">7 passos do fluxo · git archive · backup automático · conflict resolution · teste de ativação obrigatório.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🔍</span>
+          <div><span class="font-medium">validate-skill.sh: os 7 checks</span><span class="text-neutral-500 text-sm ml-2">- YAML, name, description, scripts perigosos…</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Script chamado pelo comando. Faz 7 checks: 1) SKILL.md presente · 2) YAML frontmatter parseável · 3) name kebab-case com prefixo · 4) description 50-500 chars com verbo · 5) sem padrões destrutivos · 6) sem credenciais hardcoded · 7) references/ se conteúdo &gt;2500 chars.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para saberes porque uma skill é rejeitada. Cada bloqueio tem razão concreta — não é "magia opaca".</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Bloqueante (recusa) vs aviso (instala mas avisa) · prefix obrigatório (marketing-, tool-, etc.) · description com verbo de intenção.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">⚠️</span>
+          <div><span class="font-medium">Patterns destrutivos detetados</span><span class="text-neutral-500 text-sm ml-2">- rm -rf, eval, curl|sh, dd if=</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Lista de regex que o validador procura em scripts da skill: <code>rm -rf /</code> ou paths absolutos arriscados, <code>eval $(...)</code>, <code>curl | sh</code>, <code>dd if=</code>, redirects para <code>/dev/sd*</code>, <code>chmod 777</code>.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Skills da comunidade podem ser maliciosas (ou simplesmente perigosas por descuido). O validador bloqueia o caso mais comum sem precisar de auditoria humana exaustiva.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Bloqueio automático = bom default · auditoria manual ainda recomendada para scripts complexos · skills sem scripts (só SKILL.md + references) têm risco quase zero.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🔐</span>
+          <div><span class="font-medium">Deteção de credenciais hardcoded</span><span class="text-neutral-500 text-sm ml-2">- API keys, tokens, secrets no código</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Validador procura strings com formato típico de credenciais (sk-..., ghp_..., AKIA..., Bearer tokens) e regexes de email/password. Bloqueia se encontra — não queres importar segredos alheios.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Protege contra dois riscos: 1) usar credenciais de outra pessoa (legal e ético) · 2) ter credenciais expostas no teu repo se commitas a skill.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Credenciais sempre em <code>.env</code> · skills devem usar <code>$ENV_VAR</code> · skills com credenciais bloqueadas = autor da skill descuidado.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">📚</span>
+          <div><span class="font-medium">Catálogo curado: skills-recommended.md</span><span class="text-neutral-500 text-sm ml-2">- Anthropic core + marketing/CRO/SEO</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Doc em <code>docs/skills-recommended.md</code> com 35+ skills opcionais por categoria: Anthropic core (docx, xlsx, pptx, pdf), Marketing (10), CRO (7), SEO (4), Estratégia (9), Analytics (5).</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o teu menu. Filosofia "max 30 skills, não 1000" — qualidade &gt; quantidade. Cada entrada testada ≥2 semanas em produção antes de entrar.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Camada 2 on-demand · revisão trimestral (skills obsoletas saem) · maintainer identificado · alternativa lean: claude-code-second-brain de Luis Pitik.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🔑</span>
+          <div><span class="font-medium">Modo "atalho opcional"</span><span class="text-neutral-500 text-sm ml-2">- /install-skill cognito (skill local em _optional/)</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Se o argumento NÃO é URL mas nome simples (ex. <code>/install-skill cognito</code>), o comando procura em <code>.claude/skills/_meta/_optional/&lt;nome&gt;/</code> e move para ativa (em <code>_meta/</code> ou pasta apropriada).</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Skills opcionais já incluídas no repo (como Cognito de Luis Pitik) ficam latentes em <code>_optional/</code>. Não pesam no descobrimento até as ativares. Modo atalho ativa sem baixar nada.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Skills latentes vs ativas · _optional/ não afeta o ranking semântico · ativação é só mover ficheiros + validar.</p></div>
+        </div></div></div>
+
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-1.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.2 -->
+    <div id="modulo-6-2" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.2</span><span class="text-xs text-neutral-500">~50 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🔌 Install-mcp: MCP servers (context7, github, supabase)</h3>
+        <p class="text-neutral-400 text-sm">O que é MCP, lista curada vs URL custom, top 5 recomendados, .mcp.json, token budget e MCPs a evitar.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🌐</span>
+          <div><span class="font-medium">O que é MCP (Model Context Protocol)</span><span class="text-neutral-500 text-sm ml-2">- Liga Claude a serviços externos</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Standard aberto (Anthropic) que define como Claude expõe ferramentas de serviços externos: BD, repos, CRMs, docs, APIs. Um MCP server "publica" tools, Claude consome-as como se fossem nativas.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem MCPs, Claude está isolado. Com MCPs, faz queries SQL ao Supabase, lê issues do GitHub, cria páginas no Notion — tudo a partir do prompt.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Cliente (Claude Code) vs server (npx package) · stdio ou SSE como transport · tools com descrições semânticas · ativação por matching prompt-tool.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📦</span>
+          <div><span class="font-medium">/install-mcp: lista curada vs URL custom</span><span class="text-neutral-500 text-sm ml-2">- Modo nome simples ou config completa</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Comando que aceita 2 modos: 1) nome curto (<code>/install-mcp context7</code>) → procura em <code>docs/mcps-curated.md</code> e instala com config validada · 2) URL/JSON custom → valida estrutura, env vars e permissões antes de adicionar.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para evitar a fricção de copiar JSONs de READMEs aleatórios. Lista curada = config testada + env vars documentadas + scopes claros.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">.mcp.json no repo · env vars referenciadas (não literais) · scope read-only por defeito · separado de Sinapsis (que vive em ~/.claude/).</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">⭐</span>
+          <div><span class="font-medium">Top 5 recomendados</span><span class="text-neutral-500 text-sm ml-2">- context7, github, supabase, notion, firecrawl</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm"><strong>context7</strong> (docs vivos de frameworks) · <strong>github</strong> (issues/PRs/ficheiros) · <strong>supabase</strong> (queries SQL, RLS) · <strong>notion</strong> (páginas, BDs) · <strong>firecrawl</strong> (scraping com bot-blockers).</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Cobrem 80% das necessidades de um operador IA. Todos grátis (firecrawl tem 500 free). Validados em produção pelo maintainer.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">context7 evita alucinação de APIs obsoletas · github PAT scope mínimo · supabase READ-ONLY token primeiro · firecrawl NÃO em .mcp.json (vai em .env).</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">📄</span>
+          <div><span class="font-medium">.mcp.json: estrutura, env vars, permissões</span><span class="text-neutral-500 text-sm ml-2">- Anatomia do ficheiro de config</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Ficheiro JSON no root do repo com chave <code>mcpServers</code> contendo cada server: <code>command</code> (npx), <code>args</code> (package + flags), <code>env</code> (vars como <code>$SUPABASE_TOKEN</code>).</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para configurar/debugar manualmente quando o comando não chega. Para customizar por cliente (cada cliente pode ter o seu <code>.mcp.json</code>).</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Env vars referenciadas com $ · permissões em .claude/settings.json · .mcp.json no .gitignore se tem secrets · per-client config.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">📊</span>
+          <div><span class="font-medium">Token budget: 5-7 MCPs ativos máximo</span><span class="text-neutral-500 text-sm ml-2">- Cada MCP adiciona contexto ao system prompt</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cada MCP ativo adiciona ~500-2000 tokens ao system prompt (descrições das suas tools). 10 MCPs = facilmente 10-20K tokens fixos por sessão.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para não inflar contexto sem te dares conta. Sintoma: respostas piores em sessões longas porque o context window encheu de tool descriptions que não usaste.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">5-7 MCPs ativos como regra · comenta os que não usas frequentemente · .mcp.json diferente por cliente · READ-ONLY antes de write.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🚫</span>
+          <div><span class="font-medium">MCPs a evitar</span><span class="text-neutral-500 text-sm ml-2">- Auto-post redes sem gates, scopes opacos</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Lista de categorias com risco elevado em <code>docs/mcps-curated.md</code>: write a redes sociais sem aprovação humana, MCPs com scopes opacos ou demasiado amplos, custom MCPs sem auditar o código.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para não criares incidentes (post errado em LinkedIn pessoal, fuga de info no Slack, BD apagada). Maior risco do MCP = maior necessidade de gates humanos.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Aprovação humana para write em canais públicos · scopes mínimos · auditar código de MCPs custom · monitorizar custos de APIs pagas.</p></div>
+        </div></div></div>
+
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-2.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 6.3 -->
+    <div id="modulo-6-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-rose-400 font-bold">6.3</span><span class="text-xs text-neutral-500">~50 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">✍️ Criar a tua skill própria + contribuir ao catálogo</h3>
+        <p class="text-neutral-400 text-sm">meta-skill-creator, quando criar (vs prompt), estrutura references/, collaboration, quality gate e processo de PR.</p>
+      </div>
+
+      <div class="divide-y divide-dark-600">
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🏗️</span>
+          <div><span class="font-medium">meta-skill-creator: o template canónico</span><span class="text-neutral-500 text-sm ml-2">- YAML, Process numerado, Edge cases</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Skill que faz scaffolding de outra skill seguindo o padrão iAmasters: YAML frontmatter (name kebab-case, description 50-500 chars), secção "Quando se invoca", Process numerado, Edge cases, Output verifier gate.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Para a tua skill ser ativável (description bem feita), reutilizável (estrutura previsível), debugável (passos numerados). Skills mal feitas nunca se ativam ou ativam em momentos errados.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Prefix categorial (marketing-, tool-, automation-) · description com verbo de intenção · 3 testes da description (ativação, comprimento, unicidade) · progressive disclosure.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🤔</span>
+          <div><span class="font-medium">Quando criar skill (vs prompt simples)</span><span class="text-neutral-500 text-sm ml-2">- 3+ usos previstos, knowledge separável</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Regra: se vais repetir o mesmo padrão 3+ vezes nas próximas semanas E tem conhecimento separável da execução (templates, exemplos, checklists), graduar para skill. Senão, prompt direto.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Inflar skills com one-offs é o erro mais comum. 30 skills bem usadas &gt;&gt; 100 que nunca ativam. Promove só padrões validados.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Padrão repetido 3+ vezes · knowledge separável da execução · alternativa: slash command em <code>.claude/commands/</code> para fluxos curtos.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">📁</span>
+          <div><span class="font-medium">Estrutura references/</span><span class="text-neutral-500 text-sm ml-2">- Knowledge separado, examples.md, checklist.md</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Subpasta opcional dentro da skill com knowledge longo: <code>examples.md</code> (2-3 casos reais), <code>checklist.md</code> (QA antes de entregar), outros .md com domínio extenso. SKILL.md fica curto e referencia estes.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Progressive disclosure. Claude carrega SKILL.md sempre que avalia ativar; references/ só quando precisa. Skills com knowledge inline ficam pesadas no descobrimento.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">references/ obrigatório se SKILL.md &gt;2500 chars · examples.md ajuda muito a ativação correta · checklist.md = QA explícito.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🔗</span>
+          <div><span class="font-medium">Skill collaboration</span><span class="text-neutral-500 text-sm ml-2">- Uma skill chama outra explicitamente</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Padrão em que uma skill invoca outra na secção "Quando se invoca" ou "Process". Exemplo: <code>marketing-copywriting</code> chama <code>marketing-brand-voice</code> para carregar voz, e <code>tool-output-verifier</code> antes de entregar.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Compõe skills pequenas em vez de fazer uma "skill mamute". Cada skill faz uma coisa bem; combinações emergem.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Nomear skills chamadas explicitamente · não criar dependências circulares · output-verifier como gate final em skills que entregam.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">✅</span>
+          <div><span class="font-medium">Quality gate: tool-output-verifier obrigatório</span><span class="text-neutral-500 text-sm ml-2">- Se a skill gera entregáveis</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Skill <code>tool-output-verifier</code> verifica entregáveis contra: brand voice, tone, factualidade, formato pedido, ausência de "AI-tells" (frases robóticas, listagens excessivas). Deve ser chamada antes de declarar output final.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É o último filtro de qualidade. Sem ele, entregáveis saem "ok-mas-IA-óbvio" ou desalinhados com a voice. Com ele, pedem revisão menos vezes.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Skills com entregável final → chamada obrigatória · skills internas (que só preparam dados) → opcional · também invoca tool-humanizer para AI-tells.</p></div>
+        </div></div></div>
+
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-rose-500/20 text-rose-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🤝</span>
+          <div><span class="font-medium">Contribuir ao catálogo</span><span class="text-neutral-500 text-sm ml-2">- ≥2 semanas, ≥3 avatares, PR em inematds/iamasters-os</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-rose-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Processo de PR: skill validada em produção ≥2 semanas, serve a ≥3 avatares (freelance-ia, agencia-marketing, formador-online, consultoria-b2b), sem dependências privadas, sem info confidencial. PR em <a href="https://github.com/inematds/iamasters-os" target="_blank" class="text-sky-400 hover:text-sky-300">inematds/iamasters-os</a>.</p></div>
+          <div><span class="text-rose-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Devolver é a melhor forma de aprender. Quando submetes, és forçado a generalizar, documentar, pensar em edge cases. <strong>O catálogo melhora-te a ti</strong>, não só o ecossistema.</p></div>
+          <div><span class="text-rose-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Critérios objetivos · revisão trimestral · skills obsoletas saem · antes de PR, publica no teu GitHub e pede a 2-3 colegas para instalarem como teste.</p></div>
+        </div></div></div>
+
+      </div>
+
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-6-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-6-3.html" class="px-4 py-2 text-sm bg-rose-600 hover:bg-rose-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha5/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 5: Multi-cliente</a>
+      <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-rose-600 text-white rounded-lg font-semibold hover:bg-rose-500 transition-colors">🎉 Última trilha — voltar à landing</a>
+    </div>
+
+  </main>
+
+  <!-- MODAIS -->
+  <div id="modal-6-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.1</span><span class="font-semibold">Install-skill</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-1.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-6-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.2</span><span class="font-semibold">Install-mcp</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-2.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+  <div id="modal-6-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()">
+    <div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+      <div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+        <div class="flex items-center space-x-3"><span class="text-rose-400 font-bold">6.3</span><span class="font-semibold">Criar skill própria + contribuir</span></div>
+        <button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button>
+      </div>
+      <iframe src="modulo-6-3.html" class="flex-1 w-full rounded-b-xl"></iframe>
+    </div>
+  </div>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => { if (exp !== explanation) exp.classList.remove('active'); });
+      explanation.classList.toggle('active');
+    }
+    function openModal(modalId) { const modal = document.getElementById(modalId); if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } }
+    function closeModal() { document.querySelectorAll('.modal').forEach(modal => modal.classList.add('hidden')); document.body.style.overflow = 'auto'; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

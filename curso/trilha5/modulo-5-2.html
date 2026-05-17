@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.2 Workflow multi-cliente + operação diária | Curso iAmasters OS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13,148,136,0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13,148,136,0.25); }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .bg-teal-600 { background-color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500:hover { background-color: #14b8a6; }
+    html:not(.dark) .bg-teal-900\/20 { background-color: rgba(13,148,136,0.06); }
+    html:not(.dark) .bg-teal-900\/30 { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .bg-teal-900\/40 { background-color: rgba(13,148,136,0.10); }
+
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
+    html:not(.dark) .text-red-400 { color: #dc2626; }
+    html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
+    html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
+
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255,255,255,0.95); }
+
+    code { background: rgba(255,255,255,0.05); padding: 0.1em 0.3em; border-radius: 0.25em; font-size: 0.9em; }
+    html:not(.dark) code { background: #f3f4f6; color: #1f2937; }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🦎</span>
+            <span class="font-bold text-lg hidden sm:inline">Curso iAmasters OS</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-teal-400 bg-teal-500/10"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex items-center space-x-2 text-sm text-neutral-400">
+      <a href="../../index.html" class="hover:text-teal-400">Início</a><span>/</span>
+      <a href="index.html" class="hover:text-teal-400">Trilha 5</a><span>/</span>
+      <span class="text-teal-400">Módulo 5.2</span>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-teal-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full mb-4">MÓDULO 5.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🔄 Workflow multi-cliente + operação diária</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Herança CLAUDE.md raiz + cliente, ritual diário (cd, claude, /start-here, /wrap-up), separação segura entre clientes, e update.sh respeitando user-data.</p>
+
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-teal-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- TÓPICO 1 -->
+    <section id="topico-1" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">1</span>
+        <h2 class="text-2xl font-bold">🧬 Herança CLAUDE.md raiz + cliente</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Quando fazes <code>cd clients/acme && claude</code>, o Claude lê <strong class="text-teal-400">dois CLAUDE.md em cascata</strong>: o da raiz (instruções gerais) e o do cliente (overrides específicos). Saber a ordem evita conflitos.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">CLAUDE.md raiz (do repo)</h4>
+            <p class="text-sm text-neutral-400 mb-3">Regras gerais que se aplicam a TODOS os clientes + ao operador</p>
+            <p class="text-neutral-300 text-sm">Idioma, convenções de pastas, install gate, paths, skills registry. Não tem regras específicas de cliente — só sistema.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">clients/&lt;X&gt;/CLAUDE.md (do cliente)</h4>
+            <p class="text-sm text-neutral-400 mb-3">Overrides específicos — só ativos quando estás <code>cd</code> no cliente</p>
+            <p class="text-neutral-300 text-sm">Nome do cliente, template base, regras particulares ("nunca usar 'vocês' formal"), skills prioritárias, notas operativas, referências ao brand-context do cliente.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">brand-context/ + context/ do cliente</h4>
+            <p class="text-sm text-neutral-400 mb-3">Carregados automaticamente pelas skills marketing-*</p>
+            <p class="text-neutral-300 text-sm">Voice profile, ICP, positioning, soul, user — todos do cliente. Skills da raiz (.claude/skills/) continuam disponíveis e operam sobre o brand-context do cliente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Skills custom por cliente</h3>
+        <p class="text-neutral-300 text-sm mb-2">Se um cliente requer skill que NÃO se aplica a outros, cria em <code>clients/&lt;X&gt;/.claude/skills/&lt;categoria&gt;/&lt;nome&gt;/</code>.</p>
+        <p class="text-neutral-300 text-sm">Essa skill só está disponível quando estás <code>cd</code> nesse cliente. Não polui os outros nem a raiz.</p>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Sinapsis é global</h3>
+        <p class="text-neutral-300 text-sm">O <code>operator-state.json</code> de Sinapsis é UM, em <code>~/.claude/skills/</code>, partilhado entre todos os clientes. Aplica-se a ti como operador, não ao cliente. É o esperado — tu és o mesmo profissional para todos.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 2 -->
+    <section id="topico-2" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">2</span>
+        <h2 class="text-2xl font-bold">🔄 Workflow típico (cd, claude, /start-here, /wrap-up)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Um ritual simples que respeita a separação. <strong class="text-teal-400">Sempre <code>cd</code> antes de <code>claude</code></strong>. Sempre <code>/wrap-up</code> antes de mudar de cliente.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">Segunda-feira típica · 3 clientes</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Cliente A (freelance-ia)
+cd clients/acme-corp && claude
+&gt; /start-here
+&gt; "Cria post LinkedIn sobre case study X"
+  → marketing-copywriting gera com voice de Acme
+&gt; /wrap-up
+exit
+
+# Cliente B (agencia-marketing)
+cd ../widget-shop && claude
+&gt; /start-here
+&gt; "Repurpose último vídeo do CEO em 5 peças"
+  → marketing-content-repurposing
+&gt; /wrap-up
+exit
+
+# Cliente C (consultoria-b2b)
+cd ../north-star-consult && claude
+&gt; /start-here
+&gt; "Redige proposta comercial para novo lead"
+  → marketing-copywriting com registo A formal
+&gt; /wrap-up
+exit</pre>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-4">✓ Best practices</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Sempre <code>cd</code> antes de <code>claude</code></span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span><code>/wrap-up</code> ao mudar de contexto</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Brand voice por cliente, não partilhar</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>2 terminais para sessões simultâneas</span></li>
+            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Backup separado para clientes críticos</span></li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-4">✗ Anti-patterns</h4>
+          <ul class="space-y-3 text-neutral-300 text-sm">
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Trabalhar cliente desde a raiz do repo</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Mudar de cliente sem wrap-up</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>1 sessão a saltar entre clientes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Copiar voice profile entre clientes</span></li>
+            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Esquecer de qual cliente estás (usa <code>pwd</code>)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TÓPICO 3 -->
+    <section id="topico-3" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">3</span>
+        <h2 class="text-2xl font-bold">🔒 Segurança: separação de info entre clientes</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Por <strong class="text-teal-400">design</strong>, o OS não partilha info entre clientes automaticamente. O sistema remove a maioria das oportunidades de erro; a disciplina diária é tua.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50"><tr>
+            <th class="text-left p-4 font-semibold">Mecanismo</th>
+            <th class="text-left p-4 font-semibold">O que protege</th>
+            <th class="text-left p-4 font-semibold">Limitação</th>
+          </tr></thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4"><code>.gitignore</code> extensivo</td><td class="p-4 text-neutral-300">Não exporta clientes para git público</td><td class="p-4 text-neutral-400">Repo privado se quiseres sync</td></tr>
+            <tr><td class="p-4">Skills isoladas por <code>cd</code></td><td class="p-4 text-neutral-300">Skills marketing-* só veem o cliente atual</td><td class="p-4 text-neutral-400">Falha se ignoras a regra do cd</td></tr>
+            <tr><td class="p-4">update.sh skip user-data</td><td class="p-4 text-neutral-300">Updates nunca tocam em <code>clients/&lt;X&gt;/</code></td><td class="p-4 text-neutral-400">Templates de <code>_templates/</code> podem mudar</td></tr>
+            <tr><td class="p-4">Brand-context separado</td><td class="p-4 text-neutral-300">Voice/ICP de A não influencia copy de B</td><td class="p-4 text-neutral-400">Operator-state é global</td></tr>
+            <tr><td class="p-4">Decisions-log por cliente</td><td class="p-4 text-neutral-300">Decisões de A não aparecem em B</td><td class="p-4 text-neutral-400">Decisões pessoais ficam na raiz</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Reutilizar info entre clientes</h3>
+        <p class="text-neutral-300 text-sm mb-2">Se queres usar aprendizagens do cliente A para o cliente B:</p>
+        <ol class="space-y-1 text-neutral-300 text-sm list-decimal list-inside ml-2">
+          <li>Faz <strong>manual e consciente</strong> (não acidental)</li>
+          <li>Gera "<strong>case study anonimizado</strong>" como output do cliente A</li>
+          <li>Referencia esse case study no cliente B</li>
+        </ol>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Troubleshooting comum</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>"O Claude não aplica voice do cliente"</strong> → verifica <code>pwd</code> (estás no cliente?), <code>voice-profile.md</code> preenchido (sem <code>{{...}}</code>), <code>CLAUDE.md</code> do cliente referencia o path correto.</li>
+          <li><strong>"Skills da raiz não aparecem"</strong> → reinicia Claude Code (Ctrl+C × 2 + claude).</li>
+          <li><strong>"Misturo info acidentalmente"</strong> → sinal de não respeitar <code>cd</code>. Sai do Claude entre clientes, NÃO abrir 2 sessões na mesma terminal.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TÓPICO 4 -->
+    <section id="topico-4" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">4</span>
+        <h2 class="text-2xl font-bold">▶️ /start-here ritual diário</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        Cada sessão começa com <code>/start-here</code> (ou automaticamente no primeiro turno). Em 30s o sistema lê <strong class="text-teal-400">tudo o que precisas saber para arrancar</strong> e propõe a tarefa do dia. Funciona por cliente ou na raiz, conforme o cwd.
+      </p>
+
+      <div class="bg-gradient-to-br from-teal-900/30 to-dark-800 rounded-xl border border-teal-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-teal-400 mb-4 flex items-center"><span class="mr-2">💡</span> O que /start-here lê</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><code>~/.claude/skills/_operator-state.json</code> — perfil do operador, deteta needsOnboarding</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><code>context/me.md</code> — identidade (deriva para wizard se vazio)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><code>synapsis/daily-summaries/&lt;ONTEM&gt;.md</code> — "For tomorrow" da sessão anterior</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><code>context/learnings.md</code> — última lição adicionada</span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><code>projects/briefs/*/brief.md</code> com <code>status: active</code></span></li>
+          <li class="flex items-start space-x-2"><span class="text-teal-400 mt-1">•</span><span><code>context/decisions-log.md</code> — últimas 5 decisões</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-4">3 modos de cumprimento</h4>
+        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Modo 1 · Continuidade (há daily summary de ontem)
+"Olá Nei. Ontem fechaste com: blog post Stripe billing (status: pending review).
+ Para hoje propunhas: passá-lo pelo output-verifier e publicar.
+ Continuas com isso, ou mudamos?"
+
+# Modo 2 · Projeto ativo sem summary recente
+"Olá Nei. Tens o projeto **landing-iamasters** aberto na fase copy.
+ Continuas com ele ou vamos a outra coisa?"
+
+# Modo 3 · Sem atividade recente
+"Olá Nei. Em que te ajudo hoje?"</pre>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Em multi-cliente</h3>
+        <p class="text-neutral-300 text-sm">O <code>/start-here</code> lê <strong>o contexto do cwd atual</strong>. Se estás em <code>clients/acme/</code>, lê só a daily summary, projetos e decisions de Acme. Continuidade preservada por cliente.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 5 -->
+    <section id="topico-5" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">5</span>
+        <h2 class="text-2xl font-bold">⏹️ /wrap-up (commit, daily summary, learnings)</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <code>/wrap-up</code> é o ritual de fecho. <strong class="text-teal-400">Sem wrap-up, amanhã não há memória de hoje.</strong> 9 passos automáticos, ~1 minuto.
+      </p>
+
+      <div class="space-y-6 mb-6">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Recap mental + sync skills</h4>
+            <p class="text-neutral-300 text-sm">Resume o que se completou, o que ficou a meio, o que se aprendeu. Sincroniza <code>skills-catalog.json</code>.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Update CLAUDE.md skills registry</h4>
+            <p class="text-neutral-300 text-sm">Regenera tabela entre <code>&lt;!-- skills-registry-start --&gt;</code> e end. Sem isto, o registry desincroniza-se do filesystem.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Append learnings (se aplicável)</h4>
+            <p class="text-neutral-300 text-sm">Se uma skill falhou, append em <code>context/learnings.md</code> com data + razão + fix. Próxima vez essa skill carrega o aprendido.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Gerar daily summary</h4>
+            <p class="text-neutral-300 text-sm">Cria/atualiza <code>synapsis/daily-summaries/&lt;TODAY&gt;.md</code> com Sessions, Done, Pending, Learnings, Decisions + "For tomorrow" + "Quick resume".</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-teal-500/20 flex items-center justify-center"><span class="text-teal-400 font-bold">5</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
+            <h4 class="font-semibold text-white mb-2">Commit Git (com aprovação)</h4>
+            <p class="text-neutral-300 text-sm">Mostra <code>git status</code>, propõe mensagem conventional (<code>feat(skills): add X</code>, <code>chore(wrap-up): EOD &lt;data&gt;</code>). <strong>Espera "sim" explícito</strong>. Nunca push automático.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> NÃO se invoca automaticamente</h3>
+        <p class="text-neutral-300 text-sm">Fechar Claude Code com Ctrl+C <strong>não</strong> dispara wrap-up. Tens de pedi-lo explicitamente. Se esqueces, perdes o daily summary daquela sessão.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Em multi-cliente</h3>
+        <p class="text-neutral-300 text-sm">Daily summary é gerado <strong>por cliente</strong> (o cwd determina onde grava). Ao mudar de cliente, faz <code>/wrap-up</code> primeiro para não misturar.</p>
+      </div>
+    </section>
+
+    <!-- TÓPICO 6 -->
+    <section id="topico-6" class="mb-16">
+      <div class="flex items-center space-x-4 mb-6">
+        <span class="flex items-center justify-center w-12 h-12 rounded-full bg-teal-500/20 text-teal-400 font-bold text-xl">6</span>
+        <h2 class="text-2xl font-bold">⬆️ update.sh + multi-cliente</h2>
+      </div>
+
+      <p class="text-neutral-300 mb-6 leading-relaxed">
+        <code>bash scripts/update.sh</code> sincroniza o repo com o upstream do iAmasters OS. <strong class="text-teal-400">Nunca toca em user-data</strong> — clients/, brand-context/, context/, projects/, .env. Skills custom por cliente também protegidas.
+      </p>
+
+      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
+        <table class="w-full text-sm">
+          <thead class="bg-dark-700/50"><tr>
+            <th class="text-left p-4 font-semibold">O que update.sh ATUALIZA</th>
+            <th class="text-left p-4 font-semibold">O que update.sh NÃO toca</th>
+          </tr></thead>
+          <tbody class="divide-y divide-dark-600">
+            <tr><td class="p-4 text-emerald-400">✅ Skills do repo (.claude/skills/)</td><td class="p-4 text-red-400">❌ clients/&lt;nome&gt;/ (todos os teus clientes)</td></tr>
+            <tr><td class="p-4 text-emerald-400">✅ Slash commands (.claude/commands/)</td><td class="p-4 text-red-400">❌ brand-context/ (a tua marca)</td></tr>
+            <tr><td class="p-4 text-emerald-400">✅ Templates de clientes (_templates/)</td><td class="p-4 text-red-400">❌ context/ (me, work, decisions-log, learnings)</td></tr>
+            <tr><td class="p-4 text-emerald-400">✅ Scripts (install, add-client, etc.)</td><td class="p-4 text-red-400">❌ projects/ (os teus outputs)</td></tr>
+            <tr><td class="p-4 text-emerald-400">✅ vendor/sinapsis/ (espelho upstream)</td><td class="p-4 text-red-400">❌ .env (API keys)</td></tr>
+            <tr><td class="p-4 text-emerald-400">✅ CLAUDE.md raiz + docs/</td><td class="p-4 text-red-400">❌ clients/&lt;X&gt;/.claude/skills/ (custom)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Fluxo seguro</h3>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li><code>git status</code> — commit ou stash tudo o que tens pendente primeiro</li>
+          <li><code>bash scripts/update.sh</code> — faz backup automático antes</li>
+          <li>Se houver conflitos em ficheiros que editaste, interativo: mantém o teu / aceita upstream / merge</li>
+          <li><code>/doctor</code> após update — confirma que tudo continua válido</li>
+          <li>Se o state schema mudou (raro), <code>/install --resume</code> reaplica as fases necessárias</li>
+        </ol>
+      </div>
+
+      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Conflict resolution</h3>
+        <p class="text-neutral-300 text-sm mb-2">Se editaste algum ficheiro do sistema, o update deteta conflito e pergunta:</p>
+        <ul class="space-y-1 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>[1] Manter o meu</strong> — perde fixes do upstream, guarda customização</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>[2] Aceitar upstream</strong> — perde a tua edição (backup em <code>.backup/</code>)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>[3] Merge manual</strong> — abre 3-way merge para resolveres</span></li>
+        </ul>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Frequência</h3>
+        <p class="text-neutral-300 text-sm">Update mensal está bem para a maioria. Se segues o release notes ativamente, semanal. Se nada do que sai te interessa, fica como estás — o OS funciona sem updates.</p>
+      </div>
+    </section>
+
+    <!-- RESUMO -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-teal-900/40 via-dark-800 to-dark-800 rounded-xl border border-teal-500/30 p-8">
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Cascade CLAUDE.md raiz + cliente</strong><span class="text-neutral-400"> — overrides por cliente sem duplicar regras</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Sempre cd antes de claude</strong><span class="text-neutral-400"> — ritual cd → claude → /start-here → trabalha → /wrap-up → exit</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">Separação por design + disciplina</strong><span class="text-neutral-400"> — .gitignore, brand-context isolado, decisions-log por cliente</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">/start-here em 30s</strong><span class="text-neutral-400"> — operator-state, daily summary, learnings, projetos, decisions</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">/wrap-up em 9 passos</strong><span class="text-neutral-400"> — sync skills, learnings, daily summary, commit (com aprovação)</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-teal-400 mt-1">✓</span><div><strong class="text-white">update.sh respeita user-data</strong><span class="text-neutral-400"> — separação rígida system vs your-stuff, skills custom por cliente protegidas</span></div></div>
+        </div>
+
+        <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
+          <h3 class="font-semibold text-teal-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 6 — Estender: install-skill (skills externas de GitHub), install-mcp (MCP servers), criar a tua skill própria e contribuir ao catálogo.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 5</a>
+          <a href="../trilha6/index.html" class="flex-1 text-center px-6 py-3 bg-teal-600 text-white rounded-lg font-semibold hover:bg-teal-500 transition-colors">Trilha 6: Estender →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>Curso iAmasters OS · 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light') { themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark'); }
+    else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

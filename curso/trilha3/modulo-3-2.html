@@ -3,19 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3.2 Operação diária | Curso iAmasters OS</title>
+  <title>3.2 ICP · cliente ideal | Curso iAmasters OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#FACC15',
-            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
-          }
-        }
-      }
+      theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } }
     }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,30 +32,32 @@
     html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124,58,237,0.12); }
     html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124,58,237,0.08); }
     html:not(.dark) .border-purple-500\/30 { border-color: rgba(124,58,237,0.25); }
-    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
-    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
-    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
-    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
     html:not(.dark) .bg-purple-900\/20 { background-color: rgba(124,58,237,0.06); }
     html:not(.dark) .bg-purple-900\/30 { background-color: rgba(124,58,237,0.08); }
     html:not(.dark) .bg-purple-900\/40 { background-color: rgba(124,58,237,0.10); }
+    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
 
-    html:not(.dark) .text-emerald-400 { color: #059669; }
-    html:not(.dark) .bg-emerald-500\/30 { background-color: rgba(5,150,105,0.18); }
-    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
-    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
     html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
     html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5,150,105,0.08); }
-
-    html:not(.dark) .text-blue-400 { color: #2563eb; }
-    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
-    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
-    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
     html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
     html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217,119,6,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225,29,72,0.08); }
 
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
+    html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
     html:not(.dark) .text-red-400 { color: #dc2626; }
-    html:not(.dark) .bg-red-500\/30 { background-color: rgba(220,38,38,0.18); }
     html:not(.dark) .border-red-500\/30 { border-color: rgba(220,38,38,0.25); }
     html:not(.dark) .bg-red-900\/20 { background-color: rgba(220,38,38,0.06); }
 
@@ -70,7 +65,6 @@
     html:not(.dark) .text-primary { color: #a16207; }
     html:not(.dark) .bg-primary\/10 { background-color: rgba(161,98,7,0.08); }
     html:not(.dark) .border-primary\/40 { border-color: rgba(161,98,7,0.25); }
-    html:not(.dark) .border-primary\/30 { border-color: rgba(161,98,7,0.25); }
     html:not(.dark) .text-sky-400 { color: #0369a1; }
     html:not(.dark) .text-yellow-400 { color: #a16207; }
     html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
@@ -96,18 +90,12 @@
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Skills</span>
-          </a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Operação</span>
-          </a>
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
@@ -129,16 +117,14 @@
 
   <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">
-        MÓDULO 3.2
-      </span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">⚙️ Operação diária</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Os rituais que mantêm o OS vivo: <code>/start-here</code>, <code>/wrap-up</code>, <code>decisions-log</code>, <code>/deep-dive</code>, <code>/doctor</code> e <code>update.sh</code>. O que fazer cada dia para que o sistema continue a melhorar contigo.</p>
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.2</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🎯 ICP · cliente ideal</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Sem ICP claro, copy e ads não segmentam. Aqui aprendes a construir um perfil que descreve dor exata, linguagem que o cliente usa, buying triggers, e — tão importante — quem NÃO queres como cliente.</p>
 
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Avançado</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Básico</div><div class="text-xs text-neutral-400">Nível</div></div>
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Prático</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
@@ -150,47 +136,44 @@
     <section id="topico-1" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span>
-        <h2 class="text-2xl font-bold">▶️ /start-here — ritual de início</h2>
+        <h2 class="text-2xl font-bold">🤔 O que é ICP e por que importa</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cada sessão começa com <code>/start-here</code> (ou automaticamente no primeiro turno). Em 30s o sistema lê <strong class="text-purple-400">tudo o que precisas saber para arrancar</strong> e propõe a tarefa do dia.
+        ICP = <strong class="text-purple-400">Ideal Customer Profile</strong>. Não é "homens 30-50 com cargo C-level". É um documento vivo que descreve cliente ideal com profundidade suficiente para a tua copy <strong>falar a língua dele</strong>, não a tua.
       </p>
 
       <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> O que /start-here lê</h3>
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">ICP plano produz copy plana. Operadores sem ICP escrevem para "toda a gente" — e por isso ninguém se reconhece. Com ICP claro, a copy passa de "interessante" a "este texto foi escrito para mim, como é que sabes?".</p>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><code>~/.claude/skills/_operator-state.json</code> — perfil do operador, deteta needsOnboarding</span></li>
-          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><code>context/me.md</code> — identidade (deriva para wizard se vazio)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><code>synapsis/daily-summaries/&lt;ONTEM&gt;.md</code> — "For tomorrow" da sessão anterior</span></li>
-          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><code>context/learnings.md</code> — última lição adicionada</span></li>
-          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><code>projects/briefs/*/brief.md</code> com <code>status: active</code> — projetos abertos</span></li>
-          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><code>context/decisions-log.md</code> — últimas 5 decisões (para coerência)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Vive em <code>brand-context/icp/icp.md</code></span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Lido por skills <code>marketing-copywriting</code>, <code>marketing-positioning</code>, <code>marketing-email-sequence</code></span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span>Vivo — afina-se a cada batch de 3-5 clientes novos</span></li>
         </ul>
       </div>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">3 modos de cumprimento</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto"># Modo 1 · Continuidade (há daily summary de ontem)
-"Olá Nei. Ontem fechaste com: blog post Stripe billing (status: pending review).
- Para hoje propunhas: passá-lo pelo output-verifier e publicar.
- Continuas com isso, ou mudamos?"
-
-# Modo 2 · Projeto ativo sem summary recente
-"Olá Nei. Tens o projeto **landing-iamasters** aberto na fase copy.
- Continuas com ele ou vamos a outra coisa?"
-
-# Modo 3 · Sem atividade recente
-"Olá Nei. Em que te ajudo hoje?
- [1] Criar conteúdo (skills marketing-*)
- [2] Trabalhar com um cliente (cd clients/&lt;x&gt;)
- [3] Análise estratégica
- [4] Tarefa livre"</pre>
-      </div>
-
-      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Lembrete de deep-dive</h3>
-        <p class="text-neutral-300 text-sm">Se completaste o wizard inicial mas não o deep-dive, o cumprimento termina com PS sutil ("ainda não completaste o deep-dive — quando tiveres 25 min, executa /deep-dive"). Lembra todos os dias até completares.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ ICP útil descreve</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Setor + tamanho empresa + role específico</li>
+            <li>Dor central em <strong>frase exata do cliente</strong></li>
+            <li>Frases literais que ele diz nas chamadas</li>
+            <li>Buying triggers (eventos que precedem compra)</li>
+            <li>Anti-ICP (quem rejeitar)</li>
+          </ul>
+        </div>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Pseudo-ICP inútil</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>"PMEs portuguesas" (vago)</li>
+            <li>"Quem precise de IA" (toda a gente)</li>
+            <li>"30-50 anos, urbano" (demografia ≠ ICP)</li>
+            <li>Sem palavras literais do cliente</li>
+            <li>Sem anti-ICP definido</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -198,70 +181,54 @@
     <section id="topico-2" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span>
-        <h2 class="text-2xl font-bold">⏹️ /wrap-up — fecho + commit + daily summary</h2>
+        <h2 class="text-2xl font-bold">🔬 Como marketing-icp analisa clientes bons vs maus</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <code>/wrap-up</code> é o ritual de fecho. <strong class="text-purple-400">Sem wrap-up, amanhã não há memória de hoje.</strong> 9 passos automáticos, ~1 minuto.
+        A skill <code>marketing-icp</code> não constrói o ICP por inspiração. <strong class="text-purple-400">Analisa os teus clientes reais</strong> — 3-5 que adoraste servir + 1-3 que mais te custaram — e extrai padrões cruzados.
       </p>
 
-      <div class="space-y-6 mb-6">
+      <h4 class="text-lg font-semibold mb-4">Processo em 4 passos</h4>
 
+      <div class="space-y-4 mb-6">
         <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">1</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Recap mental + sync skills</h4>
-            <p class="text-neutral-300 text-sm">Resume o que se completou, o que ficou a meio, o que se aprendeu. Lê <code>.skills-pending.json</code> e sincroniza <code>skills-catalog.json</code> se houve skills novas.</p>
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">1</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Top 3-5 clientes que adoraste servir</h5>
+            <p class="text-sm text-neutral-300">Lista nominal. Para cada: cargo, setor, dimensão empresa, como te encontrou, dor que tinham antes, o que ficou bem, recomendaram ou repetiram?</p>
           </div>
         </div>
-
         <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">2</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Update CLAUDE.md skills registry</h4>
-            <p class="text-neutral-300 text-sm">Localiza bloco entre <code>&lt;!-- skills-registry-start --&gt;</code> e end, regenera a tabela. Sem isto, o registry desincroniza-se do filesystem.</p>
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">2</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Top 1-3 clientes que mais te custaram</h5>
+            <p class="text-sm text-neutral-300">Para cada: o que correu mal, sinais que devias ter visto antes, frases que disseram nas chamadas iniciais que deviam ter sido red flag, custo emocional.</p>
           </div>
         </div>
-
         <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">3</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Append learnings (se aplicável)</h4>
-            <p class="text-neutral-300 text-sm">Se uma skill falhou, append em <code>context/learnings.md</code> com data + razão + fix. Próxima vez essa skill carrega o aprendido.</p>
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">3</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Análise de padrões</h5>
+            <p class="text-sm text-neutral-300">A skill identifica o que os bons têm em comum (positivo) e o que os maus têm (negativo). Cruza com voice profile para detetar vocabulário recorrente.</p>
           </div>
         </div>
-
         <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">4</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Gerar daily summary</h4>
-            <p class="text-neutral-300 text-sm">Cria/atualiza <code>synapsis/daily-summaries/&lt;TODAY&gt;.md</code> com Sessions, Done, Pending, Learnings, Decisions + "For tomorrow" + "Quick resume". Se houver sessões prévias hoje, faz append.</p>
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold">4</span></div>
+          <div class="flex-1 bg-dark-800 rounded-xl p-5 border border-dark-600">
+            <h5 class="font-semibold mb-1">Geração de icp.md</h5>
+            <p class="text-sm text-neutral-300">Output em <code>brand-context/icp/icp.md</code> com 6 secções: perfil primário, secundário (se aplicável), linguagem, triggers, anti-ICP, customer journey.</p>
           </div>
         </div>
-
-        <div class="flex items-start space-x-4">
-          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
-            <span class="text-purple-400 font-bold">5</span>
-          </div>
-          <div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600">
-            <h4 class="font-semibold text-white mb-2">Commit Git (com aprovação)</h4>
-            <p class="text-neutral-300 text-sm">Mostra <code>git status</code>, propõe mensagem (conventional, em inglês: <code>feat(skills): add X</code>, <code>chore(wrap-up): EOD &lt;data&gt;</code>). <strong>Espera "sim" explícito</strong>. Nunca push automático.</p>
-          </div>
-        </div>
-
       </div>
 
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> NÃO se invoca automaticamente</h3>
-        <p class="text-neutral-300 text-sm">Fechar Claude Code com Ctrl+C <strong>não</strong> dispara wrap-up. Tens de pedi-lo explicitamente ou usar <code>/wrap-up</code>. Se esqueces, perdes o daily summary daquela sessão.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Por que clientes reais &gt; persona fictícia</h3>
+        <p class="text-neutral-300 text-sm">Persona inventada num workshop traz vieses confirmatórios — descreves quem <em>gostarias</em> de ter como cliente. Análise de clientes reais traz padrões empíricos — descreve quem realmente compra e fica satisfeito. A skill força esta segunda abordagem.</p>
+      </div>
+
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Se ainda não tens clientes</h3>
+        <p class="text-neutral-300 text-sm">A skill aceita "clientes hipotéticos baseados em quem já abordou-te" ou "5 perfis que perdeste por preço/timing". Não ideal, mas melhor que persona inventada do zero. Marca o ICP como "v1 hipotético" e refaz após 3-5 clientes reais.</p>
       </div>
     </section>
 
@@ -269,69 +236,50 @@
     <section id="topico-3" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span>
-        <h2 class="text-2xl font-bold">📓 decisions-log — diário append-only</h2>
+        <h2 class="text-2xl font-bold">🩹 Dor exata · não dor genérica</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O <strong class="text-purple-400">decisions-log</strong> é o que impede o Claude (e tu) de se contradizer entre sessões. Formato canónico com 4 campos. Append-only — entradas <strong>nunca se editam</strong>. Padrão inspirado em <a href="https://github.com/Luispitik/claude-code-second-brain" target="_blank" class="text-sky-400 hover:text-sky-300">claude-code-second-brain</a> de Luis Pitik.
+        "Querem ser mais eficientes" = dor genérica = inútil. "Estou a perder 4h por semana a copiar dados de 3 CRMs porque o departamento de vendas não fala com o de marketing" = <strong class="text-purple-400">dor exata</strong>. Esta segunda forma é o ouro que faz copy converter.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">Formato canónico</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">## YYYY-MM-DD · &lt;título curto, ≤60 chars&gt;
-
-**Decisão**: &lt;1 frase clara com o quê&gt;
-
-**Raciocínio**: &lt;2-4 frases com o porquê — inclui os dados ou
-sinais que levaram à decisão, não só "porque sim"&gt;
-
-**Contexto**: &lt;1-2 frases com a situação mais ampla que explica
-porque esta decisão fazia sentido neste momento. Crucial para
-reavaliar amanhã.&gt;
-
-**Quando reconsiderar**: &lt;critério concreto que faria rever a
-decisão — evento, métrica, data. NÃO "se correr mal".&gt;
-
----</pre>
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Uma decisão qualifica para o log se</h3>
-        <p class="text-neutral-300 text-sm mb-3">Cumpre PELO MENOS 2 destes:</p>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Não trivial</strong> — afeta negócio, cliente, posicionamento, equipa, ou &gt;2h/semana do operador</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Reversibilidade limitada</strong> — custa tempo/dinheiro/relações revertê-la</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Influencia futuras conversas com o Claude</strong> — o sistema deve manter coerência</span></li>
-        </ul>
-        <p class="text-neutral-400 text-sm mt-3">Decisões operativas pequenas (cor, hora de reunião, nome de ficheiro) NÃO vão para o log. Para isso há tarefas e notas.</p>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Dor genérica é <strong>extrapolação tua</strong>. Dor exata é a <strong>frase literal que o cliente disse</strong> numa primeira chamada — antes de saber que existe solução, antes de ter vocabulário técnico, antes de tu lhe ensinares como descrever o problema.</p>
+        <p class="text-neutral-300 text-sm">Quando a tua copy usa frases literais, o leitor pensa: "este texto foi escrito a olhar para mim". É a forma mais barata de aumentar conversão.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-4">✓ O que FAZER</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Registar decisões quando se tomam (não dias depois)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Incluir "Quando reconsiderar" concreto (data, métrica)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Inverter decisão? NOVA entrada referenciando a anterior</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Decisões de cliente → log do cliente, pessoais → raiz</span></li>
-            <li class="flex items-start space-x-2"><span class="text-emerald-400">✓</span><span>Máximo 3 entradas por sessão (filtra ruído)</span></li>
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">✗ Dor genérica</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>"Querem digitalizar"</li>
+            <li>"Precisam de mais leads"</li>
+            <li>"Falta produtividade"</li>
+            <li>"Querem usar IA"</li>
+            <li>"Custos altos"</li>
           </ul>
         </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-4">✗ O que NÃO fazer</h4>
-          <ul class="space-y-3 text-neutral-300 text-sm">
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Apagar ou editar entradas (o log é histórico)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Registar operações pequenas (cor, nome de ficheiro)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>"Quando reconsiderar: se correr mal" (vago)</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Registar decisões impulsivas sem reflexão</span></li>
-            <li class="flex items-start space-x-2"><span class="text-red-400">✗</span><span>Decisões contraditórias na mesma sessão sem contexto</span></li>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Dor exata</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>"Perco 4h/semana a colar dados entre HubSpot e Excel"</li>
+            <li>"Faço 30 calls/semana, 3 fecham"</li>
+            <li>"A equipa às 17h ainda está a fazer reports"</li>
+            <li>"O meu sócio quer IA mas não sabe por onde começar"</li>
+            <li>"Pago €3k/mês a um freelance que demora 2 semanas a entregar"</li>
           </ul>
         </div>
       </div>
 
-      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> O paradoxo do log</h3>
-        <p class="text-neutral-300 text-sm">As entradas mais úteis são <strong>as que doem registar</strong> — as que admites um erro, mudas de opinião, ou decides algo contra o teu instinto. Essas é que o log ajuda a respeitar.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Como capturar dor exata</h4>
+        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
+          <li>Em discovery calls, grava (com permissão). Transcrever via Otter/Fathom.</li>
+          <li>Após a call, pesquisa por verbos físicos: <em>"perco", "passo", "demoro", "copio", "tenho de"</em>.</li>
+          <li>Cola frase literal no <code>icp.md</code> com data e nome (anonimizado se necessário).</li>
+          <li>Reusa frases na copy: hooks de LinkedIn, primeira linha de email frio, headlines de landing.</li>
+        </ol>
       </div>
     </section>
 
@@ -339,61 +287,50 @@ decisão — evento, métrica, data. NÃO "se correr mal".&gt;
     <section id="topico-4" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span>
-        <h2 class="text-2xl font-bold">🔬 /deep-dive — entrevista profunda</h2>
+        <h2 class="text-2xl font-bold">🗨️ Linguagem que o cliente usa (não a tua)</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        O wizard inicial foi o mínimo para arrancar. O <code>/deep-dive</code> aprofunda <strong class="text-purple-400">22-25 dimensões</strong> que mudam muito os outputs. 25-30 min. Idempotente — retoma onde ficou.
+        Tu dizes "implementação de pipeline de qualificação automática multi-touch". O cliente diz "preciso de saber que leads valem a pena antes de pegar no telefone". <strong class="text-purple-400">A copy que converte usa a segunda</strong>, não a primeira — mesmo que a primeira seja tecnicamente correta.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
-        <table class="w-full text-sm">
-          <thead class="bg-dark-700/50">
-            <tr>
-              <th class="text-left p-4 font-semibold">Bloco</th>
-              <th class="text-left p-4 font-semibold">Dimensões</th>
-              <th class="text-left p-4 font-semibold">Ficheiro destino</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-dark-600">
-            <tr>
-              <td class="p-4 text-purple-400 font-semibold">A · Pessoa</td>
-              <td class="p-4 text-neutral-300">Horário produtivo, interrupções, contexto vital, motivadores, drenadores, estilo IA, palavras proibidas</td>
-              <td class="p-4 text-neutral-400"><code>me.md</code> + <code>soul.md</code></td>
-            </tr>
-            <tr>
-              <td class="p-4 text-purple-400 font-semibold">B · Negócio</td>
-              <td class="p-4 text-neutral-300">Saúde financeira, margem, ticket médio, diferencial real, side projects, fricções do modelo</td>
-              <td class="p-4 text-neutral-400"><code>work.md</code></td>
-            </tr>
-            <tr>
-              <td class="p-4 text-purple-400 font-semibold">C · Equipa</td>
-              <td class="p-4 text-neutral-300">Tamanho equipa (gate condicional), papéis, comunicação, delegação, clientes top, clientes problemáticos</td>
-              <td class="p-4 text-neutral-400"><code>team.md</code></td>
-            </tr>
-            <tr>
-              <td class="p-4 text-purple-400 font-semibold">D · Foco</td>
-              <td class="p-4 text-neutral-300">Decisão pendente, meta 3 anos pro, meta 3 anos vital, medo profissional, métrica semanal, definição sucesso</td>
-              <td class="p-4 text-neutral-400"><code>current-priorities.md</code> + <code>goals.md</code></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">3 categorias de linguagem-cliente para capturar</h4>
+        <div class="space-y-3">
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Palavras-chave do seu jargão setorial</strong>
+            <p class="text-neutral-400 text-xs mt-1">Termos que ele usa naturalmente. Ex: agrónomo diz "PRP", "MIP", "rotação"; advogado diz "due diligence", "compliance", "exposure".</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Frases de validação típicas</strong>
+            <p class="text-neutral-400 text-xs mt-1">O que ele diz quando concorda. Ex: "faz todo o sentido", "exato, é mesmo isso", "tens razão". Reusar na copy para "validar antes de pedir".</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Descrições do problema (pré-solução)</strong>
+            <p class="text-neutral-400 text-xs mt-1">Como ele descreve o problema <strong>antes</strong> de saber que existe solução. Sem vocabulário técnico. Esta é a fonte de hooks de copy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Cada vez que escreves "leverage", "synergias", "ecossistema digital", "transformação", estás a falar a tua língua — não a do cliente. Para 95% dos teus clientes, estas palavras desligam atenção. Substitui-as por verbos físicos e concretos do mundo dele.</p>
       </div>
 
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Anti-formulário</h3>
-        <p class="text-neutral-300 text-sm mb-3">Não é checklist. É <strong>conversa adaptativa</strong>. As perguntas decidem-se em cada turno conforme a resposta anterior. Regras:</p>
-        <ul class="space-y-1 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Resposta curta → 1 follow-up (exemplo concreto, 5 whys leve, espelho)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Máximo 2 níveis de profundidade por dimensão</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Branching: se trabalhas sozinho → salta bloco equipa (dimensões 15-17)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span>Checkpoint a cada 7 dimensões: "Continuamos ou pausamos?"</span></li>
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Onde extrair linguagem real</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li><strong>Discovery calls gravadas</strong> — fonte primária, mais valiosa</li>
+          <li><strong>Emails do cliente</strong> — como ele escreve quando explica problema</li>
+          <li><strong>Reviews/testimonials</strong> — linguagem pós-compra</li>
+          <li><strong>Comentários no LinkedIn dele</strong> — registo público autêntico</li>
+          <li><strong>Reddit, fóruns do setor</strong> — pessoas como ele a desabafar (anónimas, sem filtro)</li>
         </ul>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Pausável e retomável</h3>
-        <p class="text-neutral-300 text-sm">Podes parar a meio: o sistema guarda <code>deepDiveProgress</code> e <code>deepDiveLastDimension</code>. Próxima vez <code>/deep-dive</code> retoma com abertura curta: "Da última vez ficámos em X. Faltam ~N dimensões. Continuamos?"</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · banco de frases</h3>
+        <p class="text-neutral-300 text-sm">Cria uma secção em <code>icp.md</code> chamada "Frases literais" e ali vai colando o que ouves/lês. 30 frases bem capturadas valem mais que 30 horas de redação de copy. As skills <code>marketing-copywriting</code> e <code>marketing-email-sequence</code> usam essas frases como sementes para hooks e openings.</p>
       </div>
     </section>
 
@@ -401,61 +338,57 @@ decisão — evento, métrica, data. NÃO "se correr mal".&gt;
     <section id="topico-5" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span>
-        <h2 class="text-2xl font-bold">🩺 /doctor — diagnóstico + auto-fix</h2>
+        <h2 class="text-2xl font-bold">⚡ Buying triggers · eventos que disparam compra</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <code>/doctor</code> invoca a skill <strong class="text-purple-400">health-check v0.6</strong> com validação profunda: JSON parseável, hooks executáveis, conteúdo &gt;100 chars. Deteta <strong>state drift</strong> entre <code>_install-state.json</code> e o filesystem real.
+        Ninguém compra "por causa" do teu marketing genérico. As pessoas compram quando algo no seu mundo muda. <strong class="text-purple-400">Identificar esses gatilhos</strong> permite-te aparecer no momento certo — não tentar convencer no momento errado.
       </p>
 
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Triggers convertem "potencial cliente latente" em "lead ativo". Conhecer os triggers do teu ICP permite-te: (1) escolher canais onde apanhas o trigger (LinkedIn quando muda role, eventos quando lança produto), (2) escrever copy que reflete o trigger, (3) cronometrar follow-ups.</p>
+      </div>
+
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">10 passos do health-check</h4>
-        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
-          <li><strong>Lê fonte de verdade</strong> — <code>~/.claude/skills/_install-state.json</code></li>
-          <li><strong>Verifica ambiente</strong> — Claude Code CLI, Node ≥18, Python 3, Git, .env válido</li>
-          <li><strong>Verifica Sinapsis profundo</strong> — JSON parseável, 5 hooks executáveis, ≥1 SKILL.md, hooks registados em settings.json</li>
-          <li><strong>Brand-context</strong> — voice-profile, samples, 3 registos, positioning, icp todos com &gt;100 chars</li>
-          <li><strong>Context sectorizado</strong> — me, work, current-priorities, goals, team, decisions-log, learnings, soul (com drift check vs state)</li>
-          <li><strong>Skills curadas</strong> — 23 skills core presentes</li>
-          <li><strong>Settings</strong> — repo e global parseáveis, sem secrets hardcoded</li>
-          <li><strong>API keys</strong> — Firecrawl key formato correto</li>
-          <li><strong>Compila relatório</strong> 🟢🟡🔴 com state machine, drift, próximas ações</li>
-          <li><strong>Auto-fix limitado</strong> (com aprovação) — criar ficheiros vazios, chmod +x, re-registar hooks</li>
-        </ol>
+        <h4 class="font-semibold mb-3">Triggers típicos por categoria</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Organizacionais</strong>
+            <p class="text-neutral-400 text-xs mt-1">Novo cargo, restructuring, rondas de funding, fusão/aquisição, mudança CEO, equipa nova</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Operacionais</strong>
+            <p class="text-neutral-400 text-xs mt-1">Sistema legado falhou, vendor cortou serviço, pressão de orçamento, audit reprovado</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Competitivos</strong>
+            <p class="text-neutral-400 text-xs mt-1">Concorrente lançou X, perda de cliente importante, churn acima do normal</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Sazonais</strong>
+            <p class="text-neutral-400 text-xs mt-1">Início trimestre, planeamento anual, evento setorial, regulação nova</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Pessoais</strong>
+            <p class="text-neutral-400 text-xs mt-1">Burnout do operador, separação societária, novo objetivo pessoal</p>
+          </div>
+          <div class="bg-dark-700/50 rounded p-3">
+            <strong class="text-purple-400">Externos</strong>
+            <p class="text-neutral-400 text-xs mt-1">Mudança legislativa, crise económica, evento mediático, viral em redes</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6 overflow-x-auto">
-        <h4 class="font-semibold mb-3">Exemplo de relatório</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4">🩺 iAmasters OS · Health Check v0.6
-
-🟢 OK: 18 componentes
-🟡 AVISO: 2 componentes
-🔴 ERROR: 0 componentes
-
-State machine: 5/5 required phases done · idle
-
-### Capa OS — Brand Context
-🟡 voice-profile.md vazio
-   → Acção: executa marketing-brand-voice (10 min)
-
-### Capa OS — Context sectorizado
-🟢 me.md (456 chars · nome: Nei)
-🟢 work.md (812 chars)
-🟢 current-priorities.md (234 chars · 3 prioridades)
-
-### API keys
-🟡 FIRECRAWL_API_KEY no encontrada</pre>
-      </div>
-
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> STATE DRIFT — caso especial</h3>
-        <p class="text-neutral-300 text-sm mb-2">Se o state diz <code>phase: done</code> mas a validação profunda falha (ficheiro vazio, hook não executável), <code>/doctor</code> reporta <strong>STATE DRIFT</strong>.</p>
-        <p class="text-neutral-300 text-sm">Para reverter, requer confirmação literal <strong>"sí, revertir"</strong> (não basta "sim"). Reverte só o flag, NÃO apaga ficheiros. Depois <code>/install --resume</code> retoma a fase.</p>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Como capturar triggers</h3>
+        <p class="text-neutral-300 text-sm mb-3">Em cada nova venda, pergunta literalmente: <em>"O que aconteceu que te fez procurar isto agora?"</em>. A resposta é o trigger desse cliente. Acumula 10-15 respostas no <code>icp.md</code> e padrões emergem.</p>
+        <p class="text-neutral-400 text-xs">Frases típicas que sinalizam trigger: "decidi finalmente fazer", "agora é a altura", "não dá mais para adiar", "ouvi-te no podcast X e..." (este último mapeia canal).</p>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Quando correr /doctor</h3>
-        <p class="text-neutral-300 text-sm">Após <code>update.sh</code> · quando algo "não funciona" sem saber o quê · semanalmente como check preventivo · depois de fazer mudanças manuais em ficheiros do sistema · quando uma skill nova não ativa.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · campanhas trigger-based</h3>
+        <p class="text-neutral-300 text-sm">Se sabes que 40% dos teus clientes compram após "novo cargo no LinkedIn", monta um trigger campaign: filtro LinkedIn Sales Nav por mudança de cargo nas últimas 4 semanas no teu vertical → mensagem feita à medida do trigger. Conversão tipicamente 3-5x copy genérica.</p>
       </div>
     </section>
 
@@ -463,123 +396,80 @@ State machine: 5/5 required phases done · idle
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span>
-        <h2 class="text-2xl font-bold">⬆️ update.sh — atualizar com conflict resolution</h2>
+        <h2 class="text-2xl font-bold">🚫 Anti-ICP · quem NÃO queres como cliente</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        <code>bash scripts/update.sh</code> sincroniza o repo com o upstream do iAmasters OS. <strong class="text-purple-400">Nunca toca em user-data</strong> (clients/, brand-context/, context/, projects/, .env).
+        Operadores júnior listam só o cliente ideal. Operadores experientes <strong class="text-purple-400">investem tempo igual no anti-ICP</strong> — quem rejeitar mesmo que pague. O anti-ICP poupa muito mais dinheiro do que o ICP traz.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
-        <table class="w-full text-sm">
-          <thead class="bg-dark-700/50">
-            <tr>
-              <th class="text-left p-4 font-semibold">O que update.sh ATUALIZA</th>
-              <th class="text-left p-4 font-semibold">O que update.sh NÃO toca</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-dark-600">
-            <tr>
-              <td class="p-4 text-emerald-400">✅ Skills do repo (.claude/skills/)</td>
-              <td class="p-4 text-red-400">❌ clients/&lt;nome&gt;/ (todos os teus clientes)</td>
-            </tr>
-            <tr>
-              <td class="p-4 text-emerald-400">✅ Slash commands (.claude/commands/)</td>
-              <td class="p-4 text-red-400">❌ brand-context/ (a tua marca)</td>
-            </tr>
-            <tr>
-              <td class="p-4 text-emerald-400">✅ Templates de clientes (_templates/)</td>
-              <td class="p-4 text-red-400">❌ context/ (me, work, decisions-log, learnings)</td>
-            </tr>
-            <tr>
-              <td class="p-4 text-emerald-400">✅ Scripts (install, add-client, etc.)</td>
-              <td class="p-4 text-red-400">❌ projects/ (os teus outputs)</td>
-            </tr>
-            <tr>
-              <td class="p-4 text-emerald-400">✅ vendor/sinapsis/ (espelho upstream)</td>
-              <td class="p-4 text-red-400">❌ .env (API keys)</td>
-            </tr>
-            <tr>
-              <td class="p-4 text-emerald-400">✅ CLAUDE.md raiz + docs/</td>
-              <td class="p-4 text-red-400">❌ ~/.claude/ (Sinapsis state)</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-purple-400 mb-4 flex items-center"><span class="mr-2">💡</span> Conceito principal</h3>
+        <p class="text-neutral-300 mb-4">Um cliente mau não é só "não-lucrativo". É <strong>energy-sink</strong>: ocupa cabeça, gera scope-creep, atrasa outros clientes, deixa-te azedo. Vale dezenas de horas ao mês perdidas. Por isso, listar 3-5 sinais inequívocos de anti-ICP — e respeitá-los — é um dos maiores ROIs da gestão de pipeline.</p>
       </div>
 
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Fluxo seguro</h3>
-        <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
-          <li><code>git status</code> — commit ou stash tudo o que tens pendente primeiro</li>
-          <li><code>bash scripts/update.sh</code> — faz backup automático antes</li>
-          <li>Se houver conflitos em ficheiros que editaste, interativo: mantém o teu / aceita upstream / merge</li>
-          <li><code>/doctor</code> após update — confirma que tudo continua válido</li>
-          <li>Se o state schema mudou (raro), <code>/install --resume</code> reaplica as fases necessárias</li>
-        </ol>
-      </div>
-
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Conflict resolution</h3>
-        <p class="text-neutral-300 text-sm mb-2">Se editaste algum ficheiro do sistema (CLAUDE.md, uma skill core, um script), o update vai detetar conflito e perguntar:</p>
-        <ul class="space-y-1 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>[1] Manter o meu</strong> — perde fixes do upstream, mas guarda customização</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>[2] Aceitar upstream</strong> — perde a tua edição (backup no <code>.backup/</code>)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-red-400 mt-1">•</span><span><strong>[3] Merge manual</strong> — abre 3-way merge para resolveres</span></li>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Como identificar sinais anti-ICP</h4>
+        <p class="text-neutral-300 text-sm mb-3">A skill <code>marketing-icp</code> extrai-os automaticamente dos 1-3 clientes "que mais te custaram":</p>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Frases ditas na 1ª chamada</strong> que deviam ter sido red flag</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Comportamentos repetidos</strong> (atraso pagamentos, ghosting, scope-creep)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Perfil estrutural</strong> (tamanho empresa errado, stage errado, decisor errado)</span></li>
+          <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">→</span><span><strong>Expectativa irrealista</strong> ("queremos resultados em 2 semanas", "preço fixo para tudo")</span></li>
         </ul>
       </div>
 
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
+          <h4 class="font-bold text-red-400 mb-3">🚨 Red flags inequívocos</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>"Manda-me uma proposta detalhada para eu pensar"</li>
+            <li>"Qual é o desconto se fechar hoje?"</li>
+            <li>"Já trabalhei com 5 agências, ninguém entrega"</li>
+            <li>"Quanto cobras por hora?" (em projeto)</li>
+            <li>"Posso pagar depois de ver resultados?"</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">✓ Como rejeitar bem</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>Curto, claro, sem desculpas</li>
+            <li>Sugere alternativa quando possível</li>
+            <li>Não promete "talvez no futuro"</li>
+            <li>Regista no decisions-log se foi padrão</li>
+            <li>Atualiza o anti-ICP com a frase nova</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Frequência</h3>
-        <p class="text-neutral-300 text-sm">Update mensal está bem para a maioria. Se segues o release notes ativamente, semanal. Se nada do que sai te interessa, fica como estás — o OS funciona sem updates.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica prática · regra dos 3 sinais</h3>
+        <p class="text-neutral-300 text-sm">Lead com <strong>3 sinais</strong> do anti-ICP? Recusa, mesmo que o ticket pareça grande. Lead com 1-2 sinais? Procede mas com gates contratuais (50% upfront, scope fechado, no scope creep clause). Lead com 0 sinais e &gt;2 sinais do ICP positivo? Acelera, é o cliente que queres.</p>
       </div>
     </section>
 
     <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-purple-900/40 via-dark-800 to-dark-800 rounded-xl border border-purple-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <span class="mr-3">✅</span> Resumo do Módulo
-        </h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
 
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">/start-here carrega contexto em 30s</strong><span class="text-neutral-400"> — operator-state, daily summary, learnings, projetos, decisions</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">/wrap-up em 9 passos</strong><span class="text-neutral-400"> — sync skills, learnings, daily summary, commit (com aprovação)</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">decisions-log append-only com 4 campos</strong><span class="text-neutral-400"> — Decisão, Raciocínio, Contexto, Quando reconsiderar</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">/deep-dive aprofunda 22-25 dimensões</strong><span class="text-neutral-400"> — conversa adaptativa, branching, pausável</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">/doctor faz validação profunda + auto-fix</strong><span class="text-neutral-400"> — STATE DRIFT detection, "sí, revertir" para fix</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-purple-400 mt-1">✓</span>
-            <div><strong class="text-white">update.sh nunca toca em user-data</strong><span class="text-neutral-400"> — separação rígida system vs your-stuff</span></div>
-          </div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">ICP &gt; demografia</strong><span class="text-neutral-400"> — dor exata, linguagem, triggers, anti-ICP num doc vivo</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">marketing-icp analisa clientes reais</strong><span class="text-neutral-400"> — 3-5 bons + 1-3 maus, extrai padrões cruzados</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Dor exata = frase literal do cliente</strong><span class="text-neutral-400"> — não a versão técnica polida tua</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Linguagem dele &gt; linguagem tua</strong><span class="text-neutral-400"> — banco de frases literais alimenta copy</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Buying triggers permitem timing certo</strong><span class="text-neutral-400"> — campaigns trigger-based convertem 3-5x copy genérica</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-purple-400 mt-1">✓</span><div><strong class="text-white">Anti-ICP poupa mais do que ICP rende</strong><span class="text-neutral-400"> — regra dos 3 sinais para rejeitar leads tóxicos</span></div></div>
         </div>
 
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
           <h3 class="font-semibold text-purple-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">3.3 — Estender o sistema: install-skill, install-mcp, catálogos curados, plugins Anthropic, criar skill própria, contribuir ao catálogo.</p>
+          <p class="text-neutral-300">3.3 — Positioning: statement, diferencial vs alternativas, 4 arquétipos, mensagem em 3 comprimentos, quando re-fazer.</p>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
-            ← Voltar para Trilha 3
-          </a>
-          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">
-            Módulo 3.3 →
-          </a>
+          <a href="modulo-3-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 3.1</a>
+          <a href="modulo-3-3.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Módulo 3.3 →</a>
         </div>
       </div>
     </section>

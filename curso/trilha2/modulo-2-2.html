@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2.2 Marketing skills | Curso iAmasters OS</title>
+  <title>2.2 Install Gate + State Machine + /doctor | Curso iAmasters OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,18 +38,16 @@
     html:not(.dark) .text-blue-400 { color: #2563eb; }
     html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37,99,235,0.12); }
     html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37,99,235,0.08); }
-    html:not(.dark) .bg-blue-500\/30 { background-color: rgba(37,99,235,0.18); }
     html:not(.dark) .border-blue-500\/30 { border-color: rgba(37,99,235,0.25); }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
     html:not(.dark) .bg-blue-900\/20 { background-color: rgba(37,99,235,0.06); }
     html:not(.dark) .bg-blue-900\/30 { background-color: rgba(37,99,235,0.08); }
     html:not(.dark) .bg-blue-900\/40 { background-color: rgba(37,99,235,0.10); }
-    html:not(.dark) .bg-blue-600 { background-color: #2563eb; }
-    html:not(.dark) .hover\:bg-blue-500:hover { background-color: #3b82f6; }
-    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37,99,235,0.08); }
-    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
 
     html:not(.dark) .text-emerald-400 { color: #059669; }
-    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5,150,105,0.08); }
     html:not(.dark) .bg-emerald-500\/30 { background-color: rgba(5,150,105,0.18); }
     html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5,150,105,0.25); }
     html:not(.dark) .bg-emerald-900\/20 { background-color: rgba(5,150,105,0.06); }
@@ -64,8 +62,12 @@
     html:not(.dark) .text-purple-400 { color: #7c3aed; }
     html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
     html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124,58,237,0.08); }
-    html:not(.dark) .bg-purple-600 { background-color: #7c3aed; }
-    html:not(.dark) .hover\:bg-purple-500:hover { background-color: #8b5cf6; }
+    html:not(.dark) .hover\:text-amber-700:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(146,64,14,0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13,148,136,0.08); }
+    html:not(.dark) .hover\:text-rose-700:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(159,18,57,0.08); }
 
     html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
     html:not(.dark) .text-primary { color: #a16207; }
@@ -97,18 +99,12 @@
           <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
         </div>
         <div class="flex items-center space-x-1 sm:space-x-2">
-          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors">
-            <span class="sm:hidden">T1</span>
-            <span class="hidden sm:inline">Fundamentos</span>
-          </a>
-          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10">
-            <span class="sm:hidden">T2</span>
-            <span class="hidden sm:inline">Skills</span>
-          </a>
-          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
-            <span class="sm:hidden">T3</span>
-            <span class="hidden sm:inline">Operação</span>
-          </a>
+          <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Conceitos</span></a>
+          <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Instalação</span></a>
+          <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Brand</span></a>
+          <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-700 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Skills</span></a>
+          <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Multi-cliente</span></a>
+          <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-700 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Estender</span></a>
           <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
@@ -130,17 +126,15 @@
 
   <header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">
-        MÓDULO 2.2
-      </span>
-      <h1 class="text-3xl sm:text-4xl font-bold mb-4">✍️ Marketing skills</h1>
-      <p class="text-lg text-neutral-400 max-w-3xl">Copy com voice carregada, repurposing 1→N, sequências de email, deep dive em positioning e ICP, e o padrão de skill collaboration que faz tudo funcionar como pipeline.</p>
+      <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">MÓDULO 2.2</span>
+      <h1 class="text-2xl font-bold mb-4">⛔ Install Gate + State Machine + /doctor</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">A peça que impede o Claude de "inventar" que instalou. State machine + hook SessionStart + validação profunda + drift detection.</p>
 
       <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
         <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">6</div><div class="text-xs text-neutral-400">Tópicos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~60</div><div class="text-xs text-neutral-400">Minutos</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Intermédio</div><div class="text-xs text-neutral-400">Nível</div></div>
-        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Prática</div><div class="text-xs text-neutral-400">Tipo</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">~50</div><div class="text-xs text-neutral-400">Minutos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Médio</div><div class="text-xs text-neutral-400">Nível</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-blue-400">Sistema</div><div class="text-xs text-neutral-400">Tipo</div></div>
       </div>
     </div>
   </header>
@@ -151,39 +145,39 @@
     <section id="topico-1" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">1</span>
-        <h2 class="text-2xl font-bold">📝 marketing-copywriting · a skill estrela</h2>
+        <h2 class="text-2xl font-bold">🗄️ State machine em _install-state.json</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        É o output mais frequente do OS no dia-a-dia. Gera copy para uma <strong class="text-blue-400">plataforma específica</strong> usando brand-voice e <strong class="text-blue-400">register A/B/C auto-detetado</strong>. Devolve 1-3 variações para tu escolheres. Passa pelo verifier obrigatoriamente.
+        O ficheiro <code>~/.claude/skills/_install-state.json</code> é a <strong class="text-blue-400">fonte da verdade</strong>. Tudo o que vês em <code>/install-status</code>, no gate, e no <code>/doctor</code> vem daqui.
       </p>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-3">Inputs requeridos</h4>
-        <table class="w-full text-sm">
-          <thead><tr class="border-b border-dark-600 text-neutral-400"><th class="text-left p-2">Input</th><th class="text-left p-2">Exemplo</th><th class="text-left p-2">Se faltar...</th></tr></thead>
-          <tbody class="divide-y divide-dark-700 text-neutral-300">
-            <tr><td class="p-2"><strong>Tema/brief</strong></td><td class="p-2">"Lançamento do curso v2"</td><td class="p-2 text-neutral-500">Pergunta</td></tr>
-            <tr><td class="p-2"><strong>Plataforma</strong></td><td class="p-2">LinkedIn / X / email / landing</td><td class="p-2 text-neutral-500">Pergunta (muda tudo)</td></tr>
-            <tr><td class="p-2"><strong>Purpose</strong></td><td class="p-2">awareness / lead-gen / oferta</td><td class="p-2 text-neutral-500">Pergunta (muda tom)</td></tr>
-          </tbody>
-        </table>
+        <h4 class="font-semibold mb-3">As 6 fases</h4>
+        <ol class="space-y-2 text-neutral-300 text-sm">
+          <li><strong class="text-blue-400">1. prereqs</strong> — Node, Python, Git, Claude Code validados</li>
+          <li><strong class="text-blue-400">2. sinapsis-engine</strong> — Sinapsis copiado para ~/.claude</li>
+          <li><strong class="text-blue-400">3. context-files</strong> — soul.md, me.md, decisions-log.md criados</li>
+          <li><strong class="text-blue-400">4. operator-state</strong> — operator-state.json inicializado</li>
+          <li><strong class="text-blue-400">5. welcome-completed</strong> — welcome-quick-win passou (gera 1 entregável)</li>
+          <li><strong class="text-blue-400">6. deep-dive-completed</strong> — entrevista 22-25 dimensões (deferrable)</li>
+        </ol>
       </div>
 
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">🎚️</span> Register auto-detection</h3>
-        <p class="text-neutral-300 text-sm mb-4">A skill mapeia plataforma → register automaticamente:</p>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">→</span><span><strong>Email premium / proposta</strong> = Registo A (formal)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">→</span><span><strong>LinkedIn, blog, X thread, newsletter</strong> = Registo B (divulgativo, 95% do conteúdo)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">→</span><span><strong>WhatsApp, DM, comentários, Stories</strong> = Registo C (próximo)</span></li>
-        </ul>
-        <p class="text-neutral-400 text-xs mt-4">Podes forçar manualmente: <em>"escreve em registo C"</em>. Útil quando o default está mal-calibrado.</p>
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Os 5 estados possíveis</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-emerald-400">done</strong> — fase concluída e validada</div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-primary">in-progress</strong> — começou mas não terminou</div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-neutral-300">pending</strong> — ainda não começou</div>
+          <div class="bg-dark-700/50 rounded-lg p-3"><strong class="text-red-400">failed</strong> — tentou e falhou (com errorMsg)</div>
+          <div class="bg-dark-700/50 rounded-lg p-3 md:col-span-2"><strong class="text-sky-400">skipped</strong> — utilizador optou por saltar (só deferrable)</div>
+        </div>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Dica</h3>
-        <p class="text-neutral-300 text-sm">Pede sempre 2-3 variações em vez de "a melhor". Custa o mesmo em tokens e dá-te óptica para escolher. A "melhor" muda em função do contexto que só tu tens (cliente específico, evento da semana, mood).</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> 5 required + 1 deferrable</h3>
+        <p class="text-neutral-300 text-sm">As primeiras 5 fases são <code>required: true</code> (instalação só está "pronta" quando todas done). A 6ª (deep-dive) é deferrable — podes saltá-la no início e fazer mais tarde com <code>/deep-dive</code>.</p>
       </div>
     </section>
 
@@ -191,39 +185,47 @@
     <section id="topico-2" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">2</span>
-        <h2 class="text-2xl font-bold">♻️ marketing-content-repurposing</h2>
+        <h2 class="text-2xl font-bold">⛔ Hook SessionStart (_install-gate.sh)</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Converte <strong class="text-blue-400">1 peça fonte em 5-8 peças multiplataforma</strong> respeitando brand voice. Uma talk de 60 min vira uma semana de distribuição em 15-20 min de trabalho teu.
+        Script em <code>~/.claude/skills/_install-gate.sh</code>. <strong class="text-blue-400">Corre antes de cada sessão começar</strong>. Lê o state file; se há fases <code>required</code> pendentes, injeta aviso ao modelo via additionalContext.
       </p>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-3">Fontes suportadas (v0.2)</h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Vídeo YouTube (URL)</strong><p class="text-neutral-400 text-xs mt-1">Invoca tool-youtube-transcript ou pede transcript manual</p></div>
-          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Transcript colado</strong><p class="text-neutral-400 text-xs mt-1">Modo direto, mais rápido</p></div>
-          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Blog post (URL ou colado)</strong><p class="text-neutral-400 text-xs mt-1">Usa tool-firecrawl-scraper</p></div>
-          <div class="bg-dark-700/50 rounded p-3"><strong class="text-blue-400">Reunião / call</strong><p class="text-neutral-400 text-xs mt-1">Transcript Zoom/Fathom/Otter</p></div>
-        </div>
-        <p class="text-neutral-500 text-xs mt-3">Áudio local (MP3/WAV) não suportado v0.2 — pede transcript manual.</p>
+        <h4 class="font-semibold mb-3">Anatomia do hook</h4>
+        <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">#!/usr/bin/env bash
+# ~/.claude/skills/_install-gate.sh
+# SessionStart hook — fail-open if anything breaks
+
+set +e  # never crash the session
+
+STATE_FILE="$HOME/.claude/skills/_install-state.json"
+[[ ! -f "$STATE_FILE" ]] && exit 0  # no state → no gate
+
+# Parse state via node (fallback to no-op if node missing)
+command -v node &gt;/dev/null 2&gt;&1 || exit 0
+
+PENDING=$(node -e "
+  const s = require('$STATE_FILE');
+  const pending = Object.entries(s.phases)
+    .filter(([k,v]) =&gt; v.required &amp;&amp; v.status !== 'done')
+    .map(([k]) =&gt; k);
+  console.log(JSON.stringify(pending));
+")
+
+[[ "$PENDING" == "[]" ]] &amp;&amp; exit 0  # all done
+
+# Emit additionalContext for the model
+cat &lt;&lt;EOF
+{"additionalContext": "INSTALLATION INCOMPLETE. Pending: $PENDING.
+Do NOT respond to user requests. Tell them to run /install."}
+EOF</pre>
       </div>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-3">Pacote de output típico</h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div class="flex items-center space-x-2 text-sm text-neutral-300"><span class="text-blue-400">→</span><span><strong>1 LinkedIn post</strong> (300-800 palavras)</span></div>
-          <div class="flex items-center space-x-2 text-sm text-neutral-300"><span class="text-blue-400">→</span><span><strong>1 X thread</strong> (5-9 tweets)</span></div>
-          <div class="flex items-center space-x-2 text-sm text-neutral-300"><span class="text-blue-400">→</span><span><strong>1 email newsletter</strong> (400-700 palavras)</span></div>
-          <div class="flex items-center space-x-2 text-sm text-neutral-300"><span class="text-blue-400">→</span><span><strong>1 IG caption</strong> + sugestão visual</span></div>
-          <div class="flex items-center space-x-2 text-sm text-neutral-300"><span class="text-blue-400">→</span><span><strong>3-5 clips ideas</strong> com timestamps</span></div>
-          <div class="flex items-center space-x-2 text-sm text-neutral-300"><span class="text-blue-400">→</span><span><strong>3-5 headlines blog</strong> alternativos</span></div>
-        </div>
-      </div>
-
-      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🔗</span> Como compõe internamente</h3>
-        <p class="text-neutral-300 text-sm">Para cada peça do pacote, invoca <code>marketing-copywriting</code> com a plataforma certa. Cada um passa pelo <code>tool-output-verifier</code>. Resultado: <strong>5-8 outputs cada um passou pelo gate</strong>, não só o agregado.</p>
+      <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-emerald-400 mb-3 flex items-center"><span class="mr-2">🛡️</span> Fail-open</h3>
+        <p class="text-neutral-300 text-sm">Se o hook crashar (script com bug, node em falta, JSON inválido), a sessão <strong>continua normalmente</strong>. Princípio: o gate nunca bloqueia o utilizador por erro nosso. Pior caso = sem aviso, melhor caso = aviso correto.</p>
       </div>
     </section>
 
@@ -231,44 +233,28 @@
     <section id="topico-3" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">3</span>
-        <h2 class="text-2xl font-bold">📧 marketing-email-sequence</h2>
+        <h2 class="text-2xl font-bold">📥 additionalContext JSON injetado ao modelo</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Cria <strong class="text-blue-400">sequências multi-email automatizadas</strong>: welcome, nurture, win-back, post-purchase, event-based, educational. Define gatilhos, cadência, segmentação e métricas-alvo.
+        O hook devolve JSON com chave <code>additionalContext</code>. O Claude Code injeta isto no contexto da sessão <strong class="text-blue-400">antes de qualquer mensagem do utilizador</strong>. O modelo lê isto com prioridade.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 overflow-hidden mb-6">
-        <table class="w-full text-sm">
-          <thead class="bg-dark-700/50">
-            <tr><th class="text-left p-4 font-semibold">Tipo</th><th class="text-left p-4 font-semibold">Cadência típica</th><th class="text-left p-4 font-semibold">Métrica-alvo</th></tr>
-          </thead>
-          <tbody class="divide-y divide-dark-600">
-            <tr><td class="p-4">Welcome / onboarding</td><td class="p-4 text-neutral-400">5-7 emails em 14 dias</td><td class="p-4 text-blue-400">Open &gt;40%, ativação</td></tr>
-            <tr><td class="p-4">Lead nurture</td><td class="p-4 text-neutral-400">1 email/semana, indef.</td><td class="p-4 text-blue-400">CTR &gt;3%, reply rate</td></tr>
-            <tr><td class="p-4">Re-engagement</td><td class="p-4 text-neutral-400">3 emails em 10 dias</td><td class="p-4 text-blue-400">Recuperar dormentes</td></tr>
-            <tr><td class="p-4">Post-purchase</td><td class="p-4 text-neutral-400">4-6 emails em 30 dias</td><td class="p-4 text-blue-400">Onboarding + upsell</td></tr>
-            <tr><td class="p-4">Event-based</td><td class="p-4 text-neutral-400">3-4 antes + 1-2 depois</td><td class="p-4 text-blue-400">Atendimento + replay</td></tr>
-            <tr><td class="p-4">Educational drip</td><td class="p-4 text-neutral-400">1 email a cada 2-3 dias</td><td class="p-4 text-blue-400">Completion rate</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">Avaliação inicial · o que pergunta</h4>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📊</span> Fluxo de uma sessão</h3>
         <ol class="space-y-2 text-neutral-300 text-sm list-decimal list-inside">
-          <li><strong>Tipo de sequência</strong> (welcome / nurture / re-eng / post-purchase / event / educational)</li>
-          <li><strong>Audiência</strong> (segment, awareness stage, contexto da inscrição)</li>
-          <li><strong>Objetivo conversão</strong> (compra, demo, reply, completar onboarding)</li>
-          <li><strong>Tom + register</strong> (lê brand-voice se existe)</li>
-          <li><strong>Ferramenta de envio</strong> (Mailchimp, ConvertKit, n8n, ActiveCampaign)</li>
-          <li><strong>Restrições</strong> (legais, brand, frequência máxima)</li>
+          <li>Utilizador abre Claude Code no repo</li>
+          <li>Claude Code corre todos os hooks SessionStart (incluindo o gate)</li>
+          <li>Gate lê state file, vê que <code>welcome-completed: pending</code></li>
+          <li>Gate emite <code>{"additionalContext": "INSTALLATION INCOMPLETE..."}</code></li>
+          <li>Claude recebe o additionalContext + qualquer mensagem que o utilizador escreva</li>
+          <li>Claude prioriza o additionalContext → responde "vamos primeiro completar instalação"</li>
         </ol>
       </div>
 
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">⚠️</span> Não confundir com cold email</h3>
-        <p class="text-neutral-300 text-sm">marketing-email-sequence é para <strong>fluxos automatizados com lista própria</strong> (alguém deu o email, está em opt-in). Para cold outreach (B2B prospecting), há a skill futura <code>cold-email</code> com regras diferentes (compliance, deliverability, sequência manual).</p>
+      <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Por que isto funciona</h3>
+        <p class="text-neutral-300 text-sm">É <strong>enforcement estrutural, não confiança no modelo</strong>. Sem o additionalContext, o Claude poderia "esquecer" e responder direto. Com ele, é praticamente impossível porque vê o aviso antes da tua mensagem.</p>
       </div>
     </section>
 
@@ -276,43 +262,39 @@
     <section id="topico-4" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">4</span>
-        <h2 class="text-2xl font-bold">📐 marketing-positioning · deep dive</h2>
+        <h2 class="text-2xl font-bold">📊 Comandos /install e /install-status</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Vista superficial em Trilha 1.3. Aqui aprendes a <strong class="text-blue-400">executar bem</strong>: que perguntas fazer ao operador, como ler concorrentes, como apresentar ângulos para o operador escolher.
+        Duas peças diferentes com responsabilidades claras: <strong class="text-blue-400">/install age</strong>, <strong class="text-blue-400">/install-status só observa</strong>.
       </p>
 
-      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">Process em 5 passos</h4>
-        <ol class="space-y-4 text-neutral-300 text-sm list-decimal list-inside">
-          <li><strong class="text-blue-400">Recolher inputs</strong> — modo construção (sem positioning.md) ou refinamento (existe e queres iterar). 4-5 perguntas chave: o que vendes, para quem, alternativas atuais, ângulo emocional, alergias.</li>
-          <li><strong class="text-blue-400">Analisar concorrentes</strong> — pede 3-5 URLs de concorrentes, invoca <code>tool-firecrawl-scraper</code>, extrai positioning statements + palavras dominantes.</li>
-          <li><strong class="text-blue-400">Identificar gaps</strong> — onde todos dizem o mesmo, onde ninguém entra, qual a posição que ainda não tem dono no mercado.</li>
-          <li><strong class="text-blue-400">Propor 3-5 ângulos</strong> — vertical-specialist · use-case-specialist · método-próprio · anti-vende-fumos · stage-specialist (early/scale/turnaround). Cada um com prós/contras e exemplos.</li>
-          <li><strong class="text-blue-400">Operador escolhe</strong> — escreve para <code>brand-context/positioning/positioning.md</code> + propõe registar em decisions-log.</li>
-        </ol>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-blue-400 mb-3">/install (orquestrador)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Lê state, identifica próxima fase pendente</li>
+            <li>• Executa fases conversacionais (welcome, deep-dive)</li>
+            <li>• Pede para correres bash em fases técnicas</li>
+            <li>• Aceita <code>--resume</code> (default) e <code>--force-reinstall</code></li>
+            <li>• Atualiza state após cada fase</li>
+          </ul>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <h4 class="font-bold text-emerald-400 mb-3">/install-status (dashboard)</h4>
+          <ul class="space-y-2 text-neutral-300 text-sm">
+            <li>• Read-only — não toca em nada</li>
+            <li>• Mostra estado das 6 fases em tabela visual</li>
+            <li>• Indica próxima ação sugerida</li>
+            <li>• Reporta drift entre state e disco</li>
+            <li>• Útil para "estou bloqueado?" sem risco</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div class="bg-emerald-900/20 rounded-xl border border-emerald-500/30 p-6">
-          <h4 class="font-bold text-emerald-400 mb-3">Quando invocar</h4>
-          <ul class="space-y-2 text-neutral-300 text-sm">
-            <li>Após marketing-brand-voice no onboarding</li>
-            <li>"Não diferencio bem"</li>
-            <li>"Todos dizem o mesmo que eu"</li>
-            <li>Mudança de mercado ou produto novo</li>
-          </ul>
-        </div>
-        <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-          <h4 class="font-bold text-red-400 mb-3">Sinais de positioning fraco</h4>
-          <ul class="space-y-2 text-neutral-300 text-sm">
-            <li>Copy "consultor genérico"</li>
-            <li>Leads pedem desconto sempre</li>
-            <li>Concorrência sentida em todos os setores</li>
-            <li>Dificuldade em dizer "isto NÃO faço"</li>
-          </ul>
-        </div>
+      <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🎯</span> Fases técnicas vs conversacionais</h3>
+        <p class="text-neutral-300 text-sm"><strong>Técnicas</strong> (prereqs, sinapsis-engine, context-files, operator-state) → instalador bash. <strong>Conversacionais</strong> (welcome-completed, deep-dive-completed) → entrevista dentro do Claude Code. <code>/install</code> sabe qual chamar em cada fase.</p>
       </div>
     </section>
 
@@ -320,40 +302,41 @@
     <section id="topico-5" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">5</span>
-        <h2 class="text-2xl font-bold">🎯 marketing-icp · deep dive</h2>
+        <h2 class="text-2xl font-bold">🩺 /doctor + validação profunda</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        Sem ICP claro, copy e ads não segmentam. Esta skill <strong class="text-blue-400">combina interview com análise de clientes reais</strong> (3-5 bons + 1-3 maus) e extrai frases de validação que vão para os outputs.
+        O <code>/doctor</code> invoca a skill <code>health-check</code>. Não é só <code>test -f &lt;ficheiro&gt;</code> — faz <strong class="text-blue-400">validação real do conteúdo</strong>.
       </p>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">As 6 perguntas canónicas</h4>
-        <ol class="space-y-3 text-neutral-300 text-sm list-decimal list-inside">
-          <li><strong>Tens 3-5 clientes atuais ou passados que sejam "bons"?</strong> (pagaram sem regatear, recomendaram, repetiram) Nome, setor, dimensão, porquê.</li>
-          <li><strong>Tens 1-3 clientes "maus"?</strong> (queixosos, churn em 30 dias, sugadores de tempo) Nome, setor, porquê falharam.</li>
-          <li><strong>O que tinham em comum os bons</strong> antes de te contratar? (stage, sintoma, tentativas anteriores)</li>
-          <li><strong>Que palavras / frases</strong> eles usam quando descrevem a dor? (literal, não a tua versão polida)</li>
-          <li><strong>Qual o "trigger event"</strong> que normalmente faz contactar-te? (mudança de equipa, problema concreto, evento sazonal)</li>
-          <li><strong>O que NÃO queres</strong> como cliente? (anti-ICP — tipo de empresa, comportamento, expectativa)</li>
-        </ol>
-      </div>
-
-      <div class="bg-gradient-to-br from-blue-900/30 to-dark-800 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center"><span class="mr-2">📋</span> Output em brand-context/icp/icp.md</h3>
+        <h4 class="font-semibold mb-3">O que valida realmente</h4>
         <ul class="space-y-2 text-neutral-300 text-sm">
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Perfil ICP primário</strong>: setor, dimensão, role, stage, dor exata em 1 frase</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>ICP secundário</strong>: se aplicável (não obrigatório)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Linguagem</strong>: 10-20 frases literais que eles usam (para copy)</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Triggers</strong>: 3-5 eventos que normalmente precedem contacto</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Anti-ICP</strong>: 3-5 sinais que indicam "não para mim"</span></li>
-          <li class="flex items-start space-x-2"><span class="text-blue-400 mt-1">•</span><span><strong>Customer journey</strong>: stages awareness → consideration → decision (com objections típicas)</span></li>
+          <li>• <strong>JSON parseable</strong>: <code>_install-state.json</code>, <code>operator-state.json</code>, <code>settings.json</code></li>
+          <li>• <strong>Hooks executáveis</strong>: <code>_install-gate.sh</code> tem permissão +x</li>
+          <li>• <strong>Conteúdo &gt;100 chars</strong>: <code>soul.md</code>, <code>me.md</code> não estão vazios</li>
+          <li>• <strong>Estrutura de pastas</strong>: <code>brand-context/voice/</code>, <code>context/</code> existem</li>
+          <li>• <strong>Settings registado</strong>: hook em <code>~/.claude/settings.json</code></li>
+          <li>• <strong>Skills válidas</strong>: cada SKILL.md tem frontmatter parseável</li>
         </ul>
       </div>
 
+      <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
+        <h4 class="font-semibold mb-3">Output 🟢🟡🔴</h4>
+        <pre class="text-xs text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">🟢 OK    State file valid (6 phases)
+🟢 OK    Sinapsis hooks executable
+🟡 WARN  brand-context/voice/voice-profile.md empty (12 chars)
+🟢 OK    All 23 skills have valid frontmatter
+🔴 FAIL  install-gate hook NOT registered in settings.json
+
+Suggested fixes:
+  1. Run /deep-dive to populate voice-profile.md
+  2. Run bash scripts/install.sh --resume to re-register hook</pre>
+      </div>
+
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">🔁</span> Refrescar regularmente</h3>
-        <p class="text-neutral-300 text-sm">Reservar 30 min por trimestre para revisitar o ICP. À medida que vais ganhando clientes, o perfil "real" diverge do "ideal teórico". O ficheiro é vivo — não definitivo.</p>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Auto-fix com confirmação</h3>
+        <p class="text-neutral-300 text-sm">Para problemas comuns, <code>/doctor</code> propõe o comando exato para corrigir. Não executa automaticamente — pede confirmação. Tu mantens o controlo.</p>
       </div>
     </section>
 
@@ -361,112 +344,73 @@
     <section id="topico-6" class="mb-16">
       <div class="flex items-center space-x-4 mb-6">
         <span class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 font-bold text-xl">6</span>
-        <h2 class="text-2xl font-bold">🔗 Padrão de skill collaboration</h2>
+        <h2 class="text-2xl font-bold">🌊 Drift detection</h2>
       </div>
 
       <p class="text-neutral-300 mb-6 leading-relaxed">
-        As skills <strong class="text-blue-400">não vivem isoladas</strong>. Compõem-se em pipelines. Saber o pipeline canónico ajuda-te a debugar quando uma skill "falha" — geralmente é um problema de composição, não de skill individual.
+        Drift = <strong class="text-blue-400">state diz uma coisa, disco diz outra</strong>. O <code>/doctor</code> cruza os dois e apanha incoerências que de outro modo passariam despercebidas.
       </p>
 
       <div class="bg-dark-800 rounded-xl border border-dark-600 p-6 mb-6">
-        <h4 class="font-semibold mb-4">Pipeline canónica para qualquer output marketing</h4>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">┌─────────────────────────┐
-│  marketing-copywriting  │  ← gera 1-3 variações
-└────────────┬────────────┘
-             │
-             ▼
-┌─────────────────────────┐
-│  tool-output-verifier   │  ← 4 checks (humanizer, voice, length, factuality)
-└────────────┬────────────┘
-             │
-   score &gt;=8 │ │ score &lt;8
-             │ │
-             │ ▼
-             │ ┌────────────────┐
-             │ │ tool-humanizer │  ← reescreve com sugestões
-             │ └───────┬────────┘
-             │         │
-             └────┐    │
-                  ▼    ▼
-            ┌──────────────┐
-            │   Entrega    │
-            └──────────────┘</pre>
+        <h4 class="font-semibold mb-3">Cenários de drift comuns</h4>
+        <div class="space-y-3">
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <strong class="text-red-400">Cenário 1:</strong>
+            <p class="text-neutral-300 text-sm mt-1">State diz <code>context-files: done</code> mas <code>context/me.md</code> tem 0 bytes (apagaste sem querer).</p>
+            <p class="text-emerald-400 text-sm mt-2">→ /doctor reverte state para <code>pending</code> e sugere <code>/install --resume</code>.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <strong class="text-red-400">Cenário 2:</strong>
+            <p class="text-neutral-300 text-sm mt-1">Sync entre 2 máquinas correu mal — state da máquina A diz <code>done</code> mas a máquina B não tem os ficheiros.</p>
+            <p class="text-emerald-400 text-sm mt-2">→ /doctor deteta na máquina B, propõe reinstalar a fase em falta.</p>
+          </div>
+          <div class="bg-dark-700/50 rounded-lg p-4">
+            <strong class="text-red-400">Cenário 3:</strong>
+            <p class="text-neutral-300 text-sm mt-1">Mudaste de versão do OS (git pull) e novo install adicionou fase nova — state antigo não a tem.</p>
+            <p class="text-emerald-400 text-sm mt-2">→ /doctor injeta a fase nova como <code>pending</code> sem perder as done existentes.</p>
+          </div>
+        </div>
       </div>
 
       <div class="bg-blue-900/20 rounded-xl border border-blue-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">📦</span> Contexto JSON passado entre skills</h3>
-        <pre class="text-xs sm:text-sm text-neutral-300 font-mono bg-dark-900 rounded-lg p-4 overflow-x-auto">{
-  "text": "...",
-  "platform": "linkedin",
-  "purpose": "awareness",
-  "register": "B",
-  "source_skill": "marketing-copywriting",
-  "voice_loaded": true
-}</pre>
-        <p class="text-neutral-400 text-xs mt-3">Cada skill no pipeline recebe o JSON e pode adicionar campos (ex: verifier adiciona <code>scores: {humanizer: 8, voice: 9}</code>). Permite debugar: lê o JSON final e vês onde se partiu a cadeia.</p>
+        <h3 class="text-lg font-semibold text-blue-400 mb-3 flex items-center"><span class="mr-2">🔍</span> Quando correr /doctor</h3>
+        <ul class="space-y-2 text-neutral-300 text-sm">
+          <li>• Após git pull (sobretudo se houve mudanças em scripts/ ou .claude/)</li>
+          <li>• Quando trocas de máquina ou sincronizas via cloud</li>
+          <li>• Antes de começar trabalho importante (rápido sanity check)</li>
+          <li>• Quando algo se comporta de forma estranha sem motivo claro</li>
+        </ul>
       </div>
 
       <div class="bg-primary/10 rounded-xl border border-primary/40 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">⚡</span> Quando desativar gates</h3>
-        <p class="text-neutral-300 text-sm">Para outputs internos (notas pessoais, brainstorming, drafts não-publicáveis), o verifier é overhead. Podes pedir explicitamente: <em>"escreve sem gate, é interno"</em>. A skill marketing-copywriting respeita e salta o verifier nesse turno.</p>
-      </div>
-
-      <div class="bg-red-900/20 rounded-xl border border-red-500/30 p-6 mb-6">
-        <h3 class="text-lg font-semibold text-red-400 mb-3 flex items-center"><span class="mr-2">🚧</span> Falhas típicas no pipeline</h3>
-        <ul class="space-y-2 text-neutral-300 text-sm">
-          <li><strong>Voice não carregada</strong> → verifier dá voice_score baixo → loop infinito. Causa: <code>brand-context/voice/voice-profile.md</code> vazio.</li>
-          <li><strong>Length errado por platform</strong> → output X com 2000 caracteres em campo de 280. Causa: platform não passada no JSON.</li>
-          <li><strong>Humanizer impossível</strong> → score nunca chega a 8 mesmo após 3 iterações. Causa: tema demasiado técnico ou voice mal definida.</li>
-        </ul>
+        <h3 class="text-lg font-semibold text-primary mb-3 flex items-center"><span class="mr-2">💡</span> Filosofia</h3>
+        <p class="text-neutral-300 text-sm">State file é hipótese, disco é facto. Quando divergem, <strong>o disco ganha</strong>. <code>/doctor</code> ajusta o state para refletir a realidade, e propõe ações para reconciliar.</p>
       </div>
     </section>
 
     <!-- RESUMO -->
     <section class="mb-12">
       <div class="bg-gradient-to-br from-blue-900/40 via-dark-800 to-dark-800 rounded-xl border border-blue-500/30 p-8">
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <span class="mr-3">✅</span> Resumo do Módulo
-        </h2>
+        <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">✅</span> Resumo do Módulo</h2>
 
         <div class="space-y-4 mb-8">
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">marketing-copywriting deteta register A/B/C por plataforma</strong><span class="text-neutral-400"> — 1-3 variações + verifier obrigatório</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">content-repurposing converte 1 fonte em 5-8 peças</strong><span class="text-neutral-400"> — cada uma passa pelo gate individualmente</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">email-sequence cobre 6 tipos com cadência típica</strong><span class="text-neutral-400"> — não confundir com cold outreach</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">positioning analisa concorrentes e propõe 3-5 ângulos</strong><span class="text-neutral-400"> — escolhes tu, regista em decisions-log</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">ICP requer 3-5 clientes bons + 1-3 maus reais</strong><span class="text-neutral-400"> — frases literais alimentam a copy</span></div>
-          </div>
-          <div class="flex items-start space-x-3">
-            <span class="text-blue-400 mt-1">✓</span>
-            <div><strong class="text-white">Pipeline canónica: copywriting → verifier → humanizer</strong><span class="text-neutral-400"> — JSON contexto passado entre todas</span></div>
-          </div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">State machine: 6 fases × 5 estados</strong><span class="text-neutral-400"> — fonte da verdade da instalação</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">5 required + 1 deferrable (deep-dive)</strong><span class="text-neutral-400"> — instalação "pronta" = 5 done</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Hook SessionStart bloqueia respostas</strong><span class="text-neutral-400"> — fail-open se algo crashar</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">additionalContext JSON antes da tua mensagem</strong><span class="text-neutral-400"> — enforcement estrutural</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">/install age, /install-status só observa</strong><span class="text-neutral-400"> — separação clara</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">/doctor faz validação real do conteúdo</strong><span class="text-neutral-400"> — não só ficheiro existe</span></div></div>
+          <div class="flex items-start space-x-3"><span class="text-blue-400 mt-1">✓</span><div><strong class="text-white">Drift detection: disco ganha sempre</strong><span class="text-neutral-400"> — state ajusta-se à realidade</span></div></div>
         </div>
 
         <div class="bg-dark-800/50 rounded-lg p-4 mb-8">
-          <h3 class="font-semibold text-blue-400 mb-2">Próximo Módulo:</h3>
-          <p class="text-neutral-300">2.3 — Tools e Visualização: humanizer (anti-AI), verifier (gate), firecrawl (scraping), visual-explainer (HTML partilhável), quando NÃO usar skills, e Camada 2.</p>
+          <h3 class="font-semibold text-blue-400 mb-2">Próxima Trilha:</h3>
+          <p class="text-neutral-300">Trilha 3 — Brand Context: voice profile com 3 registos, ICP, positioning. A peça que faz outputs soarem a TI.</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
-            ← Módulo 2.1
-          </a>
-          <a href="modulo-2-3.html" class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors">
-            Módulo 2.3 →
-          </a>
+        <div class="flex flex-col sm:flex-row gap-4 justify-start">
+          <a href="modulo-2-1.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Módulo 2.1</a>
+          <a href="../trilha3/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Trilha 3: Brand →</a>
         </div>
       </div>
     </section>
