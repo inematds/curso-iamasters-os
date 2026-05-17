@@ -81,9 +81,10 @@ Seguindo padrão **INEMA.CLUB**:
 - Navegação rápida em cada trilha
 - Modal + página completa por módulo
 
-## Créditos
+## Repo do sistema
 
-Sistema original: [iamasters-academy/iamasters-os](https://github.com/iamasters-academy/iamasters-os) de Angel Aparicio.
+Versão PT-PT do iAmasters OS (a que este curso ensina): [inematds/iamasters-os](https://github.com/inematds/iamasters-os).
+
 Curso por [INEMA.CLUB](https://inema.club).
 
 Licença: MIT.
